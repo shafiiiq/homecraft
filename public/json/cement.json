@@ -1,0 +1,126 @@
+{
+    "cement_companies":
+    [
+        {
+            "company": "ACC Concrete",
+            "logo": "logos/acc-concrete.png"
+        },
+        {
+            "company": "Acme Cement",
+            "logo": "logos/acme-cement.png"
+        },
+        {
+            "company": "Ambuja Cements",
+            "logo": "logos/ambuja-cement.png"
+        },
+        {
+            "company": "Bharathi Cement",
+            "logo": "logos/bharathi-cement.png"
+        },
+        {
+            "company": "Birla Corporation",
+            "logo": "logos/birla-corporation.png"
+        },
+        {
+            "company": "Builders Choice",
+            "logo": "logos/builders-choice.png"
+        },
+        {
+            "company": "Chettinad Cement",
+            "logo": "logos/chettinad-cement.png"
+        },
+        {
+            "company": "Dalmia Bharat Cement",
+            "logo": "logos/dalmia-bharat-cement.png"
+        },
+        {
+            "company": "Diamond Cement",
+            "logo": "logos/diamond-cement.png"
+        },
+        {
+            "company": "Gujarat Sidhee Cement",
+            "logo": "logos/gujarat-sidhee-cement.png"
+        },
+        {
+            "company": "Heidelberg Cement",
+            "logo": "logos/heidelberg-cement.png"
+        },
+        {
+            "company": "JK Cement",
+            "logo": "logos/jk-cement.png"
+        },
+        {
+            "company": "JSW Cement",
+            "logo": "logos/jsw-cement.png"
+        },
+        {
+            "company": "KCP Cement",
+            "logo": "logos/kcp-cement.png"
+        },
+        {
+            "company": "Kamal Cement",
+            "logo": "logos/kamal-cement.png"
+        },
+        {
+            "company": "Maha Cement",
+            "logo": "logos/maha-cement.png"
+        },
+        {
+            "company": "Mangalam Cement",
+            "logo": "logos/mangalam-cement.png"
+        },
+        {
+            "company": "Nuvoco Vistas Corp",
+            "logo": "logos/nuvoco-vistas-corp.png"
+        },
+        {
+            "company": "Orient Cement",
+            "logo": "logos/orient-cement.png"
+        },
+        {
+            "company": "Penna Cement",
+            "logo": "logos/penna-cement.png"
+        },
+        {
+            "company": "Ramco Cements",
+            "logo": "logos/ramco-cements.png"
+        },
+        {
+            "company": "Sagar Cements",
+            "logo": "logos/sagar-cements.png"
+        },
+        {
+            "company": "Sanghi Industries",
+            "logo": "logos/sanghi-industries.png"
+        },
+        {
+            "company": "Shree Cement",
+            "logo": "logos/shree-cement.png"
+        },
+        {
+            "company": "Star Cement",
+            "logo": "logos/star-cement.png"
+        },
+        {
+            "company": "The India Cements",
+            "logo": "logos/the-india-cements.png"
+        },
+        {
+            "company": "Titan Foundations",
+            "logo": "logos/titan-foundations.png"
+        },
+        {
+            "company": "UltraTech Cement",
+            "logo": "logos/ultratech-cement.png"
+        },
+        {
+            "company": "Unity Cement",
+            "logo": "logos/unity-cement.png"
+        },
+        {
+            "company": "Zuari Cement",
+            "logo": "logos/zuari-cement.png"
+        }
+    ]
+
+}

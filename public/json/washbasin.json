@@ -1,0 +1,29 @@
+[
+    {"company": "American Standard", "logo": "/logos/american-standard.png"},
+    {"company": "Duravit", "logo": "/logos/duravit.png"},
+    {"company": "Kohler", "logo": "/logos/kohler.png"},
+    {"company": "CeraStyle", "logo": "/logos/cerastyle.png"},
+    {"company": "GROHE", "logo": "/logos/grohe.png"},
+    {"company": "Hindware", "logo": "/logos/hindware.png"},
+    {"company": "Ideal Standard", "logo": "/logos/ideal-standard.png"},
+    {"company": "Keramag", "logo": "/logos/keramag.png"},
+    {"company": "Laufen", "logo": "/logos/laufen.png"},
+    {"company": "TOTO", "logo": "/logos/toto.png"},
+    {"company": "Villeroy & Boch", "logo": "/logos/villeroy-boch.png"},
+    {"company": "Roca", "logo": "/logos/roca.png"},
+    {"company": "Jaquar", "logo": "/logos/jaquar.png"},
+    {"company": "Parryware", "logo": "/logos/parryware.png"},
+    {"company": "Hindware Homes", "logo": "/logos/hindware-homes.png"},
+    {"company": "Johnson Suisse", "logo": "/logos/johnson-suisse.png"},
+    {"company": "Catalano", "logo": "/logos/catalano.png"},
+    {"company": "Vitra", "logo": "/logos/vitra.png"},
+    {"company": "Caroma", "logo": "/logos/caroma.png"},
+    {"company": "Alape", "logo": "/logos/alape.png"},
+    {"company": "Armitage Shanks", "logo": "/logos/armitage-shanks.png"},
+    {"company": "Flaminia", "logo": "/logos/flaminia.png"},
+    {"company": "Hatria", "logo": "/logos/hatria.png"},
+    {"company": "Scarabeo", "logo": "/logos/scarabeo.png"},
+    {"company": "Studio Bagno", "logo": "/logos/studio-bagno.png"}
+
+  ]
+  

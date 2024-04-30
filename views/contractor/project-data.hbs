@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 class="heading">
+        <span class="hover">
+            <span class="material-symbols-rounded">
+                notifications
+            </span>
+            Reminder: Simply hover over the elements to discover its meaning
+        </span>
+        Send project data
+        <span class="move-on" id="move-on">
+            Click here to continue
+        </span>
+    </h1>
+    <!-- <img class="img-1" src="https://theadtla.com/wp-content/uploads/2022/12/Thea-DTLA-Penthouse-Living-Room-View-scaled.jpg" alt=""> -->
+    <form action="/contractor/project-data" class="form" enctype="multipart/form-data" method="post">
+        <p class="add-more-note">
+            . If have more than 2 floors click on ' + ' icon
+            <span>
+                . You don't have any files for now, skip ahead
+            </span>
+        </p>
+        <div class="div">
+            <div class="angry-grid">
+                <div class="item" id="item-0">
+                    <span class="material-symbols-rounded">
+                        splitscreen_bottom
+                    </span>
+                    <input type="file" name="planGf" class="absolute">
+                    <p class="p">House Plan GF</p>
+                </div>
+                <div class="item" id="item-1">
+                    <span class="material-symbols-rounded">
+                        view_in_ar
+                    </span>
+                    <input type="file" name="model1" class="absolute">
+                    <p class="p">3D Model 1</p>
+                </div>
+                <div class="item" id="item-2">
+                    <span class="material-symbols-rounded">
+                        splitscreen_top
+                    </span>
+                    <input type="file" name="planTf" class="absolute">
+                    <p class="p">House Plan TF</p>
+                </div>
+                <div class="item" id="item-3">
+                    <span class="material-symbols-rounded">
+                        view_in_ar
+                    </span>
+                    <input type="file" name="model3" class="absolute">
+                    <p class="p">3D Model 3</p>
+                </div>
+                <div class="item" id="item-4">
+                    <span class="material-symbols-rounded">
+                        add
+                    </span>
+                    <p class="p">Add More</p>
+                </div>
+                <div class="item" id="item-5">
+                    <span class="material-symbols-rounded">
+                        clinical_notes
+                    </span>
+                    <input type="file" name="contractForum" class="absolute">
+                    <p class="p">Contract forum</p>
+                </div>
+                <div class="item" id="item-6">
+                </div>
+                <div class="item" id="item-7">
+                </div>
+                <div class="item" id="item-8">
+                    <span class="material-symbols-rounded">
+                        view_in_ar
+                    </span>
+                    <input type="file" name="model2" class="absolute">
+                    <p class="p">3D Model 2</p>
+                </div>
+            </div>
+            <div class="submission">
+                <input type="submit" class="submit">
+                <a href="/contractor/home" style="color: rgb(112, 159, 196);">
+                    <div class="later">
+                        <span class="material-symbols-rounded">
+                            schedule
+                        </span>
+                        Later
+                    </div>
+                </a>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        // const items = document.querySelectorAll('.angry-grid .item');
+
+        // items.forEach(item => {
+        //     item.addEventListener('mouseover', () => {
+        //         items.forEach(otherItem => {
+        //             if (otherItem !== item) {
+        //                 otherItem.style.filter = 'blur(2px)';
+        //             }
+        //         });
+        //     });
+
+        //     item.addEventListener('mouseout', () => {
+        //         items.forEach(otherItem => {
+        //             otherItem.style.filter = ''; // Reset blur
+        //         });
+        //     });
+        // });
+
+        document.getElementById('move-on').addEventListener('click', function () {
+            var item = document.querySelector('.heading');
+            var addNote = document.querySelector('.add-more-note')
+            item.classList.add('fade-out');
+
+            item.addEventListener('transitionend', function () {
+                item.style.display = 'none';
+                addNote.classList.add('fade-out-1') // Hide the element after the animation completes
+            }, { once: true });
+        });
+
+        document.querySelectorAll('.item input[type="file"]').forEach(input => {
+            input.addEventListener('change', function () {
+                const fileName = this.files[0].name;
+                const parentDiv = this.closest('.item');
+                pTag = parentDiv.querySelector('.p')
+
+                const fileNameElement = document.createElement('p');
+                fileNameElement.textContent = fileName;
+                fileNameElement.classList.add('file-name');
+                parentDiv.appendChild(fileNameElement);
+
+                const spanElement = parentDiv.querySelector('.material-symbols-rounded');
+                spanElement.style.display = 'none';
+                pTag.style.display = 'none'
+
+                item.style.position = 'relative'
+                fileNameElement.style.position = 'absolute';
+                fileNameElement.style.top = '50%';
+                fileNameElement.style.left = '50%';
+                fileNameElement.style.transform = 'translate(-50%, -50%)'
+            });
+        });
+        
+
+    </script>
+</body>
+
+</html>

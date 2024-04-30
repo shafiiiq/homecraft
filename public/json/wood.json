@@ -1,0 +1,60 @@
+{
+    "wood_types": [
+      {
+        "type": "Ash Wood",
+        "logo": "logos/ash-wood.png"
+      },
+      {
+        "type": "Balsa Wood",
+        "logo": "logos/balsa-wood.png"
+      },
+      {
+        "type": "Beech Wood",
+        "logo": "logos/beech-wood.png"
+      },
+      {
+        "type": "Cedar Wood",
+        "logo": "logos/cedar-wood.png"
+      },
+      {
+        "type": "Cherry Wood",
+        "logo": "logos/cherry-wood.png"
+      },
+      {
+        "type": "Ebony Wood",
+        "logo": "logos/ebony-wood.png"
+      },
+      {
+        "type": "Mahogany Wood",
+        "logo": "logos/mahogany-wood.png"
+      },
+      {
+        "type": "Maple Wood",
+        "logo": "logos/maple-wood.png"
+      },
+      {
+        "type": "Oak Wood",
+        "logo": "logos/oak-wood.png"
+      },
+      {
+        "type": "Pine Wood",
+        "logo": "logos/pine-wood.png"
+      },
+      {
+        "type": "Redwood",
+        "logo": "logos/redwood.png"
+      },
+      {
+        "type": "Rosewood",
+        "logo": "logos/rosewood.png"
+      },
+      {
+        "type": "Teak Wood",
+        "logo": "logos/teak-wood.png"
+      },
+      {
+        "type": "Walnut Wood",
+        "logo": "logos/walnut-wood.png"
+      }
+    ]
+  }

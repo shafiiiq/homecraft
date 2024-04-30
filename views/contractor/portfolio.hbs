@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/contractor/portfolio" method="post" enctype="multipart/form-data">
+        <div class="container">
+            <div class="wrapper">
+                <div class="left">
+
+                </div>
+                <div class="right-cover">
+                    <div class="right">
+                        <div class="video">
+                            <div class="file-input-container files" style="display: flex; gap: 0.5rem;">
+                                <input name="video" type="file" id="fileInput" class="hidden" onchange="displayFileName()">
+                                <label style="background-color: rgb(233, 75, 75);color: white; border-radius: 6px; width: 15rem; height: 3.3rem; display: flex;
+                            justify-content: center; align-items: center;" for="fileInput" class="file-input-label">
+                                    Add video
+                                </label>
+                                <span style="margin-top: 0.8rem;" id="fileName"></span>
+                            </div>
+                            <div class="add-more-video pointer">
+                                <span class="material-icons-round">
+                                    add
+                                </span>
+                                <p>
+                                    Add more
+                                </p>
+                            </div>
+                        </div>
+                        <div class="works mt-2">
+                            <div class="add-more-video add-works pointer" id="add-work">
+                                <span class="material-icons-round">
+                                    add
+                                </span>
+                                <p>
+                                    Add Works
+                                </p>
+                            </div>
+                            <div class="hover-me">
+                                <input name="projectName" type="text" placeholder="Project Name" disabled class="project-name">
+                            </div>
+                        </div>
+                        <div class="works-expand mt-2">
+                            <div class="status">
+                                <div class="start-date item need">
+                                    <label for="">Start date</label>
+                                    <input name="startDate" type="date" class="pointer start-date">
+                                </div>
+                                <div class="check item pointer" id="check">
+                                    <label for="">Finished</label>
+                                    <span class="material-icons-round">
+                                        done
+                                    </span>
+                                </div>
+                                <div class="item need">
+                                    <label for="">End date</label>
+                                    <input name="endDate" type="date" disabled class="end-date pointer">
+                                </div>
+                            </div>
+                            <div class="budgets full">
+                                <div class="category flex-col gap w-eqaul">
+                                    <label for="" class="font white">Category</label>
+                                    <select id="categpry" name="category" class="height pad radius shadow full bg-color white category">
+                                        <option value="house">House</option>
+                                    </select>
+                                </div>
+                                <div class="type flex-col gap w-eqaul">
+                                    <label for="" class="font white">Type</label>
+                                    <select name="type" id="type" class="height pad radius shadow full bg-color white type">
+                                        <option value="Traditional">Traditional</option>
+                                        <option value="Modern">Modern</option>
+                                        <option value="Contemporary">Contemporary</option>
+                                        <option value="Minimalist">Minimalist</option>
+                                    </select>
+                                </div>
+                                <input name="budget" type="text" placeholder="Budget"
+                                    class="height radius pad font bg-color shadow mt-auto white budget">
+                            </div>
+                            <div class="description">
+                                <textarea name="decription" cols="30" rows="10"
+                                    class="font area-height radius bg-color shadow full description"
+                                    placeholder="Description"></textarea>
+                            </div>
+                            <button class="full white radius pointer shadow height flex-between pad-inline font bg-more"
+                                id="addMore">
+                                Add more
+                                <span class="material-icons-round">
+                                    add
+                                </span>
+                            </button>
+                        </div>
+                        <div class="author">
+                            <h3 class="white mb-1">Personal details</h3>
+                            <div class="one flex">
+                                <input type="text" name="buisinessName"
+                                    class="height pad radius shadow w-2 bg-color font white holder"
+                                    placeholder="Buisness Name">
+                                <input name="Experience" type="text" class="height pad radius shadow w-3 bg-color font white holder"
+                                    placeholder="Experience">
+                                <input name="worth" type="text" class="height pad radius shadow w-1 bg-color font white holder"
+                                    placeholder="Worth">
+                            </div>
+                            <div class="two flex mt-2">
+                                <input name="totalProjects" type="text" class="height pad radius shadow w-3 bg-color font white holder"
+                                    placeholder="Total Projects">
+                                <input name="finished" type="text" class="height pad radius shadow w-2 bg-color font white holder"
+                                    placeholder="Finished">
+                                <input name="ongoing" type="text" class="height pad radius shadow w-1 bg-color font white holder"
+                                    placeholder="Ongoing">
+                            </div>
+                            <div class="two flex mt-2">
+                                <input name="education" type="text" class="height pad radius shadow w-1 bg-color font white holder"
+                                    placeholder="Education">
+                                <input name="licenceNumber" type="text" class="height pad radius shadow w-3 bg-color font white holder"
+                                    placeholder="Licence Number">
+                                <input type="text"
+                                    class="height pad radius shadow w-2 bg-color font white holder language"
+                                    placeholder="Language 1" name="langauge1">
+                            </div>
+                            <div class="full mt-2">
+                                <button id="addButton"
+                                    class="height radius pointer shadow flex-between pad-inline full bg-color font white holder bg-more-1">
+                                    Add more language
+                                    <span class="material-icons-round">add</span>
+                                </button>
+                            </div>
+                            <div class="three flex-col mt-2">
+                                <label for="" class="mb-1 white font-head">Address</label>
+                                <div class="three flex">
+                                    <div class="country flex-col gap w-eqaul">
+                                        <label class="white font">Country</label>
+                                        <div class="cy-data">
+                                            <input name="country" type="text" id="countryInput"
+                                                class="height pad radius shadow full bg-color font white holder shadow"
+                                                placeholder="Search...">
+                                            <!-- Custom dropdown menu -->
+                                            <div class="custom-dropdown" id="customDropdown" style="display: none;">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="state flex-col gap w-eqaul">
+                                        <label class="white font">State</label>
+                                        <div class="st-data">
+                                            <input name="state" type="text" id="stateInput"
+                                                class="height pad radius shadow full bg-color font white holder shadow"
+                                                placeholder="Search...">
+                                            <!-- Custom dropdown menu -->
+                                            <div class="custom-dropdown" id="customStateDropdown"
+                                                style="display: none;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="city flex-col gap w-eqaul">
+                                        <label class="white font">City</label>
+                                        <div class="ct-data">
+                                            <input name="city" type="text" id="cityInput"
+                                                class="height pad radius shadow full bg-color font white holder shadow"
+                                                placeholder="Search...">
+                                            <!-- Custom dropdown menu -->
+                                            <div class="custom-dropdown" id="customCityDropdown" style="display: none;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="address full">
+                                <textarea name="address" id="address" cols="30" rows="10"
+                                    class="full mt-2 textarea area-height radius holder bg-color shadow white"
+                                    placeholder="Address"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="submit" placeholder="Add" class="submit">
+    </form>
+
+    <script>
+        document.getElementById('add-work').addEventListener('click', function () {
+            var projectNameInput = document.querySelector('.project-name');
+            projectNameInput.disabled = !projectNameInput.disabled;
+            var worksExpand = document.querySelector('.works-expand');
+            worksExpand.classList.toggle('expanded');
+            var author = document.querySelector('.author');
+            if (author.style.margin === '') {
+                author.style.margin = '2rem 0 0 0'; // Set margin if it's not set
+            } else {
+                author.style.margin = ''; // Toggle back to default (remove margin)
+            }
+            document.getElementById('add-work').classList.toggle('add-work-color')
+        });
+
+        document.getElementById('check').addEventListener('click', function () {
+            var projectNameInput = document.querySelector('.end-date');
+            projectNameInput.disabled = !projectNameInput.disabled;
+            var checkElement = document.getElementById('check');
+
+            if (checkElement.style.backgroundColor === 'rgb(80, 94, 94)') {
+                checkElement.style.backgroundColor = ''; // Toggle off the background color
+            } else {
+                checkElement.style.backgroundColor = 'rgb(80, 94, 94)'; // Toggle on the background color
+            }
+        });
+
+        function addLanguageColorToggle() {
+            var addButton = document.getElementById('addButton');
+
+            function toggleColor(event) {
+                event.preventDefault();
+
+                addButton.classList.add('add-l-color');
+
+                setTimeout(function () {
+                    addButton.classList.remove('add-l-color');
+                }, 100);
+            }
+
+            addButton.addEventListener('click', toggleColor);
+        }
+        document.addEventListener('DOMContentLoaded', addLanguageColorToggle);
+
+
+
+        let suffix = 2;
+
+        function removeOldLanguageInput() {
+            const inputs = document.querySelectorAll('.language');
+            const length = inputs.length;
+
+            for (let i = length - 1; i >= 1; i--) {
+                const input = inputs[i];
+                if (input.classList.contains('old')) {
+                    input.style.display = 'none';
+                    break; // Exit the loop after hiding the last input
+                }
+            }
+        }
+
+
+
+        function addNewLanguageInput() {
+            const languageInputs = document.querySelectorAll('.language');
+            const newLanguageInput = languageInputs[0].cloneNode(true);
+            newLanguageInput.value = '';
+            newLanguageInput.setAttribute('name', `language${suffix}`);
+            newLanguageInput.setAttribute('placeholder', `Language ${suffix}`)
+            newLanguageInput.classList.remove('old');
+
+            // Add 'old' class to existing inputs except the last one
+            for (let i = 0; i < languageInputs.length; i++) {
+                languageInputs[i].classList.add('old');
+            }
+
+            languageInputs[0].parentNode.insertBefore(newLanguageInput, null);
+            removeOldLanguageInput();
+            suffix++;
+        }
+
+        document.getElementById('addButton').addEventListener('click', function (event) {
+            event.preventDefault();
+            addNewLanguageInput();
+            // console.log(`Generated name for new input: language${suffix}`);
+        });
+
+
+        // add more language ends 
+
+        //fetch countries states cities 
+        const countryInput = document.getElementById('countryInput');
+        const customDropdown = document.getElementById('customDropdown');
+        let countries;
+
+        function populateDropdown(countries) {
+            customDropdown.innerHTML = '';
+            countries.forEach(country => {
+                const option = document.createElement('div');
+                option.classList.add('custom-dropdown-item');
+                option.textContent = country.name;
+                option.addEventListener('click', () => {
+                    countryInput.value = country.name;
+                    customDropdown.style.display = 'none';
+                });
+                customDropdown.appendChild(option);
+            });
+            customDropdown.style.display = countries.length ? 'block' : 'none';
+        }
+
+        countryInput.addEventListener('focus', function () {
+            if (!countries) {
+                fetch('/json/countries.json')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Failed to fetch countries');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        countries = data.map(country => ({
+                            id: country.id,
+                            name: country.name
+                        }));
+                        populateDropdown(countries);
+                    })
+                    .catch(error => console.error('Error fetching countries:', error));
+            }
+
+            customDropdown.style.display = 'block';
+        });
+
+        countryInput.addEventListener('input', function () {
+            const searchText = this.value.toLowerCase();
+            const filteredCountries = countries.filter(country => country.name.toLowerCase().includes(searchText));
+            populateDropdown(filteredCountries);
+        });
+
+
+        const stateInput = document.getElementById('stateInput');
+        const customStateDropdown = document.getElementById('customStateDropdown');
+        let states;
+
+        function populateStateDropdown(states) {
+            customStateDropdown.innerHTML = '';
+            states.forEach(state => {
+                const option = document.createElement('div');
+                option.classList.add('custom-dropdown-item');
+                option.textContent = state.name;
+                option.addEventListener('click', () => {
+                    stateInput.value = state.name;
+                    customStateDropdown.style.display = 'none';
+                });
+                customStateDropdown.appendChild(option);
+            });
+            customStateDropdown.style.display = states.length ? 'block' : 'none';
+        }
+
+        stateInput.addEventListener('focus', function () {
+            if (!states) {
+                fetch('/json/states.json')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Failed to fetch states');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        states = data.map(state => ({
+                            id: state.id,
+                            name: state.name
+                        }));
+                        populateStateDropdown(states);
+                    })
+                    .catch(error => console.error('Error fetching states:', error));
+            }
+
+            customStateDropdown.style.display = 'block';
+        });
+
+        const cityInput = document.getElementById('cityInput');
+        const customCityDropdown = document.getElementById('customCityDropdown');
+        let cities;
+
+        function populateCityDropdown(cities) {
+            customCityDropdown.innerHTML = '';
+            cities.forEach(city => {
+                const option = document.createElement('div');
+                option.classList.add('custom-dropdown-item');
+                option.textContent = city.name;
+                option.addEventListener('click', () => {
+                    cityInput.value = city.name;
+                    customCityDropdown.style.display = 'none';
+                });
+                customCityDropdown.appendChild(option);
+            });
+            customCityDropdown.style.display = cities.length ? 'block' : 'none';
+        }
+
+        cityInput.addEventListener('focus', function () {
+            if (!cities) {
+                fetch('/json/cities.json')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Failed to fetch cities');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        cities = data.map(city => ({
+                            id: city.id,
+                            name: city.name
+                        }));
+                        populateCityDropdown(cities);
+                    })
+                    .catch(error => console.error('Error fetching cities:', error));
+            }
+
+            customCityDropdown.style.display = 'block';
+        });
+
+        cityInput.addEventListener('input', function () {
+            const searchText = this.value.toLowerCase();
+            const filteredCities = cities.filter(city => city.name.toLowerCase().includes(searchText));
+            populateCityDropdown(filteredCities);
+        });
+
+
+        function handleClickOutside(event, dropdown, inputField) {
+            if (!dropdown.contains(event.target) && event.target !== inputField) {
+                dropdown.style.display = 'none';
+            }
+        }
+
+        document.body.addEventListener('click', function (event) {
+            handleClickOutside(event, customDropdown, countryInput);
+        });
+
+        document.body.addEventListener('click', function (event) {
+            handleClickOutside(event, customStateDropdown, stateInput);
+        });
+
+        document.body.addEventListener('click', function (event) {
+            handleClickOutside(event, customCityDropdown, cityInput);
+        });
+
+
+    </script>
+</body>
+
+</html>

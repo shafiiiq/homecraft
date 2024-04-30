@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left">
+            <p>
+                Conclude Actions
+            </p>
+        </div>
+        {{#if list}}
+        <div class="right" style="width: 70%; height: 100%; display: flex; padding-top: 3rem; flex-direction: column; gap: 1rem; padding-inline: 3rem; overflow-y: scroll;">
+            {{#each list}}
+            <div class="item">
+                <div class="img">
+                    <img src="/client_data/{{this.id}}profile.jpg" alt="">
+                    <div class="name">
+                        <h2>
+                            {{this.clientName}}
+                        </h2>
+                        <p>
+                            {{this.clientEmail}}
+                        </p>
+                    </div>
+                </div>
+                <div class="action">
+                    <a href="/contractor/action:{{this.clientEmail}}" style="text-decoration: none;">
+                        <button>
+                            Conclude
+                        </button>
+                    </a>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        {{else}}
+        <div class="right" style="width: 70%; height: 100%; display: flex; justify-content: center; align-items: center; color: white; font-size: 22px;">
+            No lists are avaible
+        </div>
+        {{/if}}
+    </div>
+</body>
+
+</html>

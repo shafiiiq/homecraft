@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left">
+        </div>
+        <form action="/client/authorise" method="post" enctype="multipart/form-data">
+            <div class="file-input-1">
+                <span class="material-icons-round" id="pic">
+                    photo
+                </span>
+                <img src="" id="preview" class="profile-display" style="display: none;">
+                <input type="file" name="clientProfile" onchange="previewImage(event)">
+            </div>
+            <div class="adhaar-number">
+                <label for="">Phone Number</label>
+                <input type="tel" name="phoneNumber" class="not-in" placeholder="Phone Number">
+            </div>
+            <div class="adhaar-number">
+                <label for="">Adhaar Number</label>
+                <input type="text" name="adhaar" class="not-in" placeholder="x x x x   x x x x   x x x x">
+            </div>
+            <div class="reciept mt-1">
+                <div class="dummy">
+                    <h4>
+                        Land tax receipt
+                    </h4>
+                </div>
+                <div class="file-input-2">
+                    <input type="file" name="reciept">
+                </div>
+            </div>
+            <input type="submit" class="absolute">
+        </form>
+    </div>
+    <img src="/images/logo.white.png" alt="">
+
+    <script>
+        function previewImage(event) {
+        const input = event.target;
+        const preview = input.parentNode.querySelector('img.profile-display');
+        const file = input.files[0];
+        
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.style.display = 'block'; // Show the image
+            }
+            reader.readAsDataURL(file);
+        } else {
+            preview.src = '';
+            preview.style.display = 'none'; // Hide the image
+        }
+    }
+    </script>
+</body>
+
+</html>

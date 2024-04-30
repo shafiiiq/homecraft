@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    border: 0;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+body {
+    background-color: #191919;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(54, 54, 54);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(191, 191, 191);
+    flex-direction: column;
+    gap: 1rem;
+    animation: expandContainer 0.5s ease forwards;
+    overflow: hidden; 
+}
+
+@keyframes expandContainer {
+    0% {
+        width: 0;
+        height: 0;
+        border-radius: 100vw;
+        opacity: 0;
+    }
+    100% {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+        opacity: 1;
+    }
+}
+
+
+h1.heading {
+    font-weight: 400;
+    font-size: 60px;
+    text-align: center;
+    animation: headingOpacity 1s ease;
+    z-index: 1;
+}
+
+@keyframes headingOpacity {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+p.back {
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.container img {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20rem;
+    z-index: 1;
+}
+
+.p-clicked {
+    animation: shrinkContainer 0.4s ease forwards;
+}
+
+@keyframes shrinkContainer {
+    0% {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+        opacity: 1;
+    }
+    100% {
+        width: 0;
+        height: 0;
+        border-radius: 100vw;
+        opacity: 0;
+    }
+}
+
+.img-clicked {
+    animation: hideImage 0.2s ease forwards;
+}
+
+@keyframes hideImage {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+h1.heading-clicked {
+    animation: hideHeading 0.2s ease forwards;
+}
+
+@keyframes hideHeading {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+a {
+    color: rgb(221, 221, 221);
+    font-size: 20px;
+}

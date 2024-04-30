@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <title>Do you like to Sign in</title>
+</head>
+
+<body>
+
+    {{!-- account success message popup --}}
+    {{#if popup}}
+    <div class="container-p">
+        <h1 class="heading">
+            <span style="font-weight: 600; color: rgb(0, 204, 95)">Account created.</span>  <br>
+            Homecraft authorizes you to <br> use our system.
+        </h1>
+        <a href="#">
+            <p class="back" onclick="toggleContainer()">
+                Let's continue
+            </p>
+        </a>
+        <img src="/images/logo.white.png" alt="">
+    </div>
+    {{!-- <div class="wrap">
+        <div id="notification" class="notification">
+            <span class="material-icons-round success">
+                done_all
+            </span>
+            <p class="homecraft">
+                Homecraft authorizes you to <br> use our system.
+            </p>
+            <h5 class="over">Account created</h5>
+            <a onclick="hideNotification()" class="fade-out">
+                Click here to continue
+                <span class="material-icons-round">
+                    arrow_right_alt
+                </span>
+            </a>
+        </div>
+    </div> --}}
+    {{/if}}
+    {{!-- account success message popup ends-> --}}
+
+    <div class="container">
+        <div class="left">
+            <a href="/">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+            <img src="images/homecraft-logo.png" alt="">
+            <p>
+                Looks like you're new here!
+            </p>
+            <h1>
+                Join the largest <br>
+                Designer community in <br>
+                the world.
+            </h1>
+        </div>
+        <div class="right">
+            {{#if already}}
+            <div class="sign-in">
+                <p class="logging" style="display: none; gap: 4px; margin-top: 1rem;">
+                    Don't have an account<span id="back-to-signup"> <a href="#"> Create</a></span>
+                </p>
+            </div>
+            {{else if client}}
+            <div class="sign-in">
+                <p class="logging" style="display: flex; gap: 4px; margin-top: 1rem;">
+                    Don't have an account<span id="back-to-signup"> <a href="#"> Create</a></span>
+                </p>
+            </div>
+            {{else if contractor}}
+            <div class="sign-in">
+                <p class="logging" style="display: flex; gap: 4px; margin-top: 1rem;">
+                    Don't have an account<span id="back-to-signup"> <a href="#"> Create</a></span>
+                </p>
+            </div>
+            {{else if admin}}
+            <div class="sign-in">
+                <p class="logging" style="display:flex ; visibility:hidden; gap: 4px; margin-top: 1rem;">
+                    Don't have an account<span id="back-to-signup"> <a href="#"> Create</a></span>
+                </p>
+            </div>
+            {{!-- if already have display none this  --}}
+            {{/if}}
+            {{#if already}}
+            <div class="login-account" style="display: none;">
+                <h1 style="margin-top: 34px;">
+                    Login to Homecraft
+                </h1>
+                <div class="account-linking" style="display: flex;">
+                    <a href="">
+                        <button class="google">
+                            Sign up with Google
+                            <i class="fa-brands fa-google"></i>
+                        </button>
+                    </a>
+
+                    <button class="facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </button>
+
+                    <button class="twitter">
+                        <i class="fa-brands fa-twitter"></i>
+                    </button>
+
+                    <button class="linked-in">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </button>
+
+                    <button class="apple">
+                        <i class="fa-brands fa-apple"></i>
+                    </button>
+                </div>
+                <p>
+                    Or with Email
+                </p>
+                <div class="form">
+                    {{#if client}}
+                    <form onsubmit="return validationLogin()" action="/client/login" method="post">
+                        <label for="">Email Address</label>
+                        {{#if logginErr}}
+                        <input oninput="hideLoginError()" type="email" id="email-login" name="email"
+                            placeholder="Enter Your email" style="border: 1px solid rgb(223, 0, 0);">
+                        {{else}}
+                        <input oninput="hideLoginError()" type="email" id="email-login" name="email"
+                            placeholder="Enter Your email">
+                        {{/if}}
+                        <div class="email-error-login">
+                            <h5 class="email-required-login light red" style="display: none;">This field is required
+                            </h5>
+                            <h5 class="email-format-login light red" style="display: none;">Ensure your email ends with
+                                @gmail.com</h5>
+                        </div>
+
+                        <label for="">Password</label>
+                        {{#if logginErr}}
+                        <input type="password" id="password-login" name="password" placeholder="Enter Password"
+                            oninput="hideLoginError()" style="border: 1px solid rgb(223, 0, 0);">
+                        {{else}}
+                        <input type="password" id="password-login" name="password" placeholder="Enter Password"
+                            oninput="hideLoginError()">
+                        {{/if}}
+                        <div class="password-error-login">
+                            {{#if logginErr}}
+                            <h5 class="light red" id="login-error-message">{{logginErr}}</h5>
+                            {{else}}
+                            <h5 class="light red" style="display: none;" id="login-error-message">{{logginErr}}</h5>
+                            {{/if}}
+                            <h5 class="password-required-login light red" style="display: none;">This field is required
+                            </h5>
+                            <h5 class="password-min-length-login light red" style="display: none;">Minimum 8 characters
+                                required</h5>
+                        </div>
+
+                        <div class="terms">
+                            <input type="checkbox">
+                            I agree to the <span>Terms</span> and <span>Privacy Policy</span>
+                        </div>
+                        <input type="submit" value="Login">
+                    </form>
+                    {{else if contractor}}
+                    <form onsubmit="return validationLogin()" action="/contractor/login" method="post">
+                        <label for="">Email Address</label>
+                        {{#if logginErr}}
+                        <input oninput="hideLoginError()" type="email" id="email-login" name="email"
+                            placeholder="Enter Your email" style="border: 1px solid rgb(223, 0, 0);">
+                        {{else}}
+                        <input oninput="hideLoginError()" type="email" id="email-login" name="email"
+                            placeholder="Enter Your email">
+                        {{/if}}
+                        <div class="email-error-login">
+                            <h5 class="email-required-login light red" style="display: none;">This field is required
+                            </h5>
+                            <h5 class="email-format-login light red" style="display: none;">Ensure your email ends with
+                                @gmail.com</h5>
+                        </div>
+
+                        <label for="">Password</label>
+                        {{#if logginErr}}
+                        <input type="password" id="password-login" name="password" placeholder="Enter Password"
+                            oninput="hideLoginError()" style="border: 1px solid rgb(223, 0, 0);">
+                        {{else}}
+                        <input type="password" id="password-login" name="password" placeholder="Enter Password"
+                            oninput="hideLoginError()">
+                        {{/if}}
+                        <div class="password-error-login">
+                            {{#if logginErr}}
+                            <h5 class="light red" id="login-error-message">{{logginErr}}</h5>
+                            {{else}}
+                            <h5 class="light red" style="display: none;" id="login-error-message">{{logginErr}}</h5>
+                            {{/if}}
+                            <h5 class="password-required-login light red" style="display: none;">This field is required
+                            </h5>
+                            <h5 class="password-min-length-login light red" style="display: none;">Minimum 8 characters
+                                required</h5>
+                        </div>
+
+                        <div class="terms">
+                            <input type="checkbox">
+                            I agree to the <span>Terms</span> and <span>Privacy Policy</span>
+                        </div>
+                        <input type="submit" value="Login">
+                    </form>
+                    {{else if admin}}
+                    <form onsubmit="return validationLogin()" action="/admin/login" method="post">
+                        <label for="">Email Address</label>
+                        {{#if logginErr}}
+                        <input oninput="hideLoginError()" type="email" id="email-login" name="email"
+                            placeholder="Enter Your email" style="border: 1px solid rgb(223, 0, 0);">
+                        {{else}}
+                        <input oninput="hideLoginError()" type="email" id="email-login" name="email"
+                            placeholder="Enter Your email">
+                        {{/if}}
+                        <div class="email-error-login">
+                            <h5 class="email-required-login light red" style="display: none;">This field is required
+                            </h5>
+                            <h5 class="email-format-login light red" style="display: none;">Ensure your email ends with
+                                @gmail.com</h5>
+                        </div>
+
+                        <label for="">Password</label>
+                        {{#if logginErr}}
+                        <input type="password" id="password-login" name="password" placeholder="Enter Password"
+                            oninput="hideLoginError()" style="border: 1px solid rgb(223, 0, 0);">
+                        {{else}}
+                        <input type="password" id="password-login" name="password" placeholder="Enter Password"
+                            oninput="hideLoginError()">
+                        {{/if}}
+                        <div class="password-error-login">
+                            {{#if logginErr}}
+                            <h5 class="light red" id="login-error-message">{{logginErr}}</h5>
+                            {{else}}
+                            <h5 class="light red" style="display: none;" id="login-error-message">{{logginErr}}</h5>
+                            {{/if}}
+                            <h5 class="password-required-login light red" style="display: none;">This field is required
+                            </h5>
+                            <h5 class="password-min-length-login light red" style="display: none;">Minimum 8 characters
+                                required</h5>
+                        </div>
+
+                        <div class="terms">
+                            <input type="checkbox">
+                            I agree to the <span>Terms</span> and <span>Privacy Policy</span>
+                        </div>
+                        <input type="submit" value="Login">
+                    </form>
+                    {{/if}}
+                </div>
+            </div>
+            {{else}}
+            <div class="login-account">
+                <h1 style="margin-top: 34px;">
+                    Login to Homecraft
+                </h1>
+                <div class="account-linking" style="display: flex;">
+                    <a href="">
+                        <button class="google">
+                            Sign up with Google
+                            <i class="fa-brands fa-google"></i>
+                        </button>
+                    </a>
+
+                    <button class="facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </button>
+
+                    <button class="twitter">
+                        <i class="fa-brands fa-twitter"></i>
+                    </button>
+
+                    <button class="linked-in">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </button>
+
+                    <button class="apple">
+                        <i class="fa-brands fa-apple"></i>
+                    </button>
+                </div>
+                <p>
+                    Or with Email
+                </p>
+                <div class="form">
+                    {{#if client}}
+                    <form onsubmit="return validationLogin()" action="/client/login" method="post">
+                        <label for="">Email Address</label>
+                        {{#if logginErr}}
+                        <input oninput="hideLoginError()" type="email" id="email-login" name="email"
+                            placeholder="Enter Your email" style="border: 1px solid rgb(223, 0, 0);">
+                        {{else}}
+                        <input oninput="hideLoginError()" type="email" id="email-login" name="email"
+                            placeholder="Enter Your email">
+                        {{/if}}
+                        <div class="email-error-login">
+                            <h5 class="email-required-login light red" style="display: none;">This field is required
+                            </h5>
+                            <h5 class="email-format-login light red" style="display: none;">Ensure your email ends with
+                                @gmail.com</h5>
+                        </div>
+
+                        <label for="">Password</label>
+                        {{#if logginErr}}
+                        <input type="password" id="password-login" name="password" placeholder="Enter Password"
+                            oninput="hideLoginError()" style="border: 1px solid rgb(223, 0, 0);">
+                        {{else}}
+                        <input type="password" id="password-login" name="password" placeholder="Enter Password"
+                            oninput="hideLoginError()">
+                        {{/if}}
+                        <div class="password-error-login">
+                            {{#if logginErr}}
+                            <h5 class="light red" id="login-error-message">{{logginErr}}</h5>
+                            {{else}}
+                            <h5 class="light red" style="display: none;" id="login-error-message">{{logginErr}}</h5>
+                            {{/if}}
+                            <h5 class="password-required-login light red" style="display: none;">This field is required
+                            </h5>
+                            <h5 class="password-min-length-login light red" style="display: none;">Minimum 8 characters
+                                required</h5>
+                        </div>
+
+                        <div class="terms">
+                            <input type="checkbox">
+                            I agree to the <span>Terms</span> and <span>Privacy Policy</span>
+                        </div>
+                        <input type="submit" value="Login">
+                    </form>
+                    {{else if contractor}}
+                    <form onsubmit="return validationLogin()" action="/contractor/login" method="post">
+                        <label for="">Email Address</label>
+                        {{#if logginErr}}
+                        <input oninput="hideLoginError()" type="email" id="email-login" name="email"
+                            placeholder="Enter Your email" style="border: 1px solid rgb(223, 0, 0);">
+                        {{else}}
+                        <input oninput="hideLoginError()" type="email" id="email-login" name="email"
+                            placeholder="Enter Your email">
+                        {{/if}}
+                        <div class="email-error-login">
+                            <h5 class="email-required-login light red" style="display: none;">This field is required
+                            </h5>
+                            <h5 class="email-format-login light red" style="display: none;">Ensure your email ends with
+                                @gmail.com</h5>
+                        </div>
+
+                        <label for="">Password</label>
+                        {{#if logginErr}}
+                        <input type="password" id="password-login" name="password" placeholder="Enter Password"
+                            oninput="hideLoginError()" style="border: 1px solid rgb(223, 0, 0);">
+                        {{else}}
+                        <input type="password" id="password-login" name="password" placeholder="Enter Password"
+                            oninput="hideLoginError()">
+                        {{/if}}
+                        <div class="password-error-login">
+                            {{#if logginErr}}
+                            <h5 class="light red" id="login-error-message">{{logginErr}}</h5>
+                            {{else}}
+                            <h5 class="light red" style="display: none;" id="login-error-message">{{logginErr}}</h5>
+                            {{/if}}
+                            <h5 class="password-required-login light red" style="display: none;">This field is required
+                            </h5>
+                            <h5 class="password-min-length-login light red" style="display: none;">Minimum 8 characters
+                                required</h5>
+                        </div>
+
+                        <div class="terms">
+                            <input type="checkbox">
+                            I agree to the <span>Terms</span> and <span>Privacy Policy</span>
+                        </div>
+                        <input type="submit" value="Login">
+                    </form>
+                    {{else if admin}}
+                    <form onsubmit="return validationLogin()" action="/admin/login" method="post">
+                        <label for="">Email Address</label>
+                        {{#if logginErr}}
+                        <input oninput="hideLoginError()" type="email" id="email-login" name="email"
+                            placeholder="Enter Your email" style="border: 1px solid rgb(223, 0, 0);">
+                        {{else}}
+                        <input oninput="hideLoginError()" type="email" id="email-login" name="email"
+                            placeholder="Enter Your email">
+                        {{/if}}
+                        <div class="email-error-login">
+                            <h5 class="email-required-login light red" style="display: none;">This field is required
+                            </h5>
+                            <h5 class="email-format-login light red" style="display: none;">Ensure your email ends with
+                                @gmail.com</h5>
+                        </div>
+
+                        <label for="">Password</label>
+                        {{#if logginErr}}
+                        <input type="password" id="password-login" name="password" placeholder="Enter Password"
+                            oninput="hideLoginError()" style="border: 1px solid rgb(223, 0, 0);">
+                        {{else}}
+                        <input type="password" id="password-login" name="password" placeholder="Enter Password"
+                            oninput="hideLoginError()">
+                        {{/if}}
+                        <div class="password-error-login">
+                            {{#if logginErr}}
+                            <h5 class="light red" id="login-error-message">{{logginErr}}</h5>
+                            {{else}}
+                            <h5 class="light red" style="display: none;" id="login-error-message">{{logginErr}}</h5>
+                            {{/if}}
+                            <h5 class="password-required-login light red" style="display: none;">This field is required
+                            </h5>
+                            <h5 class="password-min-length-login light red" style="display: none;">Minimum 8 characters
+                                required</h5>
+                        </div>
+
+                        <div class="terms">
+                            <input type="checkbox">
+                            I agree to the <span>Terms</span> and <span>Privacy Policy</span>
+                        </div>
+                        <input type="submit" value="Login">
+                    </form>
+                    {{/if}}
+                </div>
+            </div>
+            {{/if}}
+
+
+            {{!-- if already have display this  --}}
+            {{#if already}}
+            <div class="create-account">
+                <div class="sign-in">
+                    <p style="display: flex; gap: 4px;">
+                        Already have an account?<span id="login-link"> <a href="#"> Sign in</a></span>
+                    </p>
+                </div>
+                <h1 style="margin-top: 0;">
+                    Sign in to Homecraft
+                </h1>
+                <div class="account-linking" style="display: flex;">
+                    <a href="">
+                        <button class="google">
+                            Sign up with Google
+                            <i class="fa-brands fa-google"></i>
+                        </button>
+                    </a>
+                    <button class="facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </button>
+
+                    <button class="twitter">
+                        <i class="fa-brands fa-twitter"></i>
+                    </button>
+
+                    <button class="linked-in">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </button>
+
+                    <button class="apple">
+                        <i class="fa-brands fa-apple"></i>
+                    </button>
+                </div>
+                <p class="p">
+                    Or with Email
+                </p>
+                <div class="form">
+                    {{#if client}}
+                    <form onsubmit="return validationSign()" action="/client/signup" method="post">
+                        <label for="">
+                            Full Name
+                        </label>
+                        <input type="text" id="name-sign" name="name" placeholder="Enter Your Name" required>
+                        <div class="name-error-sign">
+                            <h5 class="name-required light red" style="display: none;">
+                                This field is required
+                            </h5>
+                            <h5 class="name-min-length light red" style="display: none;">
+                                Minimum 3 charecters required
+                            </h5>
+                            <h5 class="name-format light red" style="display: none;">
+                                Can use only alphabetic charecters
+                            </h5>
+                        </div>
+
+                        <label for="">
+                            Email Address
+                        </label>
+                        <input type="email" id="email-sign" name="email" placeholder="Enter Your email" required>
+                        <div class="email-error-sign">
+                            <h5 class="email-required light red" style="display: none;">
+                                This field is required
+                            </h5>
+                            <h5 class="email-format light red" style="display: none;">
+                                Ensure your email ends with @gmail.com
+                            </h5>
+                        </div>
+
+                        <label for="">
+                            Password
+                        </label>
+                        <input type="password" id="password-sign" name="password" placeholder="Enter Password" required>
+                        <div class="password-error-sign">
+                            <h5 class="password-required light red" style="display: none;">
+                                This field is required
+                            </h5>
+                            <h5 class="password-min-length light red" style="display: none;">
+                                Minimum 8 charecters required
+                            </h5>
+                            {{#if already}}
+                            <h5 class="exists light red">
+                                {{already}}
+                            </h5>
+                            {{/if}}
+                        </div>
+
+                        <div class="terms">
+                            <input type="checkbox">
+                            I agree to the <span>Terms</span> and <span>Privacy Policy</span>
+                        </div>
+                        <input type="submit" value="Create Account" class="submitBtn-create" disabled>
+                    </form>
+                    {{else if contractor}}
+                    <form onsubmit="return validationSign()" action="/contractor/signup" method="post">
+                        <label for="">
+                            Full Name
+                        </label>
+                        <input type="text" id="name-sign" name="name" placeholder="Enter Your Name" required>
+                        <div class="name-error-sign">
+                            <h5 class="name-required light red" style="display: none;">
+                                This field is required
+                            </h5>
+                            <h5 class="name-min-length light red" style="display: none;">
+                                Minimum 3 charecters required
+                            </h5>
+                            <h5 class="name-format light red" style="display: none;">
+                                Can use only alphabetic charecters
+                            </h5>
+                        </div>
+
+                        <label for="">
+                            Email Address
+                        </label>
+                        <input type="email" id="email-sign" name="email" placeholder="Enter Your email" required>
+                        <div class="email-error-sign">
+                            <h5 class="email-required light red" style="display: none;">
+                                This field is required
+                            </h5>
+                            <h5 class="email-format light red" style="display: none;">
+                                Ensure your email ends with @gmail.com
+                            </h5>
+                        </div>
+
+                        <label for="">
+                            Password
+                        </label>
+                        <input type="password" id="password-sign" name="password" placeholder="Enter Password" required>
+                        <div class="password-error-sign">
+                            <h5 class="password-required light red" style="display: none;">
+                                This field is required
+                            </h5>
+                            <h5 class="password-min-length light red" style="display: none;">
+                                Minimum 8 charecters required
+                            </h5>
+                            {{#if already}}
+                            <h5 class="exists light red">
+                                {{already}}
+                            </h5>
+                            {{/if}}
+                        </div>
+
+                        <div class="terms">
+                            <input type="checkbox">
+                            I agree to the <span>Terms</span> and <span>Privacy Policy</span>
+                        </div>
+                        <input type="submit" value="Create Account" class="submitBtn-create" disabled>
+                    </form>
+                    {{/if}}
+                </div>
+            </div>
+            {{else}}
+            <div class="create-account" style="display: none;">
+                <div class="sign-in">
+                    <p style="display: flex; gap: 4px;">
+                        Already have an account?<span id="login-link"> <a href="#"> Sign in</a></span>
+                    </p>
+                </div>
+                <h1 style="margin-top: 0;">
+                    Sign in to Homecraft
+                </h1>
+                <div class="account-linking" style="display: flex;">
+                    <a href="">
+                        <button class="google">
+                            Sign up with Google
+                            <i class="fa-brands fa-google"></i>
+                        </button>
+                    </a>
+                    <button class="facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </button>
+
+                    <button class="twitter">
+                        <i class="fa-brands fa-twitter"></i>
+                    </button>
+
+                    <button class="linked-in">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </button>
+
+                    <button class="apple">
+                        <i class="fa-brands fa-apple"></i>
+                    </button>
+                </div>
+                <p class="p">
+                    Or with Email
+                </p>
+                <div class="form">
+                    {{#if client}}
+                    <form onsubmit="return validationSign()" action="/client/signup" method="post">
+                        <label for="">
+                            Full Name
+                        </label>
+                        <input type="text" id="name-sign" name="name" placeholder="Enter Your Name" required>
+                        <div class="name-error-sign">
+                            <h5 class="name-required light red" style="display: none;">
+                                This field is required
+                            </h5>
+                            <h5 class="name-min-length light red" style="display: none;">
+                                Minimum 3 charecters required
+                            </h5>
+                            <h5 class="name-format light red" style="display: none;">
+                                Can use only alphabetic charecters
+                            </h5>
+                        </div>
+
+                        <label for="">
+                            Email Address
+                        </label>
+                        <input type="email" id="email-sign" name="email" placeholder="Enter Your email" required>
+                        <div class="email-error-sign">
+                            <h5 class="email-required light red" style="display: none;">
+                                This field is required
+                            </h5>
+                            <h5 class="email-format light red" style="display: none;">
+                                Ensure your email ends with @gmail.com
+                            </h5>
+                        </div>
+
+                        <label for="">
+                            Password
+                        </label>
+                        <input type="password" id="password-sign" name="password" placeholder="Enter Password" required>
+                        <div class="password-error-sign">
+                            <h5 class="password-required light red" style="display: none;">
+                                This field is required
+                            </h5>
+                            <h5 class="password-min-length light red" style="display: none;">
+                                Minimum 8 charecters required
+                            </h5>
+                            {{#if already}}
+                            <h5 class="exists light red">
+                                {{already}}
+                            </h5>
+                            {{/if}}
+                        </div>
+
+                        <div class="terms">
+                            <input type="checkbox">
+                            I agree to the <span>Terms</span> and <span>Privacy Policy</span>
+                        </div>
+                        <input type="submit" value="Create Account" class="submitBtn-create" disabled>
+                    </form>
+                    {{else if contractor}}
+                    <form onsubmit="return validationSign()" action="/contractor/signup" method="post">
+                        <label for="">
+                            Full Name
+                        </label>
+                        <input type="text" id="name-sign" name="name" placeholder="Enter Your Name" required>
+                        <div class="name-error-sign">
+                            <h5 class="name-required light red" style="display: none;">
+                                This field is required
+                            </h5>
+                            <h5 class="name-min-length light red" style="display: none;">
+                                Minimum 3 charecters required
+                            </h5>
+                            <h5 class="name-format light red" style="display: none;">
+                                Can use only alphabetic charecters
+                            </h5>
+                        </div>
+
+                        <label for="">
+                            Email Address
+                        </label>
+                        <input type="email" id="email-sign" name="email" placeholder="Enter Your email" required>
+                        <div class="email-error-sign">
+                            <h5 class="email-required light red" style="display: none;">
+                                This field is required
+                            </h5>
+                            <h5 class="email-format light red" style="display: none;">
+                                Ensure your email ends with @gmail.com
+                            </h5>
+                        </div>
+
+                        <label for="">
+                            Password
+                        </label>
+                        <input type="password" id="password-sign" name="password" placeholder="Enter Password" required>
+                        <div class="password-error-sign">
+                            <h5 class="password-required light red" style="display: none;">
+                                This field is required
+                            </h5>
+                            <h5 class="password-min-length light red" style="display: none;">
+                                Minimum 8 charecters required
+                            </h5>
+                            {{#if already}}
+                            <h5 class="exists light red">
+                                {{already}}
+                            </h5>
+                            {{/if}}
+                        </div>
+
+                        <div class="terms">
+                            <input type="checkbox">
+                            I agree to the <span>Terms</span> and <span>Privacy Policy</span>
+                        </div>
+                        <input type="submit" value="Create Account" class="submitBtn-create" disabled>
+                    </form>
+                    {{/if}}
+                </div>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/f83293ade7.js" crossorigin="anonymous"></script>
+    <script>
+        document.getElementById('login-link').addEventListener('click', function () {
+            document.querySelector('.create-account').style.display = 'none';
+            document.querySelector('.login-account').style.display = 'flex';
+            document.querySelector('.logging').style.display = 'flex';
+        });
+        document.getElementById('back-to-signup').addEventListener('click', function () {
+            document.querySelector('.create-account').style.display = 'flex';
+            document.querySelector('.login-account').style.display = 'none';
+            document.querySelector('.logging').style.display = 'none';
+        });
+
+        function showNotification() {
+            const notification = document.getElementById('notification');
+            notification.classList.add('show');
+        }
+        function hideNotification() {
+            const notification = document.getElementById('notification');
+            notification.classList.remove('show');
+            document.querySelector('.over').style.display = 'none';
+        }
+        setTimeout(showNotification, 1000);
+
+        //sign in validation
+        var nameSign = document.getElementById('name-sign');
+        var emailSign = document.getElementById('email-sign');
+        var passwordSign = document.getElementById('password-sign');
+        var emailFormat = /^([a-zA-Z0-9\.-]+)@(gmail).(com)/;
+
+        nameSign.addEventListener('input', liveValidationSign);
+        emailSign.addEventListener('input', liveValidationSign);
+        passwordSign.addEventListener('input', liveValidationSign);
+
+        function liveValidationSign() {
+            if (this.id === 'name-sign') {
+                validateName(this.value);
+            } else if (this.id === 'email-sign') {
+                validateEmail(this.value);
+            } else if (this.id === 'password-sign') {
+                validatePassword(this.value);
+            }
+        }
+
+        function validateName(value) {
+            var errorDiv = document.querySelector('.name-error-sign');
+            var requiredError = errorDiv.querySelector('.name-required');
+            var minLengthError = errorDiv.querySelector('.name-min-length');
+            var formatError = errorDiv.querySelector('.name-format');
+
+            requiredError.style.display = minLengthError.style.display = formatError.style.display = 'none';
+
+            if (value === "") {
+                requiredError.style.display = 'flex';
+                document.getElementById('name-sign').style.border = "1px solid rgb(223, 0, 0)";
+            } else if (value.length < 3) {
+                document.getElementById('name-sign').style.border = "1px solid rgb(223, 0, 0)";
+                minLengthError.style.display = 'flex';
+            } else if (!/^[a-zA-Z]+(?:\s+[a-zA-Z]+)*$/.test(value)) {
+                document.getElementById('name-sign').style.border = "1px solid rgb(223, 0, 0)";
+                formatError.style.display = 'flex';
+            } else {
+                calledToCreate();
+                document.getElementById('name-sign').style.border = "none";
+            }
+        }
+
+
+        function validateEmail(value) {
+            var errorDiv = document.querySelector('.email-error-sign');
+            var requiredError = errorDiv.querySelector('.email-required');
+            var formatError = errorDiv.querySelector('.email-format');
+
+            requiredError.style.display = formatError.style.display = 'none';
+
+            if (value === "") {
+                document.getElementById('email-sign').style.border = "1px solid rgb(223, 0, 0)"
+                requiredError.style.display = 'flex';
+            } else if (!emailFormat.test(value)) {
+                document.getElementById('email-sign').style.border = "1px solid rgb(223, 0, 0)"
+                formatError.style.display = 'flex';
+            } else {
+                calledToCreate();
+                document.getElementById('email-sign').style.border = "none"
+            }
+        }
+
+        function validatePassword(value) {
+            var errorDiv = document.querySelector('.password-error-sign');
+            var requiredError = errorDiv.querySelector('.password-required');
+            var minLengthError = errorDiv.querySelector('.password-min-length');
+
+            requiredError.style.display = minLengthError.style.display = 'none';
+
+            if (value === "") {
+                document.getElementById('password-sign').style.border = "1px solid rgb(223, 0, 0)"
+                requiredError.style.display = 'flex';
+            } else if (value.length < 8) {
+                document.getElementById('password-sign').style.border = "1px solid rgb(223, 0, 0)"
+                minLengthError.style.display = 'flex';
+            } else {
+                calledToCreate();
+                document.getElementById('password-sign').style.border = "none"
+            }
+        }
+
+        let count = 0
+        function calledToCreate() {
+            count++;
+
+            console.log(count + "count")
+
+            if (count == 3) {
+                console.log("finished")
+                document.querySelector('.submitBtn-create').disabled = false;
+            }
+        }
+
+        function validationSign() {
+            return true;
+        }
+        //sign in validation ends
+
+        //login validation
+        var emailLogin = document.getElementById('email-login');
+        var passwordLogin = document.getElementById('password-login');
+        var emailFormat = /^([a-zA-Z0-9\.-]+)@(gmail).(com)/;
+        emailLogin.addEventListener('input', liveValidationLogin);
+        passwordLogin.addEventListener('input', liveValidationLogin);
+
+        function liveValidationLogin() {
+            if (this.id === 'email-login') {
+                validateEmailLogin(this.value);
+            } else if (this.id === 'password-login') {
+                validatePasswordLogin(this.value);
+            }
+        }
+
+        function validateEmailLogin(value) {
+            var errorDiv = document.querySelector('.email-error-login');
+            var requiredError = errorDiv.querySelector('.email-required-login');
+            var formatError = errorDiv.querySelector('.email-format-login');
+
+            requiredError.style.display = formatError.style.display = 'none';
+
+            if (value === "") {
+                document.getElementById('email-login').style.border = "1px solid rgb(223, 0, 0)"
+                requiredError.style.display = 'flex';
+            } else if (!emailFormat.test(value)) {
+                document.getElementById('email-login').style.border = "1px solid rgb(223, 0, 0)"
+                formatError.style.display = 'flex';
+            } else {
+                document.getElementById('email-login').style.border = "none";
+            }
+        }
+
+        function validatePasswordLogin(value) {
+            var errorDiv = document.querySelector('.password-error-login');
+            var requiredError = errorDiv.querySelector('.password-required-login');
+            var minLengthError = errorDiv.querySelector('.password-min-length-login');
+
+            requiredError.style.display = minLengthError.style.display = 'none';
+
+            if (value === "") {
+                document.getElementById('password-login').style.border = "1px solid rgb(223, 0, 0)"
+                requiredError.style.display = 'flex';
+            } else if (value.length < 8) {
+                document.getElementById('password-login').style.border = "1px solid rgb(223, 0, 0)"
+                minLengthError.style.display = 'flex';
+            } else {
+                document.getElementById('password-login').style.border = "none"
+            }
+        }
+
+        function validationLogin() {
+            return true;
+        }
+        //login validation ends
+
+        // invalid login error messages
+        function hideLoginError() {
+            var passwordInput = document.getElementById("password-login");
+            var loginError = document.getElementById("login-error-message");
+            var emailBorder = document.getElementById('email-login');
+            var emailInput = document.getElementById('email-login');
+
+            if (emailInput.value.trim() === "") {
+                emailBorder.style.border = "none";
+                loginError.style.display = "none";
+            }
+
+            if (passwordInput.value.trim() === "") {
+                emailBorder.style.border = "none";
+                loginError.style.display = "none";
+                document.querySelector(".password-required-login").style.display = "block";
+                document.querySelector(".password-min-length-login").style.display = "none";
+            } else if (passwordInput.value.length < 8) {
+                emailBorder.style.border = "none";
+                loginError.style.display = "none";
+                document.querySelector(".password-required-login").style.display = "none";
+                document.querySelector(".password-min-length-login").style.display = "block";
+            } else {
+                emailBorder.style.border = "none";
+                loginError.style.display = "none";
+                document.querySelector(".password-required-login").style.display = "none";
+                document.querySelector(".password-min-length-login").style.display = "none";
+            }
+        }
+        function toggleContainer() {
+            const container = document.querySelector('.container-p');
+            const img = document.querySelector('.container img');
+            const heading = document.querySelector('.heading');
+
+            container.classList.toggle('p-clicked');
+            img.classList.toggle('img-clicked');
+            heading.classList.toggle('heading-clicked');
+        }
+    </script>
+</body>
+
+</html>

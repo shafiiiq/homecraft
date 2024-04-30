@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/homecraft-logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" rel="stylesheet" />
+    <title>Home Craft</title>
+</head>
+
+<body>
+    <div class="intro">
+        {{#if logout}}
+        <img src="/images/logo.png" alt="">
+        {{else}}
+        <img src="images/logo.png" alt="">
+        {{/if}}
+        <div class="powered-by">
+            <p>Powered By</p>
+            <h1>HOMECRAFT</h1>
+        </div>
+    </div>
+    <header>
+        <div class="main-header">
+            <div class="header-top" id="header-top">
+                <div class="container">
+                    <div class="navigations">
+                        {{#if logout}}
+                        <img src="/images/homecraft-logo.png" alt="">
+                        {{else}}
+                        <img src="images/homecraft-logo.png" alt="">
+                        {{/if}}
+                        <ul>
+                            <li>
+                                <a href="#home-section">
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#latest-section">
+                                    Property
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#about-section">
+                                    About
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    Blog
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#get-in-section">
+                                    Contact
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="signup-btn">
+                        <a href="/redirect">
+                            <button class="signup-btn">
+                                Sign in
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="header-bottom">
+                <input type="search" placeholder="Enter keyword">
+                <div class="dropdown">
+                    <select>
+                        <option>Rent</option>
+                        <option>Rent</option>
+                        <option>Rent</option>
+                        <option>Rent</option>
+                        <option>Rent</option>
+                        <option>Rent</option>
+                    </select>
+                </div>
+                <div class="dropdown">
+                    <select>
+                        <option>Bed</option>
+                        <option>Rent</option>
+                        <option>Rent</option>
+                        <option>Rent</option>
+                        <option>Rent</option>
+                        <option>Rent</option>
+                    </select>
+                </div>
+                <div class="dropdown">
+                    <select>
+                        <option>Bath</option>
+                        <option>Rent</option>
+                        <option>Rent</option>
+                        <option>Rent</option>
+                        <option>Rent</option>
+                        <option>Rent</option>
+                    </select>
+                </div>
+                <button type="submit">Search</button>
+            </div>
+        </div>
+    </header>
+    <!-- header ends -->
+
+    <!-- home section starts -->
+    <section class="home-section" id="home-section">
+        <div class="home">
+            <h1>
+                Home is <span>almost</span><span> put</span><br><span>together,</span> but I could really<br>use a
+                new rug
+            </h1>
+            <button style="width: 20rem;">
+                <a class="fancy" href="#">
+                    <span class="top-key"></span>
+                    <span class="text">Check our services</span>
+                    <span class="bottom-key-1"></span>
+                    <span class="bottom-key-2"></span>
+                </a>
+            </button>
+        </div>
+    </section>
+    <!-- home section ends -->
+
+    <!-- display latest and featured properties -->
+    <section class="latest-section" id="latest-section">
+        <div class="latest">
+            <h1>
+                Display Latest & Featured Properties
+            </h1>
+            <p>
+                Get started by choosing from one of our pre-built page <br>
+                templates to showcase your properties
+            </p>
+
+            <div class="latest-items">
+                {{#if logout}}
+                {{#each properties}}
+                <div class="items">
+                    <img src="/property-data/{{this.email}}propertyImage.jpg" alt="">
+                    <div class="details">
+                        <h5>
+                            ${{this.price}}
+                        </h5>
+                        <h2>
+                            {{this.propertyTitle}}
+                        </h2>
+                        <p>
+                            {{this.propertyDescription}}
+                        </p>
+                    </div>
+                    <div class="specifications">
+                        <h6>
+                            {{this.bedrooms}} Bedrooms
+                        </h6>
+                        <h6>
+                            {{this.bathrooms}} Bathrooms
+                        </h6>
+                        <h6>
+                            {{this.landSize}} Sq Ft
+                        </h6>
+                    </div>
+                </div>
+                {{/each}}
+                {{else}}
+                {{#each properties}}
+                <div class="items">
+                    <img src="property-data/{{this.email}}propertyImage.jpg" alt="">
+                    <div class="details">
+                        <h5>
+                            ${{this.price}}
+                        </h5>
+                        <h2>
+                            {{this.propertyTitle}}
+                        </h2>
+                        <p>
+                            {{this.propertyDescription}}
+                        </p>
+                    </div>
+                    <div class="specifications">
+                        <h6>
+                            {{this.bedrooms}} Bedrooms
+                        </h6>
+                        <h6>
+                            {{this.bathrooms}} Bathrooms
+                        </h6>
+                        <h6>
+                            {{this.landSize}} Sq Ft
+                        </h6>
+                    </div>
+                </div>
+                {{/each}}
+                {{/if}}
+            </div>
+        </div>
+    </section>
+    <!-- display latest and featured properties ends -->
+
+    <!-- service section starts -->
+    <section class="service-section">
+        <div class="service">
+            <h2>
+                How we help people?
+            </h2>
+            <div class="details">
+                <div class="items">
+                    <h3>
+                        Sell Home or Office
+                    </h3>
+                    <p>
+                        Get started by choosing from one of our <br>
+                        pre-built page templates to showcase <br>
+                        your properties
+                    </p>
+                </div>
+
+                <div class="items">
+                    <h3>
+                        Rent Home or Office
+                    </h3>
+                    <p>
+                        Get started by choosing from one of our <br>
+                        pre-built page templates to showcase <br>
+                        your properties
+                    </p>
+                </div>
+
+                <div class="items">
+                    <h3>
+                        Find next
+                    </h3>
+                    <p>
+                        Get started by choosing from one of our <br>
+                        pre-built page templates to showcase <br>
+                        your properties
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- service section ends -->
+
+    <!-- properties for sale starts -->
+    <section class="latest-section">
+        <div class="latest">
+            <h1>
+                Properties for Sale
+            </h1>
+            <div class="latest-items">
+                <div class="items">
+                    {{#if logout}}
+                    <img src="/images/image-1.webp" alt="">
+                    {{else}}
+                    <img src="images/image-1.webp" alt="">
+                    {{/if}}
+                    <div class="details">
+                        <h5>
+                            $445332
+                        </h5>
+                        <h2>
+                            Classic Home
+                        </h2>
+                        <p>
+                            Get started by choosing from one of our pre-built page <br>
+                            templates to showcase your properties
+                        </p>
+                    </div>
+                    <div class="specifications">
+                        <h6>
+                            2 Bedrooms
+                        </h6>
+                        <h6>
+                            2 Bathrooms
+                        </h6>
+                        <h6>
+                            1050 Sq Ft
+                        </h6>
+                    </div>
+                </div>
+
+                <div class="items">
+                    <img src="images/image-2.webp" alt="">
+                    <div class="details">
+                        <h5>
+                            $445332
+                        </h5>
+                        <h2>
+                            Classic Home
+                        </h2>
+                        <p>
+                            Get started by choosing from one of our pre-built page <br>
+                            templates to showcase your properties
+                        </p>
+                    </div>
+                    <div class="specifications">
+                        <h6>
+                            2 Bedrooms
+                        </h6>
+                        <h6>
+                            2 Bathrooms
+                        </h6>
+                        <h6>
+                            1050 Sq Ft
+                        </h6>
+                    </div>
+                </div>
+
+                <div class="items">
+                    <img src="images/image-1.webp" alt="">
+                    <div class="details">
+                        <h5>
+                            $445332
+                        </h5>
+                        <h2>
+                            Classic Home
+                        </h2>
+                        <p>
+                            Get started by choosing from one of our pre-built page <br>
+                            templates to showcase your properties
+                        </p>
+                    </div>
+                    <div class="specifications">
+                        <h6>
+                            2 Bedrooms
+                        </h6>
+                        <h6>
+                            2 Bathrooms
+                        </h6>
+                        <h6>
+                            1050 Sq Ft
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- properties for sale ends -->
+
+    <!-- explore the properties -->
+    <section class="explore-properties">
+        <div class="explore">
+            <div class="left">
+                <h1>
+                    Explore <br>
+                    by Property Type
+                </h1>
+                <p>
+                    Get started by choosing from one of our pre-built page<br>
+                    templates to showcase your properties
+                </p>
+                <button>
+                    <h5>
+                        View All Property
+                    </h5>
+                </button>
+            </div>
+            <div class="right">
+                <div class="items apartment">
+                    <span class="material-symbols-sharp">
+                        apartment
+                    </span>
+                    <h4>Home and Appartment</h4>
+                </div>
+                <div class="items villa">
+                    <span class="material-symbols-sharp">
+                        villa
+                    </span>
+                    <h4>Villa</h4>
+                </div>
+                <div class="items villa">
+                    <span class="material-symbols-sharp">
+                        location_city
+                    </span>
+                    <h4>Studio</h4>
+                </div>
+                <div class="items office">
+                    <span class="material-symbols-sharp">
+                        source_environment
+                    </span>
+                    <h4>Office</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- agents section starts -->
+    <section class="agents-section">
+        <div class="agents">
+            <h1>
+                Our Contractors
+            </h1>
+            <p>
+                Get started by choosing from one of our pre-built page <br>
+                templates to showcase your properties
+            </p>
+            <div class="profiles">
+                {{#if logout}}
+                {{#each contractors}}
+                <div class="items">
+                    <div class="img">
+                        <img src="/contractor_data/{{this.email}}profile.jpg" alt="">
+                    </div>
+                    <h4>
+                        {{this.name}}
+                    </h4>
+                    <p>
+                        Real Estate Agent
+                    </p>
+                </div>
+                {{/each}}
+                {{else}}
+                {{#each contractors}}
+                <div class="items">
+                    <div class="img">
+                        <img src="contractor_data/{{this.email}}profile.jpg" alt="">
+                    </div>
+                    <h4>
+                        {{this.name}}
+                    </h4>
+                    <p>
+                        Real Estate Agent
+                    </p>
+                </div>
+                {{/each}}
+                {{/if}}
+            </div>
+        </div>
+    </section>
+
+    <!-- customer testimonial starts -->\
+    <section class="testimonial-section">
+        <div class="testimonial">
+            <h1>
+                Customer Testimonial
+            </h1>
+            <div class="feedbacks">
+                <div class="items">
+                    <div class="rating">
+                        <span class="material-symbols-sharp">
+                            star
+                        </span>
+                        <span class="material-symbols-sharp">
+                            star
+                        </span>
+                        <span class="material-symbols-sharp">
+                            star
+                        </span>
+                        <span class="material-symbols-sharp">
+                            star
+                        </span>
+                        <span class="material-symbols-sharp">
+                            star
+                        </span>
+                        <span class="material-symbols-sharp">
+                            star
+                        </span>
+                    </div>
+                    <h1>
+                        Brilliant work
+                    </h1>
+                    <p>
+                        You deserve a home that is functional and stylish, today.Dont put it off until the kids are
+                        older or you have more time.
+                    </p>
+                    <P class="customer-name">
+                        By Barb Ackue
+                    </P>
+                </div>
+
+                <div class="items">
+                    <div class="rating">
+                        <span class="material-symbols-sharp">
+                            star
+                        </span>
+                        <span class="material-symbols-sharp">
+                            star
+                        </span>
+                        <span class="material-symbols-sharp">
+                            star
+                        </span>
+                        <span class="material-symbols-sharp">
+                            star
+                        </span>
+                        <span class="material-symbols-sharp">
+                            star
+                        </span>
+                        <span class="material-symbols-sharp">
+                            star
+                        </span>
+                    </div>
+                    <h1>
+                        Brilliant work
+                    </h1>
+                    <p>
+                        You deserve a home that is functional and stylish, today.Dont put it off until the kids are
+                        older or you have more time.
+                    </p>
+                    <P class="customer-name">
+                        By Barb Ackue
+                    </P>
+                </div>
+
+                <div class="items">
+                    <div class="rating">
+                        <span class="material-symbols-sharp">
+                            star
+                        </span>
+                        <span class="material-symbols-sharp">
+                            star
+                        </span>
+                        <span class="material-symbols-sharp">
+                            star
+                        </span>
+                        <span class="material-symbols-sharp">
+                            star
+                        </span>
+                        <span class="material-symbols-sharp">
+                            star
+                        </span>
+                        <span class="material-symbols-sharp">
+                            star
+                        </span>
+                    </div>
+                    <h1>
+                        Brilliant work
+                    </h1>
+                    <p>
+                        You deserve a home that is functional and stylish, today.Dont put it off until the kids are
+                        older or you have more time.
+                    </p>
+                    <P class="customer-name">
+                        By Barb Ackue
+                    </P>
+                </div>
+
+                <div class="items">
+                    <div class="rating">
+                        <span class="material-symbols-sharp">
+                            star
+                        </span>
+                        <span class="material-symbols-sharp">
+                            star
+                        </span>
+                        <span class="material-symbols-sharp">
+                            star
+                        </span>
+                        <span class="material-symbols-sharp">
+                            star
+                        </span>
+                        <span class="material-symbols-sharp">
+                            star
+                        </span>
+                        <span class="material-symbols-sharp">
+                            star
+                        </span>
+                    </div>
+                    <h1>
+                        Brilliant work
+                    </h1>
+                    <p>
+                        You deserve a home that is functional and stylish, today.Dont put it off until the kids are
+                        older or you have more time.
+                    </p>
+                    <p class="customer-name">
+                        By Barb Ackue
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section" id="about-section">
+        <div class="about-us">
+            <div class="top">
+                <h1>
+                    About Us
+                </h1>
+                <p>
+                    Get started by choosing from one of our pre-built page <br>
+                    templates to showcase your properties
+                </p>
+            </div>
+            <div class="bottom">
+                <div class="details">
+                    <h2>
+                        Just browse away. It’s all here.
+                    </h2>
+                    <p>
+                        Rhoncus est pellen tesque elit ullam corper dignissim cras tincidunt <br>
+                        lobortis feugiat. Et netus malesuada fames.
+                    </p>
+                    <p>
+                        Rhoncus est pellen tesque elit ullam corper dignissim cras tincidunt <br>
+                        lobortis feugiat. Et netus malesuada fames.
+                    </p>
+                    <a href="">
+                        Let's Check
+                    </a>
+                </div>
+                {{#if logout}}
+                <img src="/images/about-bg-2.webp" alt="">
+                {{else}}
+                <img src="images/about-bg-2.webp" alt="">
+                {{/if}}
+            </div>
+        </div>
+    </section>
+
+    <!-- admin section starts -->
+    <section class="admin-section">
+        <div class="admin">
+            <h1>
+                “HomeCraft managed everything from furniture selection,<br>
+                purchase, delivery and assembly, and have been a <br>
+                pleasure working with”
+            </h1>
+            <p>
+                - shafiiq, Chief of Staff at HomeCraft
+            </p>
+        </div>
+    </section>
+
+    <section class="get-in-section" id="get-in-section">
+        <div class="get-in">
+            <div class="left">
+                <h1>
+                    Get in Touch
+                </h1>
+                <textarea name="" id="" cols="30" rows="10" placeholder="Enter Message"></textarea>
+                <div class="sensitive">
+                    <input type="text" placeholder="Enter you name">
+                    <input type="email" placeholder="Enter your email">
+                </div>
+                <input type="text" placeholder="Enter your subject">
+                <button>
+                    SEND
+                </button>
+            </div>
+            <div class="right">
+                <ul>
+                    <li>
+                        <div class="logo">
+                            <i class="fa-solid fa-house"></i>
+                        </div>
+                        <div class="details">
+                            <p class="bold">
+                                Kerala, India
+                            </p>
+                            <p>
+                                Kochin, 738301
+                            </p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="logo">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div class="details">
+                            <p class="bold">
+                                +91 977 859 3415
+                            </p>
+                            <p>
+                                Mon to Fri 9am to 6pm
+                            </p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="logo">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div class="details">
+                            <p class="bold">
+                                support@craft.com
+                            </p>
+                            <p>
+                                Send us your query anytime!
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- subscibe section stats -->
+    <section class="subscribe-section">
+        <div class="subscribe">
+            <div class="left">
+                <h1>
+                    Subscribe Newsletter
+                </h1>
+                <p>
+                    Get started by choosing from one of our pre-built page templates to <br>
+                    showcase your properties
+                </p>
+                <input type="email" placeholder="Enter Your Email">
+                <button>Subscribe</button>
+            </div>
+            <div class="right">
+                {{#if logout}}
+                <img src="/images/subscriber-img.jpg" alt="">
+                {{else}}
+                <img src="images/subscriber-img.jpg" alt="">
+                {{/if}}
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- footer section stars -->
+    <footer>
+        <div class="top">
+            <div class="administration">
+                {{#if logout}}
+                <img src="/images/homecraft-logo.png" alt="">
+                {{else}}
+                <img src="images/homecraft-logo.png" alt="">
+                {{/if}}
+                <p>
+                    Duis aute irure dolor inasfa reprehenderit in <br>
+                    voluptate velit esse cillum
+                </p>
+                <div class="media-icons">
+
+                </div>
+            </div>
+            <div class="navigations">
+                <h1>
+                    Navigations
+                </h1>
+                <ul>
+                    <li>
+                        <a href="">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            Services
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            Blog
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="services">
+                <h1>
+                    Services
+                </h1>
+                <ul>
+                    <li>
+                        <a href="">
+                            Drone Mapping
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            Real State
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            Commercial
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            Construction
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="support">
+                <h1>
+                    Support
+                </h1>
+                <ul>
+                    <li>
+                        <a href="">
+                            Drone Mapping
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            Real State
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            Commercial
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            Construction
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="contact-us">
+                <h1>
+                    Contact Us
+                </h1>
+                <ul>
+                    <li>
+                        <a href="">
+                            Drone Mapping
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            contact.homecraft@gmail.com
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            +91 977 858 3415
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom">
+            Copyright ©2023 All rights reserved | This template is made with by HOMECRAFT
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var header = document.querySelector('.header-top');
+            var section1 = document.querySelector('.home-section');
+            var section2 = document.querySelector('.latest-section');
+
+            // Set initial styles and transition for the header
+            header.style.position = 'relative';
+            header.style.top = '0';
+            header.style.transition = 'top 0.3s ease-in-out 0.3s';
+
+            function handleScroll() {
+                var scrollPosition = window.scrollY;
+
+                // Check if scroll position is within the latest-section
+                if (
+                    scrollPosition > section2.offsetTop - header.offsetHeight &&
+                    scrollPosition < section2.offsetTop + section2.offsetHeight
+                ) {
+                    // Apply animation when scrolling into the latest-section
+                    header.style.position = 'fixed';
+                    header.style.top = '0';
+                } else {
+                    // Reset to normal state when outside the latest-section
+                    header.style.position = 'relative';
+                    header.style.top = '0';
+                }
+                if (scrollPosition > section1.offsetTop + section1.offsetHeight) {
+                    header.style.position = 'fixed';
+                    header.style.top = '0';
+                }
+            }
+
+            window.addEventListener('scroll', handleScroll);
+        });
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/f83293ade7.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

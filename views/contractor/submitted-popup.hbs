@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="heading">
+            Data forwarded to admin, <br>
+            Await confirmation to proceed.
+        </h1>
+        <a href="/contractor/home-popup">
+            <p class="back" onclick="toggleContainer()">
+                Let's continue
+            </p>
+        </a>
+        <img src="/images/logo.white.png" alt="">
+    </div>
+
+    <script>
+        function toggleContainer() {
+            const container = document.querySelector('.container');
+            const img = document.querySelector('.container img');
+            const heading = document.querySelector('.heading');
+
+            container.classList.toggle('p-clicked');
+            img.classList.toggle('img-clicked');
+            heading.classList.toggle('heading-clicked');
+        }
+
+    </script>
+</body>
+
+</html>

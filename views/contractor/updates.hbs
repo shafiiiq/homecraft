@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="/images/logo.white.png" alt="" class="logo">
+    <div class="instruction">
+        <h1>
+            Weekly Building Project Update Guidelines
+        </h1>
+        <p>
+            Welcome to our weekly update protocol! Here's what you need to know:
+        </p>
+        <p class="rules">
+            . Capture 5 pictures. <br>
+            . Record 1 video. <br>
+            . Location details will be automatically included.
+        </p>
+        <p class="warning">
+            <span class="red"> <span class="material-icons-round">
+                        priority_high
+                    </span>We value honesty. Deception will face immediate consequences.</span> <br> Thank you for
+            helping us keep everyone informed!
+        </p>
+    </div>
+    <button onclick="openCamera()" class="absol invoke">
+        <span class="material-icons-round">
+            photo_camera
+        </span>
+    </button>
+
+    <!-- This camera view  -->
+    <div class="camera" style="display: none;">
+        <div class="left abs">
+            <span class="material-icons-round">
+                keyboard_arrow_up
+            </span>
+            <span class="material-icons-round" id="close" onclick="closeCamera()">
+                close
+            </span>
+            <span class="material-icons-round">
+                settings
+            </span>
+            <span class="material-icons-round">
+                edit
+            </span>
+            <span class="material-icons-round">
+                dns
+            </span>
+            <span class="material-icons-round">
+                ads_click
+            </span>
+            <span class="material-icons-round">
+                expand_more
+            </span>
+        </div>
+        <div class="right abs">
+            <span class="material-icons-round">
+                keyboard_arrow_up
+            </span>
+            <span class="material-icons-round">
+                sensors
+            </span>
+            <span class="material-icons-round">
+                api
+            </span>
+            <span class="material-icons-round">
+                auto_fix_high
+            </span>
+            <span class="material-icons-round">
+                tungsten
+            </span>
+            <span class="material-icons-round">
+                mic_none
+            </span>
+            <span class="material-icons-round">
+                emoji_nature
+            </span>
+            <span class="material-icons-round">
+                expand_more
+            </span>
+        </div>
+        <canvas id="canvas" style="display:none;"></canvas>
+        <video id="video" class="camera-view"></video>
+        <button id="captureButton" class="capture" disabled>
+            <div class="click"></div>
+        </button>
+        <div class="photo absolute">
+            <span class="material-icons-round">
+                photo_camera
+            </span>
+        </div>
+        <div class="video absolute">
+            <span class="material-icons-round">
+                videocam
+            </span>
+        </div>
+        <img id="capturedImage" class="clicked" style="display:none;">
+        <button id="uploadButton" class="absol upload" disabled>
+            Upload
+        </button>
+    </div>
+
+    <script>
+        function openCamera() {
+            var cameraDiv = document.querySelector('.camera');
+            var cameraInvoke = document.querySelector('.invoke');
+            var instruction = document.querySelector('.instruction');
+            cameraDiv.style.display = 'flex';
+            instruction.style.display = 'none';
+            cameraInvoke.style.display = 'none';
+
+            if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                alert('Sorry, your browser does not support accessing the camera.');
+                return;
+            }
+
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(function (stream) {
+                    var video = document.getElementById('video');
+                    video.srcObject = stream;
+                    video.play();
+
+                    // Enable the "Take Picture" button
+                    document.getElementById('captureButton').disabled = false;
+                })
+                .catch(function (error) {
+                    console.error('Error accessing camera:', error);
+                    alert('Unable to access the camera.');
+                    closeCamera(); // Close camera on error
+                });
+        }
+
+        function closeCamera() {
+            var cameraDiv = document.querySelector('.camera');
+            var cameraInvoke = document.querySelector('.invoke');
+            var instruction = document.querySelector('.instruction');
+            cameraDiv.style.display = 'none';
+            instruction.style.display = 'block';
+            cameraInvoke.style.display = 'flex';
+
+            // Stop video stream
+            var video = document.getElementById('video');
+            var stream = video.srcObject;
+            if (stream) {
+                var tracks = stream.getTracks();
+                tracks.forEach(function (track) {
+                    track.stop();
+                });
+            }
+        }
+
+        document.getElementById('captureButton').addEventListener('click', function () {
+            var video = document.getElementById('video');
+            var canvas = document.getElementById('canvas');
+            var capturedImage = document.getElementById('capturedImage');
+            var uploadButton = document.getElementById('uploadButton');
+
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            // Convert the canvas content to a data URL representing a JPEG image
+            var dataURL = canvas.toDataURL('image/jpeg');
+
+            // Set the captured image source to the data URL
+            capturedImage.src = dataURL;
+            capturedImage.style.display = 'block';
+
+            // Enable the upload button
+            uploadButton.disabled = false;
+        });
+
+        document.getElementById('uploadButton').addEventListener('click', function () {
+            var capturedImage = document.getElementById('capturedImage');
+            var dataURL = capturedImage.src;
+
+            fetch(dataURL)
+                .then(response => response.blob())
+                .then(blob => {
+                    var formData = new FormData();
+                    formData.append('image', blob, 'image.jpg');
+
+                    return fetch('/contractor/uploads', {
+                        method: 'POST',
+                        body: formData
+                    });
+                })
+                .then(response => {
+                    if (response.ok) {
+                        return response.text();
+                    }
+                    throw new Error('Failed to upload image.');
+                    console.log(Error)
+                })
+                .then(data => {
+                    alert(data);
+                })
+                .catch(error => {
+                    console.error('Error uploading image:', error);
+                    alert('An error occurred while uploading the image.'+ error);
+                });
+        });
+    </script>
+</body>
+
+</html>

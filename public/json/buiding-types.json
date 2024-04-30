@@ -1,0 +1,265 @@
+{
+    "building_types": [
+        {
+            "type": "Apartment Building"
+        },
+        {
+            "type": "Shopping Mall"
+        },
+        {
+            "type": "Single-Family House"
+        },
+        {
+            "type": "Office Building"
+        },
+        {
+            "type": "Hotel"
+        },
+        {
+            "type": "Warehouse"
+        },
+        {
+            "type": "School"
+        },
+        {
+            "type": "Hospital"
+        },
+        {
+            "type": "Restaurant"
+        },
+        {
+            "type": "Bank"
+        },
+        {
+            "type": "Library"
+        },
+        {
+            "type": "Church"
+        },
+        {
+            "type": "Factory"
+        },
+        {
+            "type": "Airport"
+        },
+        {
+            "type": "Train Station"
+        },
+        {
+            "type": "Bus Terminal"
+        },
+        {
+            "type": "Stadium"
+        },
+        {
+            "type": "Convention Center"
+        },
+        {
+            "type": "Theater"
+        },
+        {
+            "type": "Parking Garage"
+        },
+        {
+            "type": "Condominium"
+        },
+        {
+            "type": "Townhouse"
+        },
+        {
+            "type": "Supermarket"
+        },
+        {
+            "type": "Gas Station"
+        },
+        {
+            "type": "Post Office"
+        },
+        {
+            "type": "Fire Station"
+        },
+        {
+            "type": "Police Station"
+        },
+        {
+            "type": "Prison"
+        },
+        {
+            "type": "University"
+        },
+        {
+            "type": "College"
+        },
+        {
+            "type": "Art Gallery"
+        },
+        {
+            "type": "Museum"
+        },
+        {
+            "type": "Community Center"
+        },
+        {
+            "type": "Cinema"
+        },
+        {
+            "type": "Amusement Park"
+        },
+        {
+            "type": "Water Park"
+        },
+        {
+            "type": "Zoo"
+        },
+        {
+            "type": "Aquarium"
+        },
+        {
+            "type": "Skyscraper"
+        },
+        {
+            "type": "Town Hall"
+        },
+        {
+            "type": "City Hall"
+        },
+        {
+            "type": "Courthouse"
+        },
+        {
+            "type": "Embassy"
+        },
+        {
+            "type": "Lighthouse"
+        },
+        {
+            "type": "Observatory"
+        },
+        {
+            "type": "Power Plant"
+        },
+        {
+            "type": "Radio Station"
+        },
+        {
+            "type": "Television Station"
+        },
+        {
+            "type": "Grain Elevator"
+        },
+        {
+            "type": "Silos"
+        },
+        {
+            "type": "Wind Turbine"
+        },
+        {
+            "type": "Solar Farm"
+        },
+        {
+            "type": "Factory Outlet"
+        },
+        {
+            "type": "Theme Park"
+        },
+        {
+            "type": "Skating Rink"
+        },
+        {
+            "type": "Bowling Alley"
+        },
+        {
+            "type": "Arcade"
+        },
+        {
+            "type": "Ski Resort"
+        },
+        {
+            "type": "Golf Course"
+        },
+        {
+            "type": "Race Track"
+        },
+        {
+            "type": "Marina"
+        },
+        {
+            "type": "Harbor"
+        },
+        {
+            "type": "Port"
+        },
+        {
+            "type": "Fish Market"
+        },
+        {
+            "type": "Farmhouse"
+        },
+        {
+            "type": "Barn"
+        },
+        {
+            "type": "Greenhouse"
+        },
+        {
+            "type": "Lodge"
+        },
+        {
+            "type": "Resort"
+        },
+        {
+            "type": "Spa"
+        },
+        {
+            "type": "Casino"
+        },
+        {
+            "type": "Laboratory"
+        },
+        {
+            "type": "Gymnasium"
+        },
+        {
+            "type": "Parking Lot"
+        },
+        {
+            "type": "Shelter"
+        },
+        {
+            "type": "Gallery"
+        },
+        {
+            "type": "Exhibition Hall"
+        },
+        {
+            "type": "Clinic"
+        },
+        {
+            "type": "Dental Clinic"
+        },
+        {
+            "type": "Veterinary Clinic"
+        },
+        {
+            "type": "Laundromat"
+        },
+        {
+            "type": "Salon"
+        },
+        {
+            "type": "Barbershop"
+        },
+        {
+            "type": "Tattoo Parlor"
+        },
+        {
+            "type": "Pharmacy"
+        },
+        {
+            "type": "Car Wash"
+        },
+        {
+            "type": "Auto Repair Shop"
+        }
+    ]
+}

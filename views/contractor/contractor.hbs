@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="contractor.css">
+    <title>Document</title>
+</head>
+
+<body>
+    {{#if submitProfile}}
+    <div class="philler"></div>
+    {{/if}}
+    <header>
+        <div class="header">
+            <img src="/images/homecraft-logo.png" alt="">
+            <div class="navigations">
+                <ul>
+                    <li>
+                        <a href="/contractor/add-profile">
+                            Add Profile
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/contractor/portfolio">
+                            Add Portfolio
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/contractor/create-proposal">
+                            Create Proposal
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/contractor/proposal" class="flex a-center">
+                            Proposals
+                            {{#if count}}
+                            <span class="count">{{count}}</span>
+                            {{else}}
+                            <span class="count">0</span>
+                            {{/if}}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/contractor/chat">
+                            Chat
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/updates" style="display: flex; align-items: center;">
+                            Updates
+                            {{#if listCount}}
+                            <span class="count">{{listCount}}</span>
+                            {{else}}
+                            <span class="count">0</span>
+                            {{/if}}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/contractor/feedback">
+                            Feedabacks
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/contractor/action">
+                            Action
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="right">
+                <a href="/contractor/logout">Logout</a>
+                <button>Start Free</button>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="container">
+            <div class="item item-1">
+                <img src="/images/image-1.avif" alt="">
+            </div>
+            <div class="item item-2">
+                <img src="/images/image-2.avif" alt="">
+            </div>
+            <div class="item item-3">
+                <img src="/images/image-3.avif" alt="">
+            </div>
+            <div class="item item-4">
+                <img src="/images/image-4.avif" alt="">
+            </div>
+            <div class="item item-5">
+                <img src="/images/image-5.avif" alt="">
+            </div>
+            <div class="item item-6">
+                <img src="/images/image-6.avif" alt="">
+            </div>
+        </div>
+        {{#if contractor}}
+        <h1 id="welcome">Welcome, {{contractor.name}}</h1>
+        {{/if}}
+        <p>
+            Greetings, Contractor! Begin your journey to excellence in construction.
+        </p>
+    </section>
+
+    <section id="go-to">
+
+    </section>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var items = document.querySelectorAll('.item-1, .item-3, .item-5');
+            var welcome = document.getElementById('welcome');
+            var lastScrollTop = 0;
+
+            function handleScroll() {
+                var currentScrollTop = window.scrollY || window.pageYOffset;
+
+                if (currentScrollTop > lastScrollTop) {
+                    // Scrolling down
+                    items.forEach(function (item) {
+                        item.classList.add('animate');
+                    });
+                    welcome.classList.remove('show');
+                } else {
+                    items.forEach(function (item) {
+                        item.classList.remove('animate');
+                    });
+                }
+                lastScrollTop = currentScrollTop;
+
+                if (currentScrollTop >= (document.documentElement.scrollHeight - window.innerHeight)) {
+                    welcome.classList.add('show');
+                } else {
+                    welcome.classList.remove('show');
+                }
+            }
+            window.addEventListener('scroll', handleScroll);
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var pTag = document.querySelector('p');
+
+            function handleScroll() {
+                var currentScrollTop = window.scrollY || window.pageYOffset;
+
+                if (currentScrollTop >= (document.documentElement.scrollHeight - window.innerHeight)) {
+                    pTag.classList.add('show');
+                } else {
+                    pTag.classList.remove('show');
+                }
+            }
+            window.addEventListener('scroll', handleScroll);
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var goToSection = document.getElementById('go-to');
+            goToSection.scrollIntoView({ behavior: 'smooth' });
+        });
+
+    </script>
+</body>
+
+</html>

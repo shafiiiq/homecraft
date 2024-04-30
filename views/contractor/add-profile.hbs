@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>You are there</title>
+</head>
+
+<body>
+    <form class="form" action="/contractor/add-profile" method="post" enctype="multipart/form-data">
+        <div class="container">
+            <div class="left">
+                <a href="/index.html">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+                <h1>
+                    Add your Profile
+                </h1>
+            </div>
+            <div class="right">
+                <div class="contractor-details">
+                    <div class="file-input-4" style="margin-left: 20.5rem; margin-top: 0.5rem">
+                        <input type="file" name="profilePhoto">
+                    </div>
+                    <input class="holder" type="text" name="companyName" placeholder="Company name (if you have)">
+                    <div class="full flex">
+                        <input class="holder w-e" type="tel" name="phoneNumber" placeholder="Phone Number">
+                        <input class="holder w-e" type="tel" name="alternateNumber" placeholder="Alternate Number">
+                    </div>
+                    <textarea class="holder" id="workStatus" name="workStatus" cols="30" rows="10"
+                        placeholder="Work status"></textarea>
+                    <div class="proofs">
+                        <div class="file-input-1">
+                            <input type="file" name="contractorLicence">
+                        </div>
+                        <div class="file-input-2">
+                            <input type="file" name="supervisorLicence">
+                        </div>
+                        <div class="file-input-3">
+                            <input type="file" name="wiremanLicence">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input class="absolute" type="submit" value="Submit">
+    </form>
+
+    <script src="https://kit.fontawesome.com/f83293ade7.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

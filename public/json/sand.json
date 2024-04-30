@@ -1,0 +1,125 @@
+{
+    "sand_types":
+    [
+        {
+            "type": "Coarse Sand",
+            "logo": "logos/abc-sand.png"
+        },
+        {
+            "type": "Concrete Sand",
+            "logo": "logos/xyz-sand.png"
+        },
+        {
+            "type": "Construction Sand",
+            "logo": "logos/pqr-sand.png"
+        },
+        {
+            "type": "Extra Sand",
+            "logo": "logos/extra-sand.png"
+        },
+        {
+            "type": "Fine Sand",
+            "logo": "logos/lmn-sand.png"
+        },
+        {
+            "type": "Filter Sand",
+            "logo": "logos/def-sand.png"
+        },
+        {
+            "type": "Foundry Sand",
+            "logo": "logos/mno-sand.png"
+        },
+        {
+            "type": "Glass Sand",
+            "logo": "logos/ijk-sand.png"
+        },
+        {
+            "type": "Gravel Sand",
+            "logo": "logos/hij-sand.png"
+        },
+        {
+            "type": "Masonry Sand",
+            "logo": "logos/uvw-sand.png"
+        },
+        {
+            "type": "Plaster Sand",
+            "logo": "logos/efg-sand.png"
+        },
+        {
+            "type": "Play Sand",
+            "logo": "logos/stu-sand.png"
+        },
+        {
+            "type": "Pool Sand",
+            "logo": "logos/klm-sand.png"
+        },
+        {
+            "type": "River Sand",
+            "logo": "logos/ghi-sand.png"
+        },
+        {
+            "type": "Roofing Sand",
+            "logo": "logos/rst-sand.png"
+        },
+        {
+            "type": "Sharp Sand",
+            "logo": "logos/abc-sand.png"
+        },
+        {
+            "type": "Silica Sand",
+            "logo": "logos/def-sand.png"
+        },
+        {
+            "type": "Sub-Base Sand",
+            "logo": "logos/lmn-sand.png"
+        },
+        {
+            "type": "Tarmac Sand",
+            "logo": "logos/uvw-sand.png"
+        },
+        {
+            "type": "Tile Sand",
+            "logo": "logos/xyz-sand.png"
+        },
+        {
+            "type": "Utility Sand",
+            "logo": "logos/ijk-sand.png"
+        },
+        {
+            "type": "Washed Sand",
+            "logo": "logos/efg-sand.png"
+        },
+        {
+            "type": "White Sand",
+            "logo": "logos/hij-sand.png"
+        },
+        {
+            "type": "Yellow Sand",
+            "logo": "logos/klm-sand.png"
+        },
+        {
+            "type": "Zircon Sand",
+            "logo": "logos/pqr-sand.png"
+        },
+        {
+            "type": "Zebra Sand",
+            "logo": "logos/ghi-sand.png"
+        },
+        {
+            "type": "Zen Sand",
+            "logo": "logos/rst-sand.png"
+        },
+        {
+            "type": "Zephyr Sand",
+            "logo": "logos/stu-sand.png"
+        },
+        {
+            "type": "Zirconium Sand",
+            "logo": "logos/abc-sand.png"
+        },
+        {
+            "type": "Zoom Sand",
+            "logo": "logos/lmn-sand.png"
+        }
+    ]
+}

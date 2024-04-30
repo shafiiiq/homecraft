@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        * {
+            font-family: 'Poppins', sans-serif;
+            border: 0;
+            outline: 0;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            background-color: #191919;
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: rgb(202, 202, 202);
+            font-size: 6rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(31, 31, 31);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            align-items: center;
+            margin-top: 4rem;
+        }
+
+        p span {
+            color: rgb(128, 128, 128);
+        }
+
+        .edit-form {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            height: 100vh;
+            width: 100vw;
+            background-color: #1c1e25;
+        }
+
+        form {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .div {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: start;
+            gap: 0.5rem;
+            width: 38%;
+        }
+
+        input {
+            width: 100%;
+            height: 3.5rem;
+            background-color: rgb(64, 66, 79);
+            border-radius: 10px;
+            padding-inline: 1rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+            color: rgb(126, 129, 152);
+        }
+
+        textarea {
+            width: 100%;
+            background-color: rgb(64, 66, 79);
+            border-radius: 10px;
+            padding: 1rem 0 0 1rem;
+            color: rgb(126, 129, 152);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .divv {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            width: 38%;
+        }
+
+        .point {
+            cursor: pointer;
+        }
+
+        #change {
+            background-color: rgb(103, 116, 146);
+            color: white;
+            font-size: 20px;
+        }
+
+        #submit {
+            background-color: rgb(48, 66, 55);
+            color: white;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        {{#if submitted}}
+        Already <br> Submitted
+        {{else if waitFor}}
+        Await for Admin<br>Authourisation
+        {{else if report}}
+        This function is currently <br>
+        Unavailable
+        {{/if}}
+    </h1>
+    {{!-- <p id="edit">
+        Edit Profile
+    </p> --}}
+
+    <div class="edit-form" style="display: none;">
+        {{#each profile}}
+        <form action="/contractor/update-profile" method="post">
+            <div class="div">
+                <label>Company Name</label>
+                <input type="text" value="{{this.companyName}}" disabled class="disabled inputs" name="companyName">
+            </div>
+            <div class="div">
+                <label>Phone Number</label>
+                <input type="text" value="{{this.phoneNumber}}" disabled class="disabled inputs" name="phoneNumber">
+            </div>
+            <div class="div">
+                <label>Alternate Number</label>
+                <input type="text" value="{{this.alternateNumber}}" disabled class="disabled inputs" name="alternateNumber">
+            </div>
+            <div class="div">
+                <label>Works status</label>
+                <textarea id="workStatus" cols="30" rows="10" disabled class="disabled inputs" name="workStatus">{{this.workStatus}}</textarea>
+            </div>
+
+            <div class="divv">
+                <input type="button" value="Update" id="change" class="point">
+                <input type="submit" value="Submit" id="submit" class="point" disabled>
+            </div>
+        </form>
+        {{/each}}
+    </div>
+
+    <script>
+        document.getElementById('edit').addEventListener('click', function () {
+            document.querySelector('.edit-form').style.display = "flex"
+        })
+
+        document.getElementById('change').addEventListener('click', function () {
+            var disabledElements = document.querySelectorAll('.disabled');
+            var inputs = document.querySelectorAll('.inputs');
+
+            disabledElements.forEach(function (element) {
+                element.removeAttribute('disabled');
+            });
+
+            inputs.forEach(function (element) {
+                element.style.color = '#ffffff'
+            });
+
+            document.getElementById('submit').removeAttribute('disabled');
+            document.getElementById('submit').style.backgroundColor = ' rgb(20, 130, 64)'
+        });
+        
+    </script>
+</body>
+
+</html>

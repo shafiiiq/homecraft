@@ -1,0 +1,125 @@
+{
+    "db_board_companies":
+    [
+        {
+            "company": "ABB",
+            "logo": "logos/abb.png"
+        },
+        {
+            "company": "Anchor Electricals Pvt. Ltd.",
+            "logo": "logos/anchor-electricals.png"
+        },
+        {
+            "company": "Bajaj Electricals Ltd.",
+            "logo": "logos/bajaj-electricals.png"
+        },
+        {
+            "company": "C&S Electric Limited",
+            "logo": "logos/cs-electric.png"
+        },
+        {
+            "company": "Crabtree",
+            "logo": "logos/crabtree.png"
+        },
+        {
+            "company": "Eaton",
+            "logo": "logos/eaton.png"
+        },
+        {
+            "company": "Finolex Cables Ltd.",
+            "logo": "logos/finolex-cables.png"
+        },
+        {
+            "company": "GM Modular Pvt. Ltd.",
+            "logo": "logos/gm-modular.png"
+        },
+        {
+            "company": "Havells India Ltd.",
+            "logo": "logos/havells.png"
+        },
+        {
+            "company": "IndoAsian",
+            "logo": "logos/indoasian.png"
+        },
+        {
+            "company": "KEI Industries Ltd.",
+            "logo": "logos/kei-industries.png"
+        },
+        {
+            "company": "Legrand India",
+            "logo": "logos/legrand-india.png"
+        },
+        {
+            "company": "L&T",
+            "logo": "logos/lt.png"
+        },
+        {
+            "company": "MKS",
+            "logo": "logos/mks.png"
+        },
+        {
+            "company": "Orient Electric Limited",
+            "logo": "logos/orient-electric-limited.png"
+        },
+        {
+            "company": "Orpat",
+            "logo": "logos/orpat.png"
+        },
+        {
+            "company": "Philips",
+            "logo": "logos/philips.png"
+        },
+        {
+            "company": "Polycab India Ltd.",
+            "logo": "logos/polycab.png"
+        },
+        {
+            "company": "Rishabh",
+            "logo": "logos/rishabh.png"
+        },
+        {
+            "company": "Schneider Electric India Pvt. Ltd.",
+            "logo": "logos/schneider-electric.png"
+        },
+        {
+            "company": "Siemens",
+            "logo": "logos/siemens.png"
+        },
+        {
+            "company": "Syska LED Lights Pvt. Ltd.",
+            "logo": "logos/syska.png"
+        },
+        {
+            "company": "Tripper",
+            "logo": "logos/tripper.png"
+        },
+        {
+            "company": "V-Guard",
+            "logo": "logos/v-guard.png"
+        },
+        {
+            "company": "Wipro North-West Electricals",
+            "logo": "logos/wipro-north-west-electricals.png"
+        },
+        {
+            "company": "Woodward",
+            "logo": "logos/woodward.png"
+        },
+        {
+            "company": "Xpro India Limited",
+            "logo": "logos/xpro-india.png"
+        },
+        {
+            "company": "Yamuna Power & Infrastructure Ltd.",
+            "logo": "logos/yamuna-power.png"
+        },
+        {
+            "company": "Zebron Solar",
+            "logo": "logos/zebron-solar.png"
+        },
+        {
+            "company": "Zicom",
+            "logo": "logos/zicom.png"
+        }
+    ]
+}

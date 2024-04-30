@@ -1,0 +1,575 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,100,0,0');
+
+* {
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+.material-symbols-rounded {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 100,
+        'GRAD' 0,
+        'opsz' 24
+}
+
+
+body {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+    background-image: url('/images/subscriber-img.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+header {
+    background-color: transparent;
+    z-index: 2;
+    position: relative;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 3rem;
+}
+
+header nav >img {
+    height: 6rem;
+}
+
+header nav .navigations {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+header nav .navigations ul {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+header nav .navigations ul li a {
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 400;
+    transition: all 0.3s ease;
+}
+
+header nav .navigations ul li a:hover {
+    color: rgb(0, 163, 125);
+}
+
+header nav .navigations img {
+    height: 3.1rem;
+    width: 3.1rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.account {
+    position: absolute;
+    background-color: white;
+    width: 15rem;
+    height: fit-content;
+    right: 3rem;
+    top: 5.5rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.main .img-name {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.account img {
+    height: 2.3rem;
+    width: 2.3rem;
+    border-radius: 50%;
+}
+
+.account .main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0.3rem;
+    background-color: rgb(11, 115, 122);
+    color: white;
+}
+
+.account .main input {
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    border: none;
+    background-color: rgb(0, 57, 75);
+    color: white;
+}
+
+.account .controls ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0 0.3rem;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.account .controls ul li {
+    display: flex;
+    align-items: center;
+    padding: 0.4rem;
+    height: 3.5rem;
+    background-color: rgb(245, 248, 251);
+    border-bottom: 0.6px solid rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.account .controls ul li:hover {
+    background-color: rgba(186, 211, 211, 0.2);
+}
+
+section .intro {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.61);
+    z-index: 1;
+}
+
+
+@media (min-aspect-ratio : 2/1) {
+    .intro {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-aspect-ratio : 2/1) {
+    .intro {
+        width: auto;
+        height: 100%;
+    }
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+    gap: 0.6rem;
+    height: 90%;
+}
+
+section h1,p {
+    z-index: 1;
+}
+
+section h1 {
+    font-size: 2.5rem;
+}
+
+section p {
+    text-align: center;
+}
+
+.user-img {
+    background-color: rgb(208, 208, 208);
+}
+
+.user-img {
+    object-fit: cover;
+}
+
+.project-completed {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(49, 50, 53);
+    z-index: 1000000;
+    color: rgb(219, 216, 233);
+    animation: colorChange 2s infinite alternate;
+}
+
+
+.project-completed .p {
+    font-size: 20px;
+}
+
+@keyframes colorChange {
+    0% { background-color: rgb(25, 25, 25); } /* Black */
+    10% { background-color: rgb(20, 20, 25); } /* Slightly darker blue */
+    20% { background-color: rgb(30, 30, 35); } /* Slightly darker purple */
+    30% { background-color: rgb(30, 30, 40); } /* Slightly darker indigo */
+    40% { background-color: rgb(35, 35, 40); } /* Slightly darker violet */
+    50% { background-color: rgb(40, 40, 45); } /* Slightly darker magenta */
+    60% { background-color: rgb(45, 45, 50); } /* Slightly darker pink */
+    70% { background-color: rgb(42, 39, 39); } /* Slightly darker coral */
+    80% { background-color: rgb(55, 55, 60); } /* Slightly darker salmon */
+    90% { background-color: rgb(40, 43, 43); } /* Slightly darker orange */
+    100% { background-color: rgb(46, 46, 50); } /* Slightly darker gold */
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateY(0); animation-delay: 4s; }
+    10%, 30%, 50%, 70%, 90% { transform: translateY(-5px); } /* Shake */
+    20%, 40%, 60%, 80% { transform: translateY(5px); } /* Shake */
+}
+
+.project-completed h1 {
+    font-size: 90px;
+    animation: shake cubic-bezier(1, -0.72, 0, 0.06) 6.5s infinite; 
+}
+
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: -1rem;
+    background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: confetti-fall 5s infinite;
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 1;
+    }
+}
+
+.abs {
+    position: absolute;
+}
+
+.quit-out {
+    top: 2rem;
+    right: 2rem;
+    width: 10rem;
+    height: 3.5rem;
+    border-radius: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: rgb(156, 27, 27);
+}
+
+.continue-to {
+    top: 3rem;
+    right: 14rem;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+
+.feedback-form {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    inset: 0;
+    background-color: rgb(33, 32, 34);
+    z-index: 10;
+}
+
+.feedback-form .form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-inline: 10rem;
+    gap: 2rem;
+}
+
+.feedback-form textarea {
+    background-color: rgb(60, 53, 67);
+    border-radius: 3vh;
+    height: 35rem;
+    width: 100%;
+    border: 0;
+    padding: 2rem 0 0 2rem;
+    color: white;
+    font-size: 16px;
+}
+
+.feedback-form textarea::-webkit-scrollbar {
+    width: 0;
+}
+
+.feedback-form textarea::placeholder {
+    color: white;
+}
+
+.feedback-form input {
+    background-color: rgb(103, 74, 131);
+    height: 4.5rem;
+    width: 15rem;
+    color: white;
+    font-size: 20px;
+    border-radius: 100vh;
+    border: 0;
+    cursor: pointer;
+}
+
+.divv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.divv p {
+    color: rgb(138, 95, 179);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.feed-msg-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    inset: 0;
+    background-color: rgb(33, 32, 34);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding-inline: 24rem;
+    gap: 1.5rem;
+}
+
+.feed-msg-container span {
+    font-size: 120px;
+    animation: fadeIn 2s ease forwards;
+}
+
+.feed-msg-container .feedback-msg {
+    font-size: 18px;
+    animation: fadeIn 2s ease forwards;
+    margin-bottom: 5rem;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.feed-msg-container .bott {
+    position: absolute;
+    bottom: 2.5rem;
+    color: rgb(170 129 173);
+    cursor: pointer;
+}
+
+.view-account {
+    position: absolute;
+    height: 80%;
+    top: 5.2rem;
+    width: 26rem;
+    right: 3rem;
+    background-color: white;
+    color: black;
+    z-index: 10000000000;
+    padding: 2rem 1rem;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+}
+
+.view-account form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+
+.div {
+    width: 100%;
+}
+
+.view-account input {
+    width: 100%;
+    height: 4rem;
+    background-color: rgb(217, 217, 231);
+    border: 0;
+    border-radius: 3px;
+    padding-inline: 1rem;
+}
+
+.set {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+#enable {
+    background-color: rgb(190, 22, 22);
+    color: white;
+    font-size: 20px;
+}
+
+#submit {
+    background-color: rgb(18, 105, 22);
+    color: white;
+    font-size: 20px;
+}
+
+/* file input  */
+
+.file-input-1 {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.file-input-1 input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.file-input-1::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    cursor: pointer;
+}
+
+.point {
+    cursor: pointer;
+}
+
+#update-pswd {
+    color: red;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.change-pswd {
+    height: 35rem;
+    width: 25rem;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000000000;
+    border-radius: 3px;
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    font-size: 30px;
+    align-items: center;
+}
+
+.change-pswd form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    height: 100%;
+    align-items: center;
+}
+
+.change-pswd form input {
+    width: 100%;
+    height: 3.5rem;
+    background-color: rgb(225, 229, 233);
+    border-radius: 5px;
+    border: 0;
+    outline: 0;
+    padding: 0 0 0 1rem;
+}
+
+.change-pswd form input:last-child {
+    position: absolute;
+    bottom: 0;
+    background-color: rgb(32, 32, 181);
+    width: 60%;
+    padding: 0;
+    color: white;
+    cursor: pointer;
+}
+
+.change-pswd .message {
+    position: absolute;
+    color: red;
+    left: 2rem;
+    top: 20.4rem;
+    font-size: 14px;
+}
+
+.change-pswd span {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 30px;
+    cursor: pointer;
+}
+

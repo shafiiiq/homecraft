@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="icon" href="/images/logo.png">
+    <title>Chat </title>
+</head>
+
+<body>
+    <div class="container">
+        <aside class="aside-sidebar">
+            <div class="sidebar">
+                <img src="/images/moxie.png" class="left-img" alt="">
+                {{#if clientChat}}
+                <a href="/client/home">
+                    <span class="material-icons-round pointer" id="home">
+                        roofing
+                    </span>
+                </a>
+                {{else if contractorChat}}
+                <a href="/contractor/home">
+                    <span class="material-icons-round pointer" id="home">
+                        roofing
+                    </span>
+                </a>
+                {{/if}}
+                <span class="material-icons-round selected">
+                    sms
+                </span>
+                <span class="material-icons-round">
+                    groups
+                </span>
+                <span class="material-icons-round">
+                    contacts
+                </span>
+                <span class="material-icons-round">
+                    settings
+                </span>
+                <span class="material-icons-round">
+                    language
+                </span>
+                <img src="/images/agent-6.jpg" alt="">
+            </div>
+        </aside>
+        <aside class="aside-chat-list">
+            <div class="chat-list">
+                <h1
+                    style="display: flex; align-items:center; justify-content:space-between; width:100%; padding: 0 1rem 0 0">
+                    Chat
+                    <div style="display: flex; justify-content: center; align-items: center; gap:1rem;">
+                        <span class="material-icons-round">
+                            create
+                        </span>
+                        <span class="material-icons-round">
+                            filter_list
+                        </span>
+                    </div>
+                </h1>
+                <input type="search" placeholder="Search message or users">
+                <div class="lists">
+                    {{!-- client chat left section starts --}}
+                    {{#if clientChat}}
+                    {{#each allChats}}
+                    <div class="items" onclick="takeChat('{{this.contractorName}}','{{this.contractorEmail}}', 
+                    [ {{#each chats}}
+                    { 
+                    clientMessage: '{{clientMessage}}',
+                    clientSendedTime: '{{clientSendedTime}}',
+                    sender: '{{sender}}',
+                    contractorMessage: '{{contractorMessage}}',
+                    contractorSendedTime: '{{contractorSendedTime}}',
+                    receiver: '{{receiver}}'
+                    }{{#unless @last}},{{/unless}}
+                    {{/each}} ]
+                     )">
+                        <div class="profile-name">
+                            <img src="/contractor_data/{{this.contractorEmail}}profile.jpg" alt=""
+                                style="height: 2.5rem; object-fit: cover;">
+                            <div class="user-message">
+                                <h2>{{this.contractorName}}</h2>
+                                <p class="last-message"></p>
+                            </div>
+                        </div>
+                        <p class="time"></p>
+                    </div>
+                    {{/each}}
+                    {{!-- client chat left section ends --}}
+
+                    {{!-- contractor chat left section starts --}}
+                    {{else if contractor}}
+                    {{#each allChats}}
+                    <div class="items" onclick="takeContractorChat('{{this.clientName}}', '{{this.clientEmail}}',
+                    [ {{#each chats}}
+                    { 
+                    clientMessage: '{{clientMessage}}',
+                    clientSendedTime: '{{clientSendedTime}}',
+                    sender: '{{sender}}',
+                    contractorMessage: '{{contractorMessage}}',
+                    contractorSendedTime: '{{contractorSendedTime}}',
+                    receiver: '{{receiver}}'
+                    }{{#unless @last}},{{/unless}}
+                    {{/each}} ]
+                     )">
+                        <div class="profile-name">
+                            <img src="/client_data/{{this.clientProfileId}}profile.jpg" alt="" style="height: 2.5rem; object-fit: cover;">
+                            <div class="user-message">
+                                <h2>{{this.clientName}}</h2>
+                                <p id="last-message">{{lastMessage}}</p>
+                            </div>
+                        </div>
+                        <p class="time">{{messageTime}}</p>
+                    </div>
+                    {{/each}}
+                    {{!-- contractor chat left section ends --}}
+                    {{/if}}
+                </div>
+            </div>
+        </aside>
+        <div class="chat">
+            {{#if clientSended}}
+            <header class="chat-header" style="display: flex;">
+                <div class="user-info">
+                    {{#if contractorEmail}}
+                    <img src="/contractor_data/{{this.contractorEmail}}profile.jpg" alt=""
+                        style="object-fit: cover; height: 2.5rem;">
+                    {{/if}}
+                    {{#each allChats}}
+                    <h1 class="opposite-person">{{this.contractorName}}</h1>
+                    {{/each}}
+                </div>
+                <div class="navigation">
+                    <span class="material-icons-round">
+                        search
+                    </span>
+                    <span class="material-icons-round">
+                        call
+                    </span>
+                    <span class="material-icons-round">
+                        video_call
+                    </span>
+                    <span class="material-icons-round">
+                        perm_identity
+                    </span>
+                    <span class="material-icons-round">
+                        more_horiz
+                    </span>
+                </div>
+            </header>
+            {{else if contractorSended}}
+            <header class="chat-header" style="display: flex;">
+                <div class="user-info">
+                    {{#if contractorEmail}}
+                    <img src="/contractor_data/{{this.contractorEmail}}profile.jpg" alt=""
+                        style="object-fit: cover; height: 2.5rem;">
+                    {{/if}}
+                    <h1 class="opposite-person"></h1>
+                </div>
+                <div class="navigation">
+                    <span class="material-icons-round">
+                        search
+                    </span>
+                    <span class="material-icons-round">
+                        call
+                    </span>
+                    <span class="material-icons-round">
+                        video_call
+                    </span>
+                    <span class="material-icons-round">
+                        perm_identity
+                    </span>
+                    <span class="material-icons-round">
+                        more_horiz
+                    </span>
+                </div>
+            </header>
+            {{else}}
+            <header class="chat-header" style="display: none;">
+                <div class="user-info">
+                    {{#if contractorEmail}}
+                    <img src="/contractor_data/{{this.contractorEmail}}profile.jpg" alt=""
+                        style="object-fit: cover; height: 2.5rem;">
+                    {{/if}}
+                    <h1 class="opposite-person"></h1>
+                </div>
+                <div class="navigation">
+                    <span class="material-icons-round">
+                        search
+                    </span>
+                    <span class="material-icons-round">
+                        call
+                    </span>
+                    <span class="material-icons-round">
+                        video_call
+                    </span>
+                    <span class="material-icons-round">
+                        perm_identity
+                    </span>
+                    <span class="material-icons-round">
+                        more_horiz
+                    </span>
+                </div>
+            </header>
+            {{/if}}
+            {{!-- section starts --}}
+            <section>
+                {{#if clientSended}}
+                <div class="chat-index" style="display: none;">
+                    <img src="/images/moxie.png" alt="">
+                    <p class="bold">
+                        Moxie for Homecraft
+                    </p>
+                    <p class="t-center">
+                        Where every conversation is securely encrypted <br> and safeguarded, ensuring your privacy and
+                        peace of mind.
+                    </p>
+                    <p class="absolute-p">
+                        <span class="material-icons-round" id="lock-icon">
+                            lock
+                        </span>
+                        End to end encypted
+                    </p>
+                </div>
+                <div class="chat-window" style="display: flex;">
+                    {{#if clientChat}}
+                    {{#each allChats.[0].chats}}
+                    {{#if contractorMessage}}
+                    <div class="you">
+                        <img src="/images/agent-4.jpg" alt="">
+                        <div class="wrap">
+                            <p class="absolute light you-time">{{contractorSendedTime}}</p>
+                            <img src="" alt="" style="display: none;">
+                            <h2 class="light-m">{{contractorMessage}}</h2>
+                        </div>
+                    </div>
+                    {{else if clientMessage}}
+                    <div class="me">
+                        <div class="wrap">
+                            <p class="absolute light me-time">{{clientSendedTime}}</p>
+                            <img src="" alt="" style="display: none;">
+                            <h2 class="light-m">{{clientMessage}}</h2>
+                        </div>
+                        <img src="/images/agent-3.jpg" alt="">
+                    </div>
+                    {{/if}}
+                    {{/each}}
+                    {{/if}}
+                </div>
+
+
+                {{else if contractorSended}}
+                <div class="chat-index" style="display: none;">
+                    <img src="/images/moxie.png" alt="">
+                    <p class="bold">
+                        Moxie for Homecraft
+                    </p>
+                    <p class="t-center">
+                        Where every conversation is securely encrypted <br> and safeguarded, ensuring your privacy and
+                        peace of mind.
+                    </p>
+                    <p class="absolute-p">
+                        <span class="material-icons-round" id="lock-icon">
+                            lock
+                        </span>
+                        End to end encypted
+                    </p>
+                </div>
+                <div class="chat-window" style="display: flex;">
+                    {{#if contractorChat}}
+                    {{#each thisEmailChats.[0].chats}}
+                    {{#if clientMessage}}
+                    <div class="you">
+                        <img src="/images/agent-4.jpg" alt="">
+                        <div class="wrap">
+                            <p class="absolute light you-time">{{clientSendedTime}}</p>
+                            <img src="" alt="" style="display: none;">
+                            <h2 class="light-m">{{clientMessage}}</h2>
+                        </div>
+                    </div>
+                    {{else if contractorMessage}}
+                    <div class="me">
+                        <div class="wrap">
+                            <p class="absolute light me-time">{{contractorSendedTime}}</p>
+                            <img src="" alt="" style="display: none;">
+                            <h2 class="light-m">{{contractorMessage}}</h2>
+                        </div>
+                        <img src="/images/agent-3.jpg" alt="">
+                    </div>
+                    {{/if}}
+                    {{/each}}
+                    {{/if}}
+                </div>
+
+                {{else}}
+                <div class="chat-index">
+                    <img src="/images/moxie.png" alt="">
+                    <p class="bold">
+                        Moxie for Homecraft
+                    </p>
+                    <p class="t-center">
+                        Where every conversation is securely encrypted <br> and safeguarded, ensuring your privacy and
+                        peace of mind.
+                    </p>
+                    <p class="absolute-p">
+                        <span class="material-icons-round" id="lock-icon">
+                            lock
+                        </span>
+                        End to end encypted
+                    </p>
+                </div>
+                {{!-- heloo --}}
+                <div class="chat-window" style="display: none;">
+                    <span class="material-symbols-rounded take-b-absolute" id="take-bottom">
+                        arrow_downward
+                    </span>
+                    <span class="material-symbols-rounded take-t-absolute" id="take-top" style="display: none;">
+                        arrow_upward
+                    </span>
+                    {{!-- here is onclick chat --}}
+                </div>
+                {{/if}}
+            </section>
+            {{!-- chat window section ends --}}
+            {{#if clientSended}}
+            {{!-- chat footr section starts --}}
+            <footer class="chat-footer relative" style="display: flex;">
+                {{#if clientChat}}
+                <form action="/client/chat" method="post" id="clientForm" class="globalForm"
+                    onsubmit="handleFormSubmit(event)">
+                    <div class="attachments">
+                        <div class="file-input-container files">
+                            <input name="clientFile" type="file" id="fileInput" class="hidden"
+                                onchange="displayFileName()">
+                            <label for="fileInput" class="file-input-label">
+                                <span class="material-icons-round">
+                                    attachment
+                                </span>
+                            </label>
+                            <span id="fileName"></span>
+                        </div>
+                        <div class="file-input-container image">
+                            <input name="clientImage" type="file" id="fileInput" class="hidden"
+                                onchange="displayFileName()">
+                            <label for="fileInput" class="file-input-label">
+                                <span class="material-icons-round">
+                                    image
+                                </span>
+                            </label>
+                            <span id="fileName"></span>
+                        </div>
+                    </div>
+                    <input name="clientMessage" type="text" placeholder="Enter Message..." autofocus id="message">
+                    <button style="background-color: transparent; cursor: pointer; display: none;" type="submit"
+                        class="send-btn">
+                        <span class="material-icons-round send">
+                            send
+                        </span>
+                    </button>
+                </form>
+                {{else if contractorChat}}
+                <form action="/contractor/chat" method="post" class="globalForm" onsubmit="handleFormSubmit(event)">
+                    <input name="contractorMessage" type="text" placeholder="Enter Message..." autofocus>
+                    <div class="attachments">
+                        <div class="file-input-container files">
+                            <input name="contractorFile" type="file" id="fileInput" class="hidden"
+                                onchange="displayFileName()">
+                            <label for="fileInput" class="file-input-label">
+                                <span class="material-icons-round">
+                                    attachment
+                                </span>
+                            </label>
+                            <span id="fileName"></span>
+                        </div>
+                        <div class="file-input-container image">
+                            <input name="contractorImage" type="file" id="fileInput" class="hidden"
+                                onchange="displayFileName()">
+                            <label for="fileInput" class="file-input-label">
+                                <span class="material-icons-round">
+                                    image
+                                </span>
+                            </label>
+                            <span id="fileName"></span>
+                        </div>
+                        <button style="background-color: transparent; cursor: pointer;" type="submit">
+                            <span class="material-icons-round send">
+                                send
+                            </span>
+                        </button>
+                    </div>
+                </form>
+                {{/if}}
+            </footer>
+
+            {{!-- if contractor sended the message --}}
+            {{else if contractorSended}}
+            {{!-- chat footr section starts --}}
+            <footer class="chat-footer relative" style="display: flex;">
+                {{#if clientChat}}
+                <form action="/client/chat" method="post" id="clientForm" class="globalForm"
+                    onsubmit="handleFormSubmit(event)">
+                    <div class="attachments">
+                        <div class="file-input-container files">
+                            <input name="clientFile" type="file" id="fileInput" class="hidden"
+                                onchange="displayFileName()">
+                            <label for="fileInput" class="file-input-label">
+                                <span class="material-icons-round">
+                                    attachment
+                                </span>
+                            </label>
+                            <span id="fileName"></span>
+                        </div>
+                        <div class="file-input-container image">
+                            <input name="clientImage" type="file" id="fileInput" class="hidden"
+                                onchange="displayFileName()">
+                            <label for="fileInput" class="file-input-label">
+                                <span class="material-icons-round">
+                                    image
+                                </span>
+                            </label>
+                            <span id="fileName"></span>
+                        </div>
+                    </div>
+                    <input name="clientMessage" type="text" placeholder="Enter Message..." autofocus id="message">
+                    <button style="background-color: transparent; cursor: pointer; display: none;" type="submit"
+                        class="send-btn">
+                        <span class="material-icons-round send">
+                            send
+                        </span>
+                    </button>
+                </form>
+                {{else if contractorChat}}
+                <form action="/contractor/chat" method="post" class="globalForm" onsubmit="handleFormSubmit(event)">
+                    <input name="contractorMessage" type="text" placeholder="Enter Message..." autofocus>
+                    <div class="attachments">
+                        <div class="file-input-container files">
+                            <input name="contractorFile" type="file" id="fileInput" class="hidden"
+                                onchange="displayFileName()">
+                            <label for="fileInput" class="file-input-label">
+                                <span class="material-icons-round">
+                                    attachment
+                                </span>
+                            </label>
+                            <span id="fileName"></span>
+                        </div>
+                        <div class="file-input-container image">
+                            <input name="contractorImage" type="file" id="fileInput" class="hidden"
+                                onchange="displayFileName()">
+                            <label for="fileInput" class="file-input-label">
+                                <span class="material-icons-round">
+                                    image
+                                </span>
+                            </label>
+                            <span id="fileName"></span>
+                        </div>
+                        <button style="background-color: transparent; cursor: pointer;" type="submit">
+                            <span class="material-icons-round send">
+                                send
+                            </span>
+                        </button>
+                    </div>
+                </form>
+                {{/if}}
+            </footer>
+
+            {{else}}
+            <footer class="chat-footer relative" style="display: none;">
+                {{#if clientChat}}
+                <form action="/client/chat" method="post" id="clientForm" class="globalForm"
+                    onsubmit="handleFormSubmit(event)">
+                    <div class="attachments">
+                        <div class="file-input-container files">
+                            <input name="clientFile" type="file" id="fileInput" class="hidden"
+                                onchange="displayFileName()">
+                            <label for="fileInput" class="file-input-label">
+                                <span class="material-icons-round">
+                                    attachment
+                                </span>
+                            </label>
+                            <span id="fileName"></span>
+                        </div>
+                        <div class="file-input-container image">
+                            <input name="clientImage" type="file" id="fileInput" class="hidden"
+                                onchange="displayFileName()">
+                            <label for="fileInput" class="file-input-label">
+                                <span class="material-icons-round">
+                                    image
+                                </span>
+                            </label>
+                            <span id="fileName"></span>
+                        </div>
+                    </div>
+                    <input name="clientMessage" type="text" placeholder="Enter Message..." autofocus id="message"
+                        class="message-input">
+                    <button id="send-this" style="background-color: transparent; cursor: pointer; display: none;"
+                        type="submit" class="send-btn">
+                        <span class="material-icons-round send">
+                            send
+                        </span>
+                    </button>
+                </form>
+                {{else if contractorChat}}
+                <form action="/contractor/chat" method="post" class="globalForm" onsubmit="handleFormSubmit(event)">
+                    <input name="contractorMessage" type="text" placeholder="Enter Message..." autofocus>
+                    <div class="attachments">
+                        <div class="file-input-container files">
+                            <input name="contractorFile" type="file" id="fileInput" class="hidden"
+                                onchange="displayFileName()">
+                            <label for="fileInput" class="file-input-label">
+                                <span class="material-icons-round">
+                                    attachment
+                                </span>
+                            </label>
+                            <span id="fileName"></span>
+                        </div>
+                        <div class="file-input-container image">
+                            <input name="contractorImage" type="file" id="fileInput" autofocus
+                                class="hidden message-input" onchange="displayFileName()">
+                            <label for="fileInput" class="file-input-label">
+                                <span class="material-icons-round">
+                                    image
+                                </span>
+                            </label>
+                            <span id="fileName"></span>
+                        </div>
+                        <button style="background-color: transparent; cursor: pointer;" type="submit">
+                            <span class="material-icons-round send">
+                                send
+                            </span>
+                        </button>
+                    </div>
+                </form>
+                {{/if}}
+            </footer>
+            {{/if}}
+        </div>
+    </div>
+
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var chatLast = '{{lastMessage}}';
+            console.log(chatLast)
+            document.querySelector('.last-message').innerHTML = chatLast;
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var chatTime = '{{lastTime}}';
+            document.querySelector('.time').innerHTML = chatTime;
+        });
+
+        //file dowloading animation
+        function downloadAndDisplayFile(container) {
+            const downloadIcon = container.querySelector('#download-icon');
+            const downloadAnimation = container.querySelector('.download-animation');
+
+            downloadIcon.style.display = 'none';
+            downloadAnimation.style.display = 'inline-block';
+
+            setTimeout(() => {
+                downloadAnimation.style.display = 'none';
+                container.onclick = function () {
+                    const fileUrl = 'file/file-one.pptx';
+                    window.open(fileUrl, '_blank');
+                };
+            }, 2000);
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var chatWindow = document.querySelector('.container .chat .chat-window');
+
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+            console.log(chatWindow.scrollHeight)
+            chatWindow.addEventListener('scroll', function () {
+                var calcHeight = chatWindow.scrollHeight;
+                var top = calcHeight - 1200;
+                var bottom = calcHeight - (calcHeight + 1200)
+                console.log(bottom)
+                var takeTop = document.getElementById('take-top');
+
+                console.log(top)
+
+                if (chatWindow.scrollTop <= top) {
+                    takeTop.style.display = 'flex';
+                    console.log('gotted');
+                } else {
+                    takeTop.style.display = 'none';
+                }
+            });
+
+
+            chatWindow.addEventListener('scroll', function () {
+                if (chatWindow.scrollTop === 0) {
+                    fetchPreviousMessages();
+                }
+            });
+        });
+
+        function fetchPreviousMessages() {
+
+            var chatWindow = document.querySelector('.container .chat .chat-window');
+            var messagesContainer = document.createElement('div');
+            messagesContainer.classList.add('previous-messages');
+
+            previousMessages.forEach(function (message) {
+                messagesContainer.innerHTML += message;
+            });
+
+            var newMessagesHeight = messagesContainer.offsetHeight;
+            var chatWindowHeight = chatWindow.clientHeight;
+            var newScrollTop = chatWindow.scrollHeight - (newMessagesHeight + chatWindowHeight);
+            chatWindow.insertBefore(messagesContainer, chatWindow.firstChild);
+            chatWindow.scrollTop = newScrollTop;
+        }
+
+
+        function toggleBackgroundColor() {
+            var items = document.querySelectorAll('.lists .items');
+            items.forEach(function (item) {
+                item.addEventListener('click', function () {
+                    // Toggle background color for each item
+                    items.forEach(function (otherItem) {
+                        if (otherItem === item) {
+                            // If the clicked item matches the current item in iteration, change its background color
+                            item.style.backgroundColor = 'rgb(16, 26, 25)';
+                        } else {
+                            // If the clicked item doesn't match the current item in iteration, reset its background color
+                            otherItem.style.backgroundColor = '#0a0e0e';
+                        }
+                    });
+                });
+            });
+        }
+        toggleBackgroundColor();
+
+
+        var messageInput = document.querySelector('.message-input')
+        var sendBtn = document.querySelector('.send-btn')
+        messageInput.addEventListener('keyup', function (event) {
+            if (messageInput.value.trim() !== '') {
+                sendBtn.style.display = 'flex';
+            } else {
+                sendBtn.style.display = 'none';
+            }
+        });
+
+
+        function takeChat(name, email, chats) {
+            sendClientChatData(name, email);
+
+            var chatWindow = document.querySelector('.container .chat .chat-window');
+            var chatIndex = document.querySelector('.chat-index');
+            var chatHeader = document.querySelector('.chat-header');
+            var chatFooter = document.querySelector('.chat-footer');
+            var oppositePerson = document.querySelector('.opposite-person')
+            var messageInput = document.querySelector('.message-input')
+            var sendBtn = document.querySelector('.send-btn')
+
+            globalChatsData = chats
+
+
+            let chatArray = [];
+            chats.forEach(function (chat) {
+                let chatObj = {
+                    sender: chat.sender,
+                    receiver: chat.receiver,
+                    clientMessage: chat.clientMessage,
+                    clientSendedTime: chat.clientSendedTime,
+                    contractorMessage: chat.contractorMessage,
+                    contractorSendedTime: chat.contractorSendedTime
+                };
+                chatArray.push(chatObj);
+            });
+            console.log("Chats:", chatArray);
+
+            renderChats(chatArray)
+
+
+            setTimeout(function () {
+                messageInput.focus();
+            }, 100);
+
+
+            messageInput.addEventListener('keyup', function (event) {
+                if (messageInput.value.trim() !== '') {
+                    sendBtn.style.display = 'flex';
+                } else {
+                    sendBtn.style.display = 'none';
+                }
+            });
+
+
+
+            chatWindow.style.display = 'flex';
+            chatHeader.style.display = 'flex';
+            chatFooter.style.display = 'flex';
+            chatIndex.style.display = 'none';
+            oppositePerson.innerHTML = `${name}`
+
+            // Set initial scroll position
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+            var windowHeight = chatWindow.scrollHeight
+            console.log(windowHeight)
+
+            chatWindow.addEventListener('scroll', function () {
+                if (chatWindow.scrollTop === 0) {
+                    fetchPreviousMessages();
+                }
+            });
+
+        }
+
+        function sendClientChatData(name, email) {
+
+            var form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '/client/chat-middle';
+
+            var inputName = document.createElement('input');
+            inputName.type = 'hidden';
+            inputName.name = 'name';
+            inputName.value = name;
+            form.appendChild(inputName);
+
+            var inputEmail = document.createElement('input');
+            inputEmail.type = 'hidden';
+            inputEmail.name = 'email';
+            inputEmail.value = email;
+            form.appendChild(inputEmail);
+
+            document.body.appendChild(form);
+            form.submit();
+        }
+
+        //fetch all chats of client
+        function renderChats(chatArray) {
+            let chatContainer = document.querySelector('.chat-window');
+
+            chatArray.forEach(function (chat) {
+                let chatHTML;
+                if (chat.contractorMessage) {
+                    chatHTML = `
+                <div class="you">
+                    <img src="/images/agent-4.jpg" alt="">
+                    <div class="wrap">
+                        <p class="absolute light you-time">${chat.contractorSendedTime}</p>
+                        <img src="https://wallpapercave.com/wp/wp2406705.jpg" alt="" style="display: none;">
+                        <h2 class="light-m">${chat.contractorMessage}</h2>
+                    </div>
+                </div>`;
+                } else if (chat.clientMessage) {
+                    chatHTML = `
+                <div class="me">
+                    <div class="wrap">
+                        <p class="absolute light me-time">${chat.clientSendedTime}</p>
+                        <img src="" alt="" style="display: none;">
+                        <h2 class="light-m">${chat.clientMessage}</h2>
+                    </div>
+                    <img src="/images/agent-3.jpg" alt="">
+                </div>`;
+                }
+                chatContainer.insertAdjacentHTML('beforeend', chatHTML);
+            });
+
+            // Check for hidden images in messages
+            document.querySelectorAll('.container .chat .chat-window .me .wrap').forEach(wrap => {
+                const img = wrap.querySelector('img');
+                if (img && window.getComputedStyle(img).display === 'none') {
+                    wrap.classList.add('has-hidden-img');
+                }
+            });
+
+            // Add event listener to scroll to top
+            document.getElementById('take-top').addEventListener('click', function (event) {
+                var chatWindow = document.querySelector('.chat-window');
+                chatWindow.classList.add('smooth');
+                chatWindow.scrollTop = 0;
+            });
+
+            // Add event listener to scroll to bottom
+            document.getElementById('take-bottom').addEventListener('click', function (event) {
+                var chatWindow = document.querySelector('.chat-window');
+                var bottomWindow = chatWindow.scrollHeight;
+                chatWindow.classList.add('smooth');
+                chatWindow.scrollTop = bottomWindow;
+            });
+        }
+
+
+        //contractor chats arranges
+        function takeContractorChat(name, email, chats) {
+            sendContractorChatData(name, email)
+            var chatWindow = document.querySelector('.container .chat .chat-window');
+            var chatIndex = document.querySelector('.chat-index');
+            var chatHeader = document.querySelector('.chat-header');
+            var chatFooter = document.querySelector('.chat-footer');
+            var oppositePerson = document.querySelector('.opposite-person')
+            var messageInput = document.querySelector('.message-input')
+            var sendBtn = document.querySelector('.send-btn')
+
+            let chatArray = [];
+            chats.forEach(function (chat) {
+                let chatObj = {
+                    sender: chat.sender,
+                    receiver: chat.receiver,
+                    clientMessage: chat.clientMessage,
+                    clientSendedTime: chat.clientSendedTime,
+                    contractorMessage: chat.contractorMessage,
+                    contractorSendedTime: chat.contractorSendedTime
+                };
+                chatArray.push(chatObj);
+            });
+            //console.log("Chats:", chatArray);
+
+            renderContractorChats(chatArray)
+
+
+
+            setTimeout(function () {
+                messageInput.focus();
+            }, 100);
+
+
+            messageInput.addEventListener('keyup', function (event) {
+                if (messageInput.value.trim() !== '') {
+                    sendBtn.style.display = 'flex';
+                } else {
+                    sendBtn.style.display = 'none';
+                }
+            });
+
+
+
+            chatWindow.style.display = 'flex';
+            chatHeader.style.display = 'flex';
+            chatFooter.style.display = 'flex';
+            chatIndex.style.display = 'none';
+            oppositePerson.innerHTML = `${name}`
+
+            // Set initial scroll position
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+            var windowHeight = chatWindow.scrollHeight
+            console.log(windowHeight)
+
+            chatWindow.addEventListener('scroll', function () {
+                if (chatWindow.scrollTop === 0) {
+                    fetchPreviousMessages();
+                }
+            });
+        }
+
+        function renderContractorChats(chatArray) {
+            let chatContainer = document.querySelector('.chat-window');
+
+            chatArray.forEach(function (chat) {
+                let chatHTML;
+                if (chat.clientMessage) {
+                    chatHTML = `
+                <div class="you">
+                    <img src="/images/agent-4.jpg" alt="">
+                    <div class="wrap">
+                        <p class="absolute light you-time">${chat.clientSendedTime}</p>
+                        <img src="https://wallpapercave.com/wp/wp2406705.jpg" alt="" style="display: none;">
+                        <h2 class="light-m">${chat.clientMessage}</h2>
+                    </div>
+                </div>`;
+                } else if (chat.contractorMessage) {
+                    chatHTML = `
+                <div class="me">
+                    <div class="wrap">
+                        <p class="absolute light me-time">${chat.contractorSendedTime}</p>
+                        <img src="" alt="" style="display: none;">
+                        <h2 class="light-m">${chat.contractorMessage}</h2>
+                    </div>
+                    <img src="/images/agent-3.jpg" alt="">
+                </div>`;
+                }
+                chatContainer.insertAdjacentHTML('beforeend', chatHTML);
+            });
+        }
+
+        function sendContractorChatData(name, email) {
+            var form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '/contractor/chat-middle';
+
+            var inputName = document.createElement('input');
+            inputName.type = 'hidden';
+            inputName.name = 'name';
+            inputName.value = name;
+            form.appendChild(inputName);
+
+            var inputEmail = document.createElement('input');
+            inputEmail.type = 'hidden';
+            inputEmail.name = 'email';
+            inputEmail.value = email;
+            form.appendChild(inputEmail);
+
+            document.body.appendChild(form);
+            form.submit();
+        }
+
+        // Example function call
+        // renderChats(chatArray);
+        // renderContractorChats(chatArray);
+    </script>
+</body>
+
+</html>

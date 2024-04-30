@@ -1,0 +1,125 @@
+{
+    "wires_companies": [
+        {
+            "company": "Anchor Electricals Pvt. Ltd.",
+            "logo": "/logos/anchor-electricals.png"
+        },
+        {
+            "company": "Bajaj Electricals Ltd.",
+            "logo": "/logos/bajaj-electricals.png"
+        },
+        {
+            "company": "C&S Electric Limited",
+            "logo": "/logos/cs-electric.png"
+        },
+        {
+            "company": "Finolex Cables Ltd.",
+            "logo": "/logos/finolex-cables.png"
+        },
+        {
+            "company": "Foliflex Industries Pvt. Ltd.",
+            "logo": "/logos/foliflex-electricals.png"
+        },
+        {
+            "company": "GM Modular Pvt. Ltd.",
+            "logo": "/logos/gm-modular.png"
+        },
+        {
+            "company": "Gloster Cables Limited",
+            "logo": "/logos/gloster-cables.png"
+        },
+        {
+            "company": "Great White Global Pvt. Ltd.",
+            "logo": "/logos/greatwhite-electricals.png"
+        },
+        {
+            "company": "Havells India Ltd.",
+            "logo": "/logos/havells.png"
+        },
+        {
+            "company": "HPL Electric & Power Ltd.",
+            "logo": "/logos/hpl-electric-power.png"
+        },
+        {
+            "company": "KEI Industries Ltd.",
+            "logo": "/logos/kei-industries.png"
+        },
+        {
+            "company": "LAPP India Pvt. Ltd.",
+            "logo": "/logos/lapp-india.png"
+        },
+        {
+            "company": "Legrand India",
+            "logo": "/logos/legrand-india.png"
+        },
+        {
+            "company": "Luminous Power Technologies",
+            "logo": "/logos/luminous.png"
+        },
+        {
+            "company": "Nicco Corporation Ltd.",
+            "logo": "/logos/nicco-corporation.png"
+        },
+        {
+            "company": "Polycab India Ltd.",
+            "logo": "/logos/polycab.png"
+        },
+        {
+            "company": "Precision Wires India Ltd.",
+            "logo": "/logos/precision-wires.png"
+        },
+        {
+            "company": "Rallison Electricals Pvt. Ltd.",
+            "logo": "/logos/rallison-electricals.png"
+        },
+        {
+            "company": "Raychem RPG Pvt. Ltd.",
+            "logo": "/logos/raychem-rpg.png"
+        },
+        {
+            "company": "RR Global",
+            "logo": "/logos/rr-global.png"
+        },
+        {
+            "company": "RR Kabel Ltd.",
+            "logo": "/logos/rr-kabel.png"
+        },
+        {
+            "company": "S.S. Cable Industries",
+            "logo": "/logos/ss-cable-industries.png"
+        },
+        {
+            "company": "Schneider Electric India Pvt. Ltd.",
+            "logo": "/logos/schneider-electric.png"
+        },
+        {
+            "company": "Sterlite Power",
+            "logo": "/logos/sterlite-power.png"
+        },
+        {
+            "company": "Supreme & Co. Pvt. Ltd.",
+            "logo": "/logos/supreme-and-co.png"
+        },
+        {
+            "company": "Syska LED Lights Pvt. Ltd.",
+            "logo": "/logos/syska.png"
+        },
+        {
+            "company": "Torrent Cables Ltd.",
+            "logo": "/logos/torrent-cables.png"
+        },
+        {
+            "company": "Universal Cables Ltd.",
+            "logo": "/logos/universal-cables.png"
+        },
+        {
+            "company": "V-Guard Industries Ltd.",
+            "logo": "/logos/v-guard.png"
+        },
+        {
+            "company": "Voltex Electricals",
+            "logo": "/logos/voltex.png"
+        }
+    ]
+}
+

@@ -1,0 +1,468 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    border: 0;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+:root {
+    --border-6: 6px;
+    --font-20: 16px;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: #1c1e25;
+    overflow: hidden;
+}
+
+form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.container {
+    width: 70%;
+    height: 85%;
+    border: 1px solid rgb(110, 110, 110);
+    border-radius: 20px;
+    padding: 2rem;
+}
+
+.wrapper {
+    height: 100%;
+    width: 100%;
+    border-radius: 22px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: #272a34;
+    display: flex;
+
+}
+
+.left {
+    width: 40%;
+    height: 100%;
+    background-image: url('https://wallpapercave.com/wp/wp6181121.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 22px 0 0 22px;
+}
+
+input.submit {
+    height: 3.3rem;
+    width: 20rem;
+    border-radius: 6px;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: #495e4d;
+    color: rgb(229, 232, 216);
+    transition: all 0.3s ease;
+}
+
+input.submit:hover {
+    background-color: #3e4d41;
+}
+
+/* file input  */
+.file-input-container {
+    position: relative;
+    display: inline-block;
+}
+
+.file-input-label {
+    cursor: pointer;
+    padding: 10px;
+    color: rgb(0, 97, 202);
+    display: inline-block;
+}
+
+#fileInput {
+    display: none;
+}
+
+#fileName {
+    margin-top: 10px;
+    display: block;
+}
+
+.right-cover {
+    width: 60%;
+    height: 100%;
+    padding: 2.5rem 1.5rem 2.5rem 2.5rem;
+}
+
+.right {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem 0 0;
+    overflow-y: scroll;
+    max-height: calc(100% );
+}
+
+.video {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+}
+
+.add-more-video {
+    display: flex;
+    width: 55%;
+    height: 3.3rem;
+    background-color: rgb(24, 27, 27);
+    color: white;
+    align-items: center;
+    padding: 0 0 0 1rem;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.works {
+    display: flex;
+    gap: 1rem;
+    color: white
+}
+
+.works input {
+    border-radius: var(--border-6);
+    padding:  0 0 0 1rem;
+    font-size: var(--font-20);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100%;
+}
+
+.status {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 33.3%;
+    color: white;
+    align-items: start;
+}
+
+.need input {
+    height: 3.3rem;
+    border-radius: var(--border-6);
+    width: 100%;
+    padding: 0 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.check input {
+    height: 3rem;
+    display: flex;
+}
+
+.works-expand {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: 0;
+    visibility: hidden;
+    transition: height 0.5s ease;
+    padding: 0 1rem 0 0;
+}
+
+.check {
+    flex-direction: row;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: rgb(59, 69, 69);
+    height: 3.3rem;
+    border-radius: var(--border-6);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+input:disabled {
+    background-color: rgb(40, 46, 42);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.height {
+    height: 3.3rem;
+}
+
+.radius {
+    border-radius: 6px;
+}
+
+.pad {
+    padding: 0 0 0 1rem;
+}
+
+.font {
+    font-size: 16px;
+}
+
+.w-add {
+    width: 10%;
+}
+
+.flex-full {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.font-head {
+    font-size: 18.5px;
+}
+
+.white {
+    color: white;
+}
+
+textarea {
+    padding: 1rem 0 0 1rem;
+}
+
+.shadow {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.bg-color {
+    background-color: rgb(64, 66, 79);
+}
+
+.bg-more {
+    background-color: rgb(113, 149, 113);
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pad-inline {
+    padding: 0 1rem;
+}
+
+.full {
+    width: 100%;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.gap {
+    gap: 1rem;
+}
+
+.budgets {
+    display: flex;
+    gap: 1rem;
+}
+
+.category {
+    width: 100%;
+}
+
+.type {
+    width: 100%;
+}
+
+.mt-auto {
+    margin-top: auto;
+}
+
+.area-height {
+    height: 8rem;
+}
+
+.works-expand.expanded {
+    height: 30rem;
+    overflow-y: visible;
+    visibility: visible;
+    max-height: 100rem;
+}
+
+.works-expand.expanded::-webkit-scrollbar {
+    width: 6px;
+}
+
+.works-expand.expanded::-webkit-scrollbar-track {
+    background-color: rgb(48, 54, 51);
+    border-radius: 5px;
+}
+
+.works-expand.expanded::-webkit-scrollbar-thumb {
+    background-color: rgb(63, 74, 69);
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+.holder::placeholder {
+    color: rgb(202, 174, 174);
+}
+
+.w-equal {
+    width: 33.3%;
+}
+
+.flex {
+    display: flex;
+    gap: 1rem;
+}
+
+.w-1 {
+    width: 30%;
+}
+
+.w-2 {
+    width: 35%;
+}
+
+.w-3 {
+    width: 45%;
+}
+
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.pointer, select {
+    cursor: pointer;
+}
+
+.country, .state, .city {
+    position: relative;
+}
+
+.bg-more-1 {
+    background-color: rgb(53, 124, 117);
+}
+
+.custom-dropdown {
+    margin-top: 0.5rem;
+    position: absolute;
+    background-color: rgb(68, 83, 90);
+    max-height: 215px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    color: white;
+    padding: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+.custom-dropdown-item {
+    padding: 5px;
+    cursor: pointer;
+    width: 10rem;
+    z-index: 1;
+}
+
+.custom-dropdown-item:hover {
+    background-color: #3d444d;
+    color: white;
+}
+
+.custom-dropdown::-webkit-scrollbar {
+    width: 6px;
+}
+
+.custom-dropdown::-webkit-scrollbar-track {
+    background-color: #3d444d;
+}
+
+.custom-dropdown::-webkit-scrollbar-thumb {
+    background-color: #6a7c95;
+    height: 3rem;
+    border-radius: 6px;
+}
+
+.hover-me {
+    position: relative;
+    width: 45%;
+    height: 3.3rem;
+}
+
+.hover-me::after {
+    content: "Click add works to activate";
+    background: rgba(72, 78, 83, 0.999);
+    border: 1px solid rgb(178, 178, 178);
+    height: 25px; /* Change height to auto to fit the content */
+    width: 13rem;
+    position: absolute;
+    bottom: 3rem;
+    right: 0;
+    display: flex;
+    font-size: 15px;
+    color:white;
+    justify-content: center;
+    border-radius: 3px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    padding: 0 0.5rem;
+}
+
+.hover-me:hover::after {
+    opacity: 1;
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.right::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 100vh;
+}
+
+.right::-webkit-scrollbar-track {
+    background-color: #581e38;
+    border-radius: 100vh;
+}
+
+.right::-webkit-scrollbar-thumb {
+    background-color: #9c285e;
+    border-radius: 100vh;
+}
+
+.add-work-color {
+    background-color: rgb(43, 54, 54);
+}
+
+.add-l-color {
+    background-color: rgb(38, 97, 91);
+}

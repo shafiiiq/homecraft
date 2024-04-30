@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        * {
+            border: 0;
+            margin: 0;
+            padding: 0;
+            outline: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: rgb(39, 39, 43);
+            color: white;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        {{#if feedbacks}}
+        .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            padding: 4rem 3rem 0 4rem;
+        }
+        {{else}}
+        .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+        {{/if}}
+
+        .left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            font-weight: 100;
+            width: 30%;
+        }
+
+        {{#if feedbacks}}
+        .right {
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            padding: 0 1rem 0 4rem;
+            gap: 2rem;
+            overflow-y: scroll;
+            max-height: 100vh;
+        }
+        {{else}}
+        .right {
+            width: 70%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+            color: white;
+        }
+        {{/if}}
+
+        .right::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .right::-webkit-scrollbar-track {
+            background-color: rgb(57, 67, 100);
+            border-radius: 100vh;
+        }
+
+        .right::-webkit-scrollbar-thumb {
+            background-color: rgb(97, 115, 174);
+            border-radius: 100vh;
+        }
+
+        .items {
+            display: flex;
+            width: 100%;
+            background-color: rgb(119, 136, 186);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+            padding: 3rem 1rem 3rem 1rem;
+            gap: 1.5rem;
+            align-items: center;
+            color: black;
+        }
+
+        .name {
+            font-size: 25px;
+            font-weight: 500;
+            /* color: rgb(67, 30, 153); */
+            color: white;
+        }
+
+        .img {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .one {
+            width: 20%;
+        }
+
+        .feedback {
+            width: 70%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left">
+            Feedbacks
+        </div>
+        {{#if feedbacks}}
+        <div class="right">
+            {{#each feedbacks}}
+            <div class="items">
+                <img src="/client_data/{{this.id}}profile.jpg" alt="" class="img">
+                <div class="one">
+                    <p class="name">{{this.name}}</p>
+                    <p class="email">{{this.email}}</p>
+                </div>
+                <p class="feedback">
+                    {{this.feedback}}
+                </p>
+            </div>
+            {{/each}}
+        </div>
+        {{else}}
+        <div class="right">
+            No feedbacks are available
+        </div>
+        {{/if}}
+    </div>
+</body>
+
+</html>

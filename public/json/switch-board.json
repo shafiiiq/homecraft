@@ -1,0 +1,33 @@
+
+[
+    {"type": "Anchor", "logo": "/logos/anchor.png"},
+    {"type": "Bajaj", "logo": "/logos/bajaj.png"},
+    {"type": "Crabtree", "logo": "/logos/crabtree.png"},
+    {"type": "GM Modular", "logo": "/logos/gm-modular.png"},
+    {"type": "Goldmedal", "logo": "/logos/goldmedal.png"},
+    {"type": "Havells", "logo": "/logos/havells.png"},
+    {"type": "Legrand", "logo": "/logos/legrand.png"},
+    {"type": "Lisha", "logo": "/logos/lisha.png"},
+    {"type": "Norisys", "logo": "/logos/norisys.png"},
+    {"type": "Orpat", "logo": "/logos/orpat.png"},
+    {"type": "Orient Electric", "logo": "/logos/orient-electric.png"},
+    {"type": "Philips", "logo": "/logos/philips.png"},
+    {"type": "Polycab", "logo": "/logos/polycab.png"},
+    {"type": "Roma", "logo": "/logos/roma.png"},
+    {"type": "Schneider Electric", "logo": "/logos/schneider-electric.png"},
+    {"type": "Siemens", "logo": "/logos/siemens.png"},
+    {"type": "Standard Electricals", "logo": "/logos/standard-electricals.png"},
+    {"type": "Syska", "logo": "/logos/syska.png"},
+    {"type": "Tata", "logo": "/logos/tata.png"},
+    {"type": "V-Guard", "logo": "/logos/v-guard.png"},
+    {"type": "Wipro", "logo": "/logos/wipro.png"},
+    {"type": "C&S Electric", "logo": "/logos/cands-electric.png"},
+    {"type": "Crompton Greaves", "logo": "/logos/crompton-greaves.png"},
+    {"type": "Legrand Myrius", "logo": "/logos/legrand-myrius.png"},
+    {"type": "Orient", "logo": "/logos/orient.png"},
+    {"type": "Schneider", "logo": "/logos/schneider.png"},
+    {"type": "Siemens Switchgear", "logo": "/logos/siemens-switchgear.png"},
+    {"type": "Stanley", "logo": "/logos/stanley.png"},
+    {"type": "Supreme", "logo": "/logos/supreme.png"}
+]
+

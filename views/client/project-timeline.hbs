@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="hurray" style="display: none;">
+        <p>
+            Hurray..! Project is completed
+        </p>
+    </div>
+    <div class="per-month">
+        <p id="total-month"></p>
+        <p id="moving-month"></p>
+    </div>
+    <div class="ranger">
+        <div class="tracker">
+
+        </div>
+    </div>
+    <div class="container">
+        {{#each timelines}}
+        <div class="items">
+            <div class="content">
+                <div class="wrap">
+                    <img src="/uploads/{{this.contractorEmail}}to{{this.clientEmail}}timeline1{{this.date}}.jpg" alt="">
+                    <img src="/uploads/{{this.contractorEmail}}to{{this.clientEmail}}timeline2{{this.date}}.jpg" alt="">
+                    <img src="/uploads/{{this.contractorEmail}}to{{this.clientEmail}}timeline3{{this.date}}.jpg" alt="">
+                    <img src="/uploads/{{this.contractorEmail}}to{{this.clientEmail}}timeline4{{this.date}}.jpg" alt="">
+                    <img src="/uploads/{{this.contractorEmail}}to{{this.clientEmail}}timeline5{{this.date}}.jpg" alt="">
+                </div>
+                <div class="radios">
+                    <input type="radio">
+                    <input type="radio">
+                    <input type="radio">
+                    <input type="radio">
+                    <input type="radio">
+                </div>
+            </div>
+            <div class="times">
+                <p class="year">{{this.year}}</p>
+                <p class="date">{{this.month}}, {{this.day}}</p>
+                <p class="time">{{this.time}}</p>
+                {{!-- <p class="location">
+                    <span class="material-symbols-rounded">
+                        location_on
+                    </span> Florida, Usa
+                </p> --}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+    <script>
+        {{#if timelines}}
+        document.addEventListener("DOMContentLoaded", function() {
+        {{#each timelines}}
+            var startDate  = "{{this.startDate}}";
+            var endDate  = "{{this.endDate}}";
+            console.log(startDate)
+            console.log(endDate)
+        {{/each}}
+
+
+        function countMonths(startYear, startMonth, endYear, endMonth) {
+            let totalMonths = (endYear - startYear) * 12 + (endMonth - startMonth) + 1;
+            return totalMonths;
+        }
+
+        //const startYear = 2024;
+        //const startMonth = 4; 
+        //const endYear = 2026;
+        //const endMonth = 11; 
+
+        // Parsing startDate
+        const startDateParts = startDate.split('/');
+        const startMonth = parseInt(startDateParts[0]);
+        const startDay = parseInt(startDateParts[1]);
+        const startYear = parseInt(startDateParts[2]);
+
+        // Parsing endDate
+        const endDateParts = endDate.split('-');
+        const endYear = parseInt(endDateParts[0]);
+        const endMonth = parseInt(endDateParts[1]);
+        const endDay = parseInt(endDateParts[2]);
+
+        console.log(startMonth)
+        console.log(startYear)
+        console.log(endMonth)
+        console.log(endYear)
+
+        const monthsCount = countMonths(startYear, startMonth, endYear, endMonth);
+        document.getElementById('total-month').innerHTML = monthsCount + " Months /";
+
+        const itemsDivss = document.querySelectorAll('.items');
+        document.getElementById('moving-month').innerHTML = itemsDivss.length + " Months";
+
+        const rangerDiv = document.querySelector('.ranger');
+        const trackerDiv = document.querySelector('.tracker');
+
+        trackerDiv.style.height = (itemsDivss.length / monthsCount) * 100 + "%";
+        });
+        {{/if}}
+
+
+        const items = document.querySelectorAll('.items');
+
+        items.forEach((item, index) => {
+            if (index % 2 === 0) {
+                const content = item.querySelector('.content');
+                const times = item.querySelector('.times');
+                item.insertBefore(times, content);
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const container = document.querySelector('.container');
+
+            container.scrollTop = container.scrollHeight;
+        });
+
+        const itemsDivs = document.querySelectorAll('.items');
+
+        itemsDivs.forEach((item) => {
+            const radios = item.querySelectorAll('.radios input');
+
+            radios.forEach((radio, index) => {
+                radio.addEventListener('click', () => {
+                    const wrap = item.querySelector('.wrap');
+
+                    const imageWidth = wrap.querySelector('img').offsetWidth;
+
+                    const scrollPosition = index * imageWidth;
+
+                    wrap.scrollTo({
+                        left: scrollPosition,
+                        behavior: 'smooth'
+                    });
+
+                    radios.forEach((r, i) => {
+                        r.checked = (i === index);
+                    });
+                });
+            });
+        });
+
+
+
+        
+
+        if (itemsDivss.length == monthsCount) {
+            let hurray = document.querySelector('.hurray')
+            hurray.style.display = 'flex'
+        }
+    </script>
+</body>
+
+</html>

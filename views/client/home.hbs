@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/images/logo.png">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Welcome to Homecraft</title>
+</head>
+
+<body>
+    {{#if passwordIncorrect}}
+    <div class="change-pswd">
+        <span class="material-symbols-rounded" onclick="closeUpdate()">
+            close
+        </span>
+        <p>Update Password</p>
+        <form action="/client/update-password" method="post">
+            <input type="password" class="current" name="currentPassword" placeholder="Current Password">
+            <input type="password" class="new" name="newPassword" placeholder="New Password">
+            <input type="password" class="re-enter" placeholder="Re-enter Password">
+            <input type="submit" value="Change Password">
+        </form>
+        <p class="message">{{passwordIncorrect}}</p>
+    </div>
+    {{else}}
+    <div class="change-pswd" style="display: none;" >
+        <span class="material-symbols-rounded" onclick="closeUpdate()">
+            close
+        </span>
+        <p>Update Password</p>
+        <form action="/client/update-password" method="post">
+            <input type="password" class="current" name="currentPassword" placeholder="Current Password">
+            <input type="password" class="new" name="newPassword" id="newPassword" placeholder="New Password"
+                oninput="validatePassword()">
+            <input type="password" class="re-enter" placeholder="Re-enter Password" id="reEnterPassword"
+                oninput="validatePassword()">
+            <input type="submit" value="Change Password" id="submitButton" disabled>
+        </form>
+        <p class="message" id="message" style="display: none;"></p>
+    </div>
+    {{/if}}
+    {{#if client}}
+    <div class="view-account" style="display: none;">
+        <form action="/client/update-signup" method="post">
+            <div class="file-input-1">
+                <img src="" id="preview" class="profile-display" style="display: none;">
+                <input type="file" name="clientProfile" onchange="previewImage(event)" class="disabled" disabled>
+            </div>
+            <div class="div">
+                <label>Name</label>
+                <input type="text" value="{{client.name}}" class="disabled" disabled name="name">
+            </div>
+            <div class="div">
+                <label>Email</label>
+                <input type="email" value="{{client.email}}" class="disabled" disabled name="email">
+            </div>
+            <div class="div">
+                <label>Password</label>
+                <input type="text" placeholder="..........." disabled name="password"
+                    style="font-size: 33px; padding-bottom: 1rem;">
+                <div id="update-pswd" onclick="updatePassword()">Update password?</div>
+            </div>
+            <div class="set">
+                <input type="button" id="enable" value="Update" class="point">
+                <input type="submit" id="submit" placeholder="Submit" class="disabled point" disabled>
+            </div>
+        </form>
+    </div>
+    {{/if}}
+    {{#if isFinished}}
+    <div class="project-completed">
+        <a class="white quit-out abs" href="/client/logout">
+            logout
+        </a>
+        <p class="abs continue-to">
+            Keep Advancing with feedback
+        </p>
+        <p class="takened" style="position:absolute; top: 2rem; left: 2rem; color: rgb(188, 177, 195);">
+            Action from the contractor <br>
+            <span>Action not right, contractor wrong info <span class="report"
+                    style="color: rgb(194, 19, 19); cursor: pointer;"> Report</span> </span>
+        </p>
+        <h1 id="lasted">
+            Congratulations!
+        </h1>
+        <p class="p" id="lasted-p">
+            Your dream home is now a reality. Welcome to your new beginning.
+        </p>
+        <div id="confetti-container"></div>
+    </div>
+    {{/if}}
+    <div class="feedback-form" style="display: none;">
+        <div class="form">
+            <textarea class="feedback-input" name="" id="" cols="30" rows="10" placeholder="Write Your Feedback"
+                autofocus></textarea>
+            <div class="divv">
+                <input type="submit" placeholder="Submit" id="submit-btn">
+                <p>Skip</p>
+            </div>
+        </div>
+    </div>
+    <div class="flex feed-msg-container" style="display: none;">
+        <span class="material-symbols-rounded feedback-span">
+        </span>
+        <p class="feedback-msg">
+
+        </p>
+        <a class="bott" id="continueBoot" onclick="ejectAll()">
+            <p>
+                Continue with website
+            </p>
+        </a>
+    </div>
+    <div class="overlay"></div>
+    <header>
+        <nav>
+            <img src="/images/homecraft-logo.png" alt="">
+            <div class="navigations">
+                <ul>
+                    <li>
+                        <a href="/client/home">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/client/requires">
+                            Add Requirements
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/client/property">
+                            Properties
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/client/chat">
+                            Chat
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/client/project">
+                            Project
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/client/project-timeline">
+                            Timeline Tracker
+                        </a>
+                    </li>
+                    {{!-- <li>
+                        <a href="/client/report">
+                            Report
+                        </a>
+                    </li> --}}
+                </ul>
+                {{#if hasProfile}}
+                <img class="user-img" src="/client_data/{{hasProfile}}profile.jpg" alt="" onclick="account()">
+                {{else}}
+                <img class="user-img" src="/images/user.webp" alt="" onclick="account()">
+                {{/if}}
+            </div>
+        </nav>
+        <div class="account" id="account" style="display: none;">
+            <div class="main">
+                <div class="img-name">
+                    <img class="user-img" src="/images/user.webp" alt="">
+                    {{#if client}}
+                    <h4>
+                        {{client.name}}
+                    </h4>
+                    {{/if}}
+                </div>
+                <a href="/client/logout">
+                    <input type="submit" value="Logout">
+                </a>
+            </div>
+            <div class="controls">
+                <ul>
+                    <li class="point">
+                        Change Password
+                    </li>
+                    <li class="point">
+                        Forgot Password
+                    </li>
+                    <li class="point">
+                        Settings
+                    </li>
+                    {{#if hasProfile}}
+                    <li class="point" onclick="takeAccount('{{hasProfile}}')">
+                        Account
+                    </li>
+                    {{else}}
+                    <li class="point" onclick="takeAccount('null')">
+                        Account
+                    </li>
+                    {{/if}}
+                </ul>
+            </div>
+        </div>
+    </header>
+    <section>
+        {{#if client}}
+        <h1>
+            Welcome back, {{client.name}}!
+        </h1>
+        {{/if}}
+        <p>
+            Explore, and build your dream home effortlessly.
+        </p>
+        {{!-- <video autoplay loop muted plays-inline src="/videos/bg-intro.mp4" type="video/mp4" class="intro"></video> --}}
+    </section>
+
+    <script>
+        function takeAccount(hasProfile) {
+            const element = document.querySelector('.file-input-1');
+            document.querySelector('.view-account').style.display = 'flex'
+            var viewAccount = document.querySelector('.view-account')
+            var disabledElements = document.querySelectorAll('.disabled');
+
+            if (hasProfile === 'null') {
+                element.style.backgroundImage = `url('/images/user.webp')`;
+            } else {
+                element.style.backgroundImage = `url('/client_data/${hasProfile}profile.jpg')`;
+            }
+
+            document.body.addEventListener('click', function (event) {
+                if (event.target.closest('.view-account') || event.target.closest('.account')) {
+                    return;
+                } else {
+                    viewAccount.style.display = 'none'
+
+                    disabledElements.forEach(function (element) {
+                        element.setAttribute('disabled', 'true');
+                    });
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var accountDiv = document.getElementById('account');
+            var imgElement = document.querySelector('.navigations img');
+
+            function account() {
+                if (accountDiv.style.display === 'none' || accountDiv.style.display === '') {
+                    accountDiv.style.display = 'block';
+                } else {
+                    accountDiv.style.display = 'none';
+                }
+            }
+
+            document.addEventListener('click', function (event) {
+                if (event.target === imgElement || event.target.closest('#account')) {
+                    return;
+                }
+                accountDiv.style.display = 'none';
+            });
+            imgElement.addEventListener('click', function (event) {
+                event.stopPropagation();
+                account();
+            });
+        });
+
+        //enable account update inputs
+        document.getElementById('enable').addEventListener('click', function () {
+            var disabledElements = document.querySelectorAll('.disabled');
+
+            disabledElements.forEach(function (element) {
+                element.removeAttribute('disabled');
+            });
+
+            document.getElementById('submit').style.backgroundColor = ' rgb(28, 159, 35)'
+        });
+        //ends -- ends //
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const confettiContainer = document.getElementById("confetti-container");
+            const numConfetti = 1000; // Change this number to adjust the amount of confetti
+
+            for (let i = 0; i < numConfetti; i++) {
+                const confettiPiece = document.createElement("div");
+                confettiPiece.classList.add("confetti-piece");
+                confettiPiece.style.left = Math.random() * 100 + "vw";
+                confettiPiece.style.background = getRandomGradient();
+                confettiPiece.style.animationDelay = Math.random() * 5 + "s"; // Randomize animation delay
+                confettiContainer.appendChild(confettiPiece);
+            }
+        });
+
+        function getRandomGradient() {
+            const colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
+            const randIndex1 = Math.floor(Math.random() * colors.length);
+            let randIndex2 = randIndex1;
+            while (randIndex2 === randIndex1) {
+                randIndex2 = Math.floor(Math.random() * colors.length);
+            }
+            return `linear-gradient(45deg, ${colors[randIndex1]}, ${colors[randIndex2]})`;
+        }
+
+        document.querySelector('.continue-to').addEventListener('click', function () {
+            var item = document.querySelector('.project-completed')
+            var feedbackForm = document.querySelector('.feedback-form')
+            var inputFeed = document.querySelector('.feedback-input')
+
+            item.style.display = 'none'
+            feedbackForm.style.display = 'flex'
+            if (inputFeed) {
+                inputFeed.focus();
+            }
+
+
+        })
+
+        document.getElementById("submit-btn").addEventListener("click", function () {
+            var feedbackMessage = document.querySelector('.feed-msg-container')
+            var item = document.querySelector('.project-completed')
+            var feedbackForm = document.querySelector('.feedback-form')
+            var pTag = document.querySelector('.feedback-msg')
+            const spanElement = document.querySelector('.feedback-span')
+            // Array containing negative feedback keywords
+            const negativeKeywords = [
+                "abysmal", "appalling", "atrocious", "bad", "deplorable", "detestable", "dismal", "disappointing", "displeasing",
+                "dreadful", "execrable", "grim", "horrible", "inferior", "lousy", "mediocre", "miserable", "odious", "poor", "repugnant",
+                "repulsive", "subpar", "terrible", "unacceptable", "unfavorable", "unfulfilling", "uninspiring", "unpleasant", "unsatisfactory",
+                "unsatisfying", "unwelcome", "abominable", "dejecting", "depressing", "despicable", "disgusting", "disheartening", "displeasing",
+                "distasteful", "execrable", "frustrating", "ghastly", "god-awful", "gross", "hateful", "hopeless", "insufferable", "intolerable",
+                "loathsome", "nasty", "pitiful", "revolting", "rotten", "shocking", "sickening", "trashy", "unappealing", "unattractive",
+                "unconvincing", "uncouth", "undesirable", "unimpressive", "unpalatable", "unreliable", "unremarkable", "untrustworthy", "unwelcome",
+                "useless", "vile", "worthless", "wretched", "abhorrent", "afflictive", "disastrous", "faulty", "irksome", "mournful", "painful",
+                "pitiable", "revulsive", "shameful", "sorrowful", "troublesome", "unsightly", "untidy", "unwise", "vexatious", "woeful",
+                "dejecting", "discouraging", "irritating", "regrettable", "boring", "insipid", "repellant", "unexciting", "lackluster", "unsatisfying",
+                "unproductive"
+            ];
+
+            // Array containing positive feedback keywords
+            const positiveKeywords = [
+                "excellent", "great", "good", "awesome", "fantastic", "amazing", "superb", "wonderful", "satisfactory", "pleasing",
+                "satisfying", "commendable", "outstanding", "superior", "admirable", "brilliant", "stellar", "splendid", "first-rate",
+                "top", "notch", "exceptional", "quality", "delightful", "impressive", "fine", "acceptable", "desirable", "sufficient",
+                "sufficient", "marvelous", "remarkable", "terrific", "positive", "uplifting", "encouraging", "satisfying", "pleasurable",
+                "enjoyable", "gratifying", "rewarding", "content", "contented", "fulfilled", "joyful", "cheerful", "happy", "delighted",
+                "satisfied", "overjoyed", "ecstatic", "elated", "thrilled", "blissful", "glad", "optimistic", "hopeful", "confident",
+                "fabulous", "exuberant", "radiant", "vibrant", "splendorous", "heartening", "exhilarating", "jubilant", "festive", "celebratory",
+                "euphoric", "spirited", "dynamic", "refreshing", "invigorating", "enthusiastic", "passionate", "energizing", "inspiring",
+                "upbeat", "motivating", "charming", "enchanting", "captivating", "lovable", "adorable", "appealing", "attractive",
+                "beautiful", "charismatic", "glorious", "majestic", "radiant", "magnificent", "grand", "stunning", "captivating",
+                "fascinating", "thankyou"
+            ];
+
+            feedbackForm.style.display = 'none'
+            item.style.display = 'none'
+            feedbackMessage.style.display = 'flex'
+
+            const feedbackInput = document.querySelector(".feedback-input").value.toLowerCase();
+
+            console.log(feedbackInput)
+            const words = feedbackInput.split(/\s+/);
+
+            // Check if any negative keyword is present in the input
+            const hasNegativeWord = negativeKeywords.some(word => words.includes(word.toLowerCase()));
+
+            // Check if any positive keyword is present in the input
+            const hasPositiveWord = positiveKeywords.some(word => words.includes(word.toLowerCase()));
+
+            if (hasNegativeWord) {
+                spanElement.innerHTML = "sentiment_dissatisfied"
+                pTag.innerHTML = "We're sorry to hear about your experience. Your feedback is valuable to us, and we're committed to addressing any concerns you may have. Please know that we're here to listen and improve. Thank you for bringing this to our attention."
+            } else if (hasPositiveWord) {
+                pTag.innerHTML = "Thank you for your valuable feedback! Your kind words truly motivate us to continue delivering exceptional service. We appreciate your support and look forward to serving you even better in the future";
+                spanElement.innerHTML = "sentiment_very_satisfied"
+            } else {
+                spanElement.innerHTML = "sentiment_satisfied"
+                pTag.innerHTML = "Thank you for your feedback. We appreciate your insights and will use them to improve our services. Your comments help us to better understand our customers' needs. Please feel free to reach out if you have any further suggestions or concerns.";
+            }
+
+            //submit feedback and store to database action call
+            const feedbackInputMessage = document.querySelector(".feedback-input").value;
+            submitFeedback(feedbackInputMessage);
+        });
+
+        //submit feedback and store to database action
+        function submitFeedback(message) {
+            var form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '/client/feedback';
+
+            var inputMessage = document.createElement('input');
+            inputMessage.type = 'hidden';
+            inputMessage.name = 'feedback';
+            inputMessage.value = message;
+            form.appendChild(inputMessage);
+
+            document.body.appendChild(form);
+            form.submit();
+        }
+
+        function ejectAll() {
+            document.querySelector('.continue-to').style.display = 'none'
+            document.querySelector('.feed-msg-container').style.display = 'none'
+            document.querySelector('.takened').style.display = 'none'
+            document.querySelector('.project-completed').style.display = 'flex'
+            document.getElementById('lasted').innerHTML = "Homecraft User!"
+            document.getElementById('lasted-p').innerHTML = "Are you sign of?, Thankyou"
+            console.log('clicked')
+        }
+
+        function updatePassword() {
+            document.querySelector('.change-pswd').style.display = 'flex'
+            document.querySelector('.view-account').style.display = 'none'
+        }
+
+        function closeUpdate() {
+            document.querySelector('.change-pswd').style.display = 'none'
+        }
+
+
+        function validatePassword() {
+            var newPassword = document.getElementById("newPassword").value;
+            var reEnterPassword = document.getElementById("reEnterPassword").value;
+            var message = document.getElementById("message");
+            var submitButton = document.getElementById("submitButton");
+
+            // Check if passwords match
+            if (newPassword !== reEnterPassword) {
+                message.innerHTML = "Passwords do not match";
+                message.style.display = "block";
+                submitButton.disabled = true;
+                return;
+            }
+
+            // Check if password meets minimum length requirement
+            if (newPassword.length < 8) {
+                message.innerHTML = "Password must be at least 8 characters long";
+                message.style.display = "block";
+                submitButton.disabled = true;
+                return;
+            }
+
+            // If everything is valid, hide message and enable submit button
+            message.style.display = "none";
+            submitButton.disabled = false;
+        }
+
+
+    </script>
+</body>
+
+</html>

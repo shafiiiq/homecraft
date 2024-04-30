@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    border: 0;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-weight: 400;
+}
+
+.material-symbols-rounded {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 100,
+        'GRAD' 0,
+        'opsz' 24;
+}
+
+body {
+    background-color: rgb(29, 29, 31);
+    color: white;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+}
+
+body .img-1 {
+    position: absolute;
+    width: 50%;
+    height: 95%;
+    top: 50%;
+    left: 0;
+    object-fit: cover;
+    opacity: 0.8;
+    transform: translateY(-50%);
+    border-radius: 0 10px 10px 0;
+}
+
+.form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 12rem 0 3rem 0;
+    max-height: 100vh;
+    z-index: 10;
+}
+
+.form::-webkit-scrollbar {
+    width: 6px;
+}
+
+.form::-webkit-scrollbar-thumb {
+    background-color: rgb(203, 121, 203);
+    border-radius: 100vh;
+}
+
+.angry-grid {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1.5rem;
+    height: 46rem;
+    width: 50rem;
+}
+
+#item-0 {
+
+    background-color: #386641;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-row-end: 2;
+    grid-column-end: 2;
+}
+
+#item-1 {
+
+    background-color: #a7c957;
+    grid-row-start: 2;
+    grid-column-start: 2;
+
+    grid-row-end: 4;
+    grid-column-end: 3;
+
+}
+
+#item-2 {
+
+    background-color: #6a994e;
+    grid-row-start: 1;
+    grid-column-start: 2;
+
+    grid-row-end: 2;
+    grid-column-end: 4;
+
+}
+
+#item-3 {
+
+    background-color: #386641;
+    grid-row-start: 1;
+    grid-column-start: 4;
+
+    grid-row-end: 3;
+    grid-column-end: 5;
+
+}
+
+#item-4 {
+
+    background-color: #763172;
+    grid-row-start: 3;
+    grid-column-start: 1;
+
+    grid-row-end: 5;
+    grid-column-end: 2;
+
+}
+
+#item-5 {
+
+    background-color: #864e99;
+    grid-row-start: 3;
+    grid-column-start: 3;
+
+    grid-row-end: 4;
+    grid-column-end: 5;
+
+}
+
+#item-6 {
+
+    background-color: #383966;
+    grid-row-start: 4;
+    grid-column-start: 2;
+
+    grid-row-end: 5;
+    grid-column-end: 5;
+    background-image: url('https://assets.hyatt.com/content/dam/hyatt/hyattdam/images/2020/05/05/1004/SELAZ-VT007-Sky-Terrace-Suite-Living-Room.jpg/SELAZ-VT007-Sky-Terrace-Suite-Living-Room.16x9.jpg?imwidth=1280');
+    background-size: cover;
+    background-position: center;
+}
+
+#item-7 {
+
+    background-color: #6a994e;
+    grid-row-start: 2;
+    grid-column-start: 1;
+
+    grid-row-end: 3;
+    grid-column-end: 2;
+    background-image: url('https://mlshkd6fvbce.i.optimole.com/cb:PRf_.12de6/w:auto/h:auto/q:mauto/ig:avif/https://homesoftherich.net/wp-content/uploads/2021/05/Screen-Shot-2021-05-02-at-1.01.03-PM.png');
+    background-size: cover;
+    background-position: center;
+
+}
+
+#item-8 {
+
+    background-color: #BD5E65;
+    grid-row-start: 2;
+    grid-column-start: 3;
+
+    grid-row-end: 3;
+    grid-column-end: 4;
+
+}
+
+.item {
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: relative;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.4);
+}
+
+.item:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+.item span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 120px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.absolute {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.item:hover span {
+    font-size: 90px;
+    transform: translate(-50%, -60%);
+}
+
+.item {
+    position: relative;
+}
+
+.item p.p{
+    position: absolute;
+    /* margin-top: 7rem; */
+    opacity: 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    bottom: 1rem;
+}
+
+.item:hover p.p {
+    opacity: 1;
+}
+
+.submission {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    cursor: pointer;
+    margin-top: 4rem;
+    justify-content: center;
+}
+
+.later {
+    font-size: 23px;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    cursor: pointer;
+    color: rgb(112, 159, 196);
+}
+
+
+.submit {
+    width: 17rem;
+    height: 5rem;
+    border-radius: 100vh;
+    font-size: 26px;
+    cursor: pointer;
+    background-color: rgb(112, 159, 196);
+    color: white;
+    font-weight: 500;
+    z-index: 1000;
+}
+
+.heading {
+    font-size: 180px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    z-index: 20000;
+    background-color: rgba(0, 0, 0, 0.7);
+    flex-direction: column;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    color: rgb(205, 194, 194);
+    font-family: "Lexend", sans-serif;
+}
+
+.heading .move-on {
+    font-size: 20px;
+    cursor: pointer;
+    /* margin-top: 26rem; */
+    cursor: pointer;
+    position: absolute;
+    bottom: 3rem;
+    color: rgb(112, 159, 196);
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+.hover {
+    position: absolute;
+    font-size: 16px;
+    top: 2rem;
+    right: 2rem;
+    color: rgb(238, 91, 91);
+    display: flex;
+    align-items: center;
+}
+
+.add-more-note {
+    position: absolute;
+    left: 2rem;
+    bottom: 2rem;
+    opacity: 0;
+    color: rgb(238, 91, 91);
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.fade-out-1 {
+    opacity: 1;
+}
+
+.add-more-note span {
+    margin-left: 1rem;
+}

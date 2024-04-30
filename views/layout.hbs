@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>{{title}}</title>
+  {{#if index}}
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  {{else if redirect}}
+  <link rel='stylesheet' href='/stylesheets/redirect.css' />
+  {{else if account}}
+  <link rel='stylesheet' href='/stylesheets/account.css' />
+  {{else if chat}}
+  <link rel='stylesheet' href='/stylesheets/chat.css' />
+  {{else if clientHome}}
+  <link rel='stylesheet' href='/stylesheets/home.css' />
+  {{else if requires}}
+  <link rel='stylesheet' href='/stylesheets/requires.css' />
+  {{else if contractorHome}}
+  <link rel='stylesheet' href='/stylesheets/contractor.css' />
+  {{else if contractorProfile}}
+  <link rel='stylesheet' href='/stylesheets/add-profile.css' />
+  {{else if dashboard}}
+  <link rel='stylesheet' href='/stylesheets/dashboard.css' />
+  {{else if submittedPupup}}
+  <link rel='stylesheet' href='/stylesheets/submitted-popup.css' />
+  {{else if property}}
+  <link rel='stylesheet' href='/stylesheets/property.css' />
+  {{else if project}}
+  <link rel='stylesheet' href='/stylesheets/project.css' />
+  {{else if clientAuthorise}}
+  <link rel='stylesheet' href='/stylesheets/client-authorise.css' />
+  {{else if updates}}
+  <link rel='stylesheet' href='/stylesheets/updates.css' />
+  {{else if portfolio}}
+  <link rel='stylesheet' href='/stylesheets/portfolio.css' />
+  {{else if proposal}}
+  <link rel='stylesheet' href='/stylesheets/proposal.css' />
+  {{else if contracted}}
+  <link rel='stylesheet' href='/stylesheets/contracted.css' />
+  {{else if projectData}}
+  <link rel='stylesheet' href='/stylesheets/project-data.css' />
+  {{else if projectUpdates}}
+  <link rel='stylesheet' href='/stylesheets/camera.css' />
+  {{else if action}}
+  <link rel='stylesheet' href='/stylesheets/action.css' />
+  {{else if timeline}}
+  <link rel='stylesheet' href='/stylesheets/project-timeline.css' />
+  {{/if}}
+</head>
+
+<body>
+  {{{body}}}
+</body>
+
+</html>

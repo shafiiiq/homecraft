@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,100,0,0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="absolute scroll-2 expanded exit-full ">
+        <div class="w-full flex j-start height pad-2 sticky glass next-1">
+            <span class="material-symbols-rounded white pointer" id="backNext-1" onclick="exitThis()">
+                reply
+                </a>
+        </div>
+        <div class="flex flex-col a-center take-pad">
+            <img src="" alt="" class="e-profile radius expanded-profile">
+            <p class="font-l white mt-05 expanded-name">
+
+            </p>
+            <div class="w-full mt-3 requires grid gap-2 repeat-3 white font-m">
+                <div class="1 ul-1 radius shadow pad-4-2">
+                    <ul class="flex flex-col gap-2 flow-y max custom most">
+                        <li>
+                            <span class="bold-m">Measurement of land</span> <br>
+                            <span class="font-s" id="measure"></span>
+                        </li>
+                        <li>
+                            <span class="bold-m">Budget</span> <br>
+                            <span class="font-s" id="budget"></span>
+                        </li>
+                        <li>
+                            <span class="bold-m">No of floors</span> <br>
+                            <span class="font-s" id="floor"></span>
+                        </li>
+                        <li>
+                            <span class="bold-m">Additional requirements</span> <br>
+                            <span class="font-s" id="additional"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="2 ul-2 radius shadow pad-4-2 h-95">
+                    <ul class="flex flex-col gap-2">
+                        <li>
+                            <span class="bold-m">Home adrress</span> <br>
+                            <span class="font-s" id="c-address"></span>
+                        </li>
+                        <li>
+                            <span class="bold-m">Site address</span> <br>
+                            <span class="font-s" id="s-address"></span>
+                        </li>
+                        <li>
+                            <span class="bold-m">No. of carporch</span> <br>
+                            <span class="font-s" id="carporch"></span>
+                        </li>
+                        <li>
+                            <span class="bold-m">No. of living room</span> <br>
+                            <span class="font-s" id="living"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="3 ul-3 radius shadow pad-4-2">
+                    <ul class="flex flex-col gap-2">
+                        <li>
+                            <span class="bold-m">No. of dining</span> <br>
+                            <span class="font-s" id="dining"></span>
+                        </li>
+                        <li>
+                            <span class="bold-m">No. of bedrooms</span> <br>
+                            <span class="font-s" id="bedroom"></span>
+                        </li>
+                        <li>
+                            <span class="bold-m">No. of kitchen</span> <br>
+                            <span class="font-s" id="kitchen"></span>
+                        </li>
+                        <li>
+                            <span class="bold-m">No. of bathroom</span> <br>
+                            <span class="font-s" id="bathroom"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="w-full radius mt-3 materials white font-m">
+                <div class="flex flex-col gap-2 a-center">
+                    <p class="font-l white">
+                        Prefered Materials
+                    </p>
+                    <div class="components grid repeat-4 w-full">
+                        <div class="item flex flex-col a-center gap pad">
+                            <label class="white font-m">
+                                Bricks
+                            </label>
+                            <div class="w-full p-h radius relative parent flow-full shadow p-1">
+                                <p class="font-l bold mt-2 ml-2 brick-p">
+                                </p>
+                                <div class="child c-1">
+                                    <img src="" class="logo brick-logo">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item flex flex-col a-center gap pad">
+                            <label class="white font-m">
+                                Cement
+                            </label>
+                            <div class="w-full p-h radius relative parent flow-full shadow p-2">
+                                <p class="font-l bold mt-2 ml-2 cement-p">
+                                </p>
+                                <div class="child c-2"></div>
+                            </div>
+                        </div>
+                        <div class="item flex flex-col a-center gap pad">
+                            <label class="white font-m">
+                                Sand
+                            </label>
+                            <div class="w-full p-h radius relative parent flow-full shadow p-3">
+                                <p class="font-l bold mt-2 ml-2 sand-p">
+                                </p>
+                                <div class="child c-3"></div>
+                            </div>
+                        </div>
+                        <div class="item flex flex-col a-center gap pad">
+                            <label class="white font-m">
+                                Wood
+                            </label>
+                            <div class="w-full p-h radius relative parent flow-full shadow p-4">
+                                <p class="font-l bold mt-2 ml-2 wood-p">
+                                </p>
+                                <div class="child c-4">
+                                    <img src="" class="logo wood-logo">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item flex flex-col a-center gap pad">
+                            <label class="white font-m">
+                                Wires
+                            </label>
+                            <div class="w-full p-h radius relative parent flow-full shadow p-5">
+                                <p class="font-l bold mt-2 ml-2 wire-p">
+                                </p>
+                                <div class="child c-5">
+                                    <img src="" class="logo wires-logo">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item flex flex-col a-center gap pad">
+                            <label class="white font-m">
+                                Pipes
+                            </label>
+                            <div class="w-full p-h radius relative parent flow-full shadow p-6">
+                                <p class="font-l bold mt-2 ml-2 pipe-p">
+                                </p>
+                                <div class="child c-6"></div>
+                            </div>
+                        </div>
+
+                        <div class="item flex flex-col a-center gap pad">
+                            <label class="white font-m">
+                                Switch Board
+                            </label>
+                            <div class="w-full p-h radius relative parent flow-full shadow p-7">
+                                <p class="font-l bold mt-2 ml-2 switch-board-p">
+                                </p>
+                                <div class="child c-7">
+                                    <img src="" class="logo switch-board-logo">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item flex flex-col a-center gap pad">
+                            <label class="white font-m">
+                                DB Board
+                            </label>
+                            <div class="w-full p-h radius relative parent flow-full shadow p-8">
+                                <p class="font-l bold mt-2 ml-2 db-board-p">
+                                </p>
+                                <div class="child c-8"></div>
+                            </div>
+                        </div>
+
+                        <div class="item flex flex-col a-center gap pad">
+                            <label class="white font-m">
+                                Paint
+                            </label>
+                            <div class="w-full p-h radius relative parent flow-full shadow p-9">
+                                <p class="font-l bold mt-2 ml-2 paint-p">
+                                </p>
+                                <div class="child c-9"></div>
+                            </div>
+                        </div>
+
+                        <div class="item flex flex-col a-center gap pad">
+                            <label class="white font-m">
+                                Switches
+                            </label>
+                            <div class="w-full p-h radius relative parent flow-full shadow p-10">
+                                <p class="font-l bold mt-2 ml-2 switch-p">
+                                </p>
+                                <div class="child c-10"></div>
+                            </div>
+                        </div>
+
+                        <div class="item flex flex-col a-center gap pad">
+                            <label class="white font-m">
+                                Tiles
+                            </label>
+                            <div class="w-full p-h radius relative parent flow-full shadow p-11">
+                                <p class="font-l bold mt-2 ml-2 tile-p">
+                                </p>
+                                <div class="child c-11"></div>
+                            </div>
+                        </div>
+
+                        <div class="item flex flex-col a-center gap pad">
+                            <label class="white font-m">
+                                Sink
+                            </label>
+                            <div class="w-full p-h radius relative parent flow-full shadow p-12">
+                                <p class="font-l bold mt-2 ml-2 sink-p">
+                                </p>
+                                <div class="child c-12"></div>
+                            </div>
+                        </div>
+
+                        <div class="item flex flex-col a-center gap pad">
+                            <label class="white font-m">
+                                Washbasin
+                            </label>
+                            <div class="w-full p-h radius relative parent flow-full shadow p-13">
+                                <p class="font-l bold mt-2 ml-2 washbasin-p">
+                                </p>
+                                <div class="child c-13"></div>
+                            </div>
+                        </div>
+
+                        <div class="item flex flex-col a-center gap pad">
+                            <label class="white font-m">
+                                Taps
+                            </label>
+                            <div class="w-full p-h radius relative parent flow-full shadow p-14">
+                                <p class="font-l bold mt-2 ml-2 tap-p">
+                                </p>
+                                <div class="child c-14"></div>
+                            </div>
+                        </div>
+
+                        <div class="item flex flex-col a-center gap pad">
+                            <label class="white font-m">
+                                Shower
+                            </label>
+                            <div class="w-full p-h radius relative parent flow-full shadow p-15">
+                                <p class="font-l bold mt-2 ml-2 shower-p">
+                                </p>
+                                <div class="child c-15"></div>
+                            </div>
+                        </div>
+
+                        <div class="item flex flex-col a-center gap pad">
+                            <label class="white font-m">
+                                Water Closet
+                            </label>
+                            <div class="w-full p-h radius relative parent flow-full shadow p-16">
+                                <p class="font-l bold mt-2 ml-2 w-closet-p">
+                                </p>
+                                <div class="child c-16"></div>
+                            </div>
+                        </div>
+
+                        <div class="item flex flex-col a-center gap pad">
+                            <label class="white font-m">
+                                Roof
+                            </label>
+                            <div class="w-full p-h radius relative parent flow-full shadow p-17">
+                                <p class="font-l bold mt-2 ml-2 roof-p">
+                                </p>
+                                <div class="child c-17"></div>
+                            </div>
+                        </div>
+
+                        <div class="item flex flex-col a-center gap pad">
+                            <label class="white font-m">
+                                Light
+                            </label>
+                            <div class="w-full p-h radius relative parent flow-full shadow p-18">
+                                <p class="font-l bold mt-2 ml-2 light-p">
+                                </p>
+                                <div class="child c-18"></div>
+                            </div>
+                        </div>
+
+                        <div class="item flex flex-col a-center gap pad">
+                            <label class="white font-m">
+                                Fan
+                            </label>
+                            <div class="w-full p-h radius relative parent flow-full shadow p-19">
+                                <p class="font-l bold mt-2 ml-2 fan-p">
+                                </p>
+                                <div class="child c-19"></div>
+                            </div>
+                        </div>
+
+                        <div class="item flex flex-col a-center gap pad">
+                            <label class="white font-m">
+                                Interlock
+                            </label>
+                            <div class="w-full p-h radius relative parent flow-full shadow p-20">
+                                <p class="font-l bold mt-2 ml-2 interlock-p">
+                                </p>
+                                <div class="child c-20"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container relative">
+        <div class="sidebar flow-y max-100 custom-1 pb-bottom">
+            <div class="head flex w-full j-between a-center pad-25">
+                <a href="/contractor/home">
+                    <span class="material-symbols-rounded white pointer" id="backNext">
+                        reply
+                    </span>
+                </a>
+                <input type="reset"
+                    class="reset pointer height w-m h-m flex a-center shadow radius-r white holder-1 font-s white"
+                    placeholder="Reset all">
+            </div>
+            <div class="sidebar-body pad flex flex-col">
+                <div class="one w-full flex gap white font-m">
+                    <span class="material-symbols-rounded" id="span-1">
+                        discover_tune
+                    </span>
+                    Customise
+                </div>
+            </div>
+            <div class="budget-filter font-m w-full white pad-25 h-filter flex flex-col j-center">
+                <p class="flex gap a-center">
+                    <span class="material-symbols-rounded">
+                        euro
+                    </span>
+                    Budget
+                </p>
+                <div class="budget-range  relative w-full flex flex-col gap a-center mt-1">
+                    <input type="range" class="budget-input w-full range" min="0" max="100000000" step="1000000"
+                        id="print">
+                    <div class="breakpoints" style="display: none;"></div>
+                </div>
+            </div>
+            <div class="sort pad-25 mt-1 font white flex flex-col gap">
+                <p class="flex gap a-center ">
+                    <span class="material-symbols-rounded">
+                        sort
+                    </span>
+                    Sort
+                </p>
+                <div class="custom-dropdown relative full height-three radius standard shadow">
+                    <div class="dropdown-toggle selectedOne" style="opacity: 0;" onclick="toggleDropdown()">Newest -
+                        Oldest
+                        <span class="material-symbols-rounded absolute white drop z-mid">
+                            expand_more
+                        </span>
+                    </div>
+                    <div class="dropdown-options">
+                        <div class="dropdown-option" onclick="selectOption('Newest - Oldest')" style="height: 50px;">
+                            Newest - Oldest
+                        </div>
+                        <div class="dropdown-option" onclick="selectOption('Oldest - Newest')">Oldest - Newest</div>
+                    </div>
+
+                </div>
+                <div class="custom-dropdown2 relative full height-three radius standard shadow">
+                    <div class="dropdown-toggle2 selectedOne2 mt-2" style="opacity: 0;" onclick="toggleDropdown2()">
+                        Pending
+                        <span class="material-symbols-rounded absolute white drop z-mid">
+                            expand_more
+                        </span>
+                    </div>
+                    <div class="dropdown-options2">
+                        <div class="dropdown-option2" onclick="selectOption2('Pending')" style="height: 50px;">
+                            Pending</div>
+                        <div class="dropdown-option2" onclick="selectOption2('Contracted')">Contracted</div>
+                    </div>
+                </div>
+                <div class="category mt-1 w-full flex flex-col gap">
+                    <div class="w-full white font-m flex gap j-start">
+                        <span class="material-symbols-rounded">
+                            category
+                        </span>
+                        Category
+                    </div>
+                    <div class="w-full height flex gap j-start">
+                        <div class="w-fit h-full category-bg flex a-center pad-inline radius shadow pointer">
+                            House Buliding
+                        </div>
+                        <div class="w-fit h-full category-bg flex a-center pad-inline radius shadow pointer">
+                            Apartment
+                        </div>
+                    </div>
+                    <div class="w-full height flex gap j-start">
+                        <div class="w-fit h-full category-bg flex a-center pad-inline radius shadow pointer">
+                            Office
+                        </div>
+                        <div class="w-fit h-full category-bg flex a-center pad-inline radius shadow pointer">
+                            School
+                        </div>
+                        <div class="w-fit h-full category-bg flex a-center pad-inline radius shadow pointer">
+                            Retail Store
+                        </div>
+                    </div>
+                    <div class="w-full height flex gap j-start">
+                        <div class="w-fit h-full category-bg flex a-center pad-inline radius shadow pointer">
+                            Industrial Plant
+                        </div>
+                        <div class="w-fit h-full category-bg flex a-center pad-inline radius shadow pointer">
+                            Warehouse
+                        </div>
+                    </div>
+                    <div class="w-full height flex gap j-start">
+                        <div class="w-fit h-full category-bg flex a-center pad-inline radius shadow pointer">
+                            Theme Park
+                        </div>
+                        <div class="w-fit h-full category-bg flex a-center pad-inline radius shadow pointer">
+                            Skyscraper
+                        </div>
+                    </div>
+                    <div class="w-full height flex gap j-start">
+                        <div class="w-fit h-full category-bg flex a-center pad-inline radius shadow pointer">
+                            Convention Center
+                        </div>
+                        <div class="w-fit h-full category-bg flex a-center pad-inline radius shadow pointer">
+                            Mosque
+                        </div>
+                    </div>
+                    <div class="w-full height flex gap j-start">
+                        <div class="w-fit h-full category-bg flex a-center pad-inline radius shadow pointer">
+                            Museum
+                        </div>
+                        <div class="w-fit h-full category-bg flex a-center pad-inline radius shadow pointer">
+                            Airport Terminal
+                        </div>
+                    </div>
+                    <div class="w-full height flex gap j-start">
+                        <div class="w-fit h-full category-bg flex a-center pad-inline radius shadow pointer">
+                            Residential Complex
+                        </div>
+                        <div class="w-fit h-full category-bg flex a-center pad-inline radius shadow pointer">
+                            Stadium
+                        </div>
+                    </div>
+                    <div class="w-full height flex gap j-start">
+                        <div class="w-fit h-full category-bg flex a-center pad-inline radius shadow pointer">
+                            Temple
+                        </div>
+                        <div class="w-fit h-full category-bg flex a-center pad-inline radius shadow pointer">
+                            Shopping Mall
+                        </div>
+                    </div>
+                    <div class="w-full height flex gap j-start">
+                        <div class="w-fit h-full category-bg flex a-center pad-inline radius shadow pointer">
+                            Hospital
+                        </div>
+                        <div class="w-fit h-full category-bg flex a-center pad-inline radius shadow pointer">
+                            Church
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="header pad flex j-center gap-3 w-full a-center">
+                <a href="/contractor/home">
+                    <span class="material-symbols-rounded white pointer" id="back">
+                        reply
+                    </span>
+                </a>
+                <button id="toggle"
+                    class="pointer shadow font-m bg-1 radius-r color-1 toggle height flex pad-inline gap j-center a-center">
+                    <span class="material-symbols-rounded" id="span">
+                        page_info
+                    </span>
+                    Fliter
+                </button>
+                <div class="search relative bg-search shadow glass holder radius-r height-2 w-search">
+                    <input type="search" class="full radius-r white glass pad-inline font-s" placeholder="Search"
+                        oninput="filterList(this.value)">
+                    <span class="material-symbols-rounded absolute white search-icon" id="span-m">
+                        search
+                    </span>
+                </div>
+                <button class="height radius pad-inline w-flex-m font-m shadow pointer">Get Search</button>
+                <img src="/images/user.webp"
+                    alt="" class="profile">
+            </div>
+            <div class="body scroll pad-7 full">
+                <ul class="flex flex-col-rev gap-2 white list-items">
+                    {{#each proposals}}
+                    <li class="list w-full gap-2 flex a-center">
+                        <div class="sl w-li-s h-mid radius shadow flex-full">
+                            <h1 class="sl-no"></h1>
+                        </div>
+                        <div class="data  w-li-l h-full radius shadow flex a-end">
+                            <div class="pic h-full flex-full">
+                                <img src="/client_data/{{profile._id}}profile.jpg" alt="" class="img">
+                            </div>
+                            <div class="name h-full flex j-center flex-col">
+                                <p class="font-l bold">{{profile.name}}</p>
+                                <p class="font-s flex gap a-center mb-05">
+                                    <span class="material-symbols-rounded">
+                                        call
+                                    </span>
+                                    {{#if profile.phoneNumber}}
+                                    {{profile.phoneNumber}}
+                                    {{else}}
+                                    Not specified
+                                    {{/if}}
+                                </p>
+                                <p class="font-s flex gap a-center">
+                                    <span class="material-symbols-rounded">
+                                        mail
+                                    </span>
+                                    {{this.clientEmail}}
+                                </p>
+                            </div>
+                            <div class="date same j-start h-full flex j-center flex-col">
+                                <p class="font-m bold-m">Date of proposal</p>
+                                <p class="font-s">Jun 34</p>
+                                <div class="with w-full flex a-center mt-1 gap-05">
+                                    <p class="font-m bold-m">Budget</p>
+                                    <p class="font-s">{{requires.budget}}</p>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="controls h-full flex-full">
+                                <div class="wrap w-full flex flex-col gap pad-r-2">
+                                    <div class="top w-full h-half flex">
+                                        <button
+                                            class="height pointer w-full call shadow radius font-m white flex j-between pad-inline a-center">
+                                            Call
+                                            <span class="material-symbols-rounded">
+                                                phone_enabled
+                                            </span></button>
+                                    </div>
+                                    <div class="bottom w-full h-half flex gap">
+                                        <button class="height pointer shadow radius deal font-s white w-half"
+                                            onclick="makeContract('{{this.clientEmail}}', '{{profile.name}}')">Contract</button>
+                                        <button
+                                            class="height pointer shadow radius block font-s white w-half">Reject</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pointer action font-m w-li-m h-full radius shadow flex flex-col a-center j-center"
+                            onclick="expandThis('{{requires.measureLand}}', '{{requires.budget}}' , '{{requires.noFloors}}',
+                            '{{requires.additional}}', '{{requires.currentAddress}}', '{{requires.siteAddress}}', '{{requires.noCarporch}}', 
+                            '{{requires.noLiving}}', '{{requires.noDining}}', '{{requires.noBedroom}}' ,'{{requires.noKitchen}}', 
+                            '{{requires.noBathroom}}', '{{profile._id}}', '{{profile.name}}',
+                            '{{requires.bricks}}', '{{requires.cement}}', '{{requires.sand}}', '{{requires.wood}}',
+                            '{{requires.wires}}', '{{requires.pipes}}', '{{requires.switchcBoard}}',
+                            '{{requires.dbBoard}}', '{{requires.paint}}', '{{requires.switches}}', 
+                            '{{requires.tiles}}', '{{requires.sink}}', '{{requires.washbasin}}',
+                            '{{requires.taps}}', '{{requires.shower}}', '{{requires.closet}}',
+                            '{{requires.roof}}', '{{requires.light}}', '{{requires.fan}}', 
+                            '{{requires.interlock}}',)">
+                            <span class="material-symbols-rounded" id="view">
+                                fullscreen
+                            </span>
+                            View full
+                        </div>
+                    </li>
+                    {{/each}}
+                    {{!-- <li class="list w-full gap-2 flex a-center">
+                        <div class="sl w-li-s h-mid radius shadow flex-full">
+                            <h1 class="sl-no"></h1>
+                        </div>
+                        <div class="data  w-li-l h-full radius shadow flex a-end">
+                            <div class="pic h-full flex-full">
+                                <img src="https://img.freepik.com/premium-photo/pretty-young-girl-posing-winter-cold-forest-with-pine-trees_221513-4077.jpg"
+                                    alt="" class="img">
+                            </div>
+                            <div class="name h-full flex j-center flex-col">
+                                <p class="font-l bold">Izaa</p>
+                                <p class="font-s flex gap a-center mb-05">
+                                    <span class="material-symbols-rounded">
+                                        call
+                                    </span>
+                                    974543532
+                                </p>
+                                <p class="font-s flex gap a-center">
+                                    <span class="material-symbols-rounded">
+                                        mail
+                                    </span>
+                                    izaa@gmail.com
+                                </p>
+                            </div>
+                            <div class="address same j-start h-full flex j-center flex-col">
+                                <p class="font-m bold-m">Address</p>
+                                <p class="font-s">izaa manzil, usa, florida, miami</p>
+                            </div>
+                            <div class="date same j-start h-full flex j-center flex-col">
+                                <p class="font-m bold-m">Date of proposal</p>
+                                <p class="font-s">Jun 34</p>
+                                <div class="with w-full flex a-center mt-1">
+                                    <p class="font-s bold-m">Budget</p>
+                                    <p class="font-s">4345345</p>
+                                </div>
+                            </div>
+                            <div class="controls h-full flex-full">
+                                <div class="wrap w-full flex flex-col gap pad-r-2">
+                                    <div class="top w-full h-half flex">
+                                        <button
+                                            class="height pointer w-full call shadow radius font-m white flex j-between pad-inline a-center">
+                                            Call
+                                            <span class="material-symbols-rounded">
+                                                phone_enabled
+                                            </span></button>
+                                    </div>
+                                    <div class="bottom w-full h-half flex gap">
+                                        <button
+                                            class="height pointer shadow radius deal font-s white w-half">Contract</button>
+                                        <button
+                                            class="height pointer shadow radius block font-s white w-half">Reject</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pointer action font-m w-li-m h-full radius shadow flex flex-col a-center j-center"
+                            onclick="expandThis()">
+                            <span class="material-symbols-rounded" id="dealed">
+                                partner_exchange
+                            </span>
+                            <span class="dealed bold-m">
+                                Contracted
+                            </span>
+                        </div>
+                    </li>
+                    <li class="list w-full gap-2 flex a-center">
+                        <div class="sl w-li-s h-mid radius shadow flex-full">
+                            <h1 class="sl-no"></h1>
+                        </div>
+                        <div class="data  w-li-l h-full radius shadow flex a-end">
+                            <div class="pic h-full flex-full">
+                                <img src="https://img.freepik.com/premium-photo/pretty-young-girl-posing-winter-cold-forest-with-pine-trees_221513-4077.jpg"
+                                    alt="" class="img">
+                            </div>
+                            <div class="name h-full flex j-center flex-col">
+                                <p class="font-l bold">Amelia</p>
+                                <p class="font-s flex gap a-center mb-05">
+                                    <span class="material-symbols-rounded">
+                                        call
+                                    </span>
+                                    974543532
+                                </p>
+                                <p class="font-s flex gap a-center">
+                                    <span class="material-symbols-rounded">
+                                        mail
+                                    </span>
+                                    izaa@gmail.comdfsdfsdafasdfsdafs
+                                </p>
+                            </div>
+                            <div class="address same j-start h-full flex j-center flex-col">
+                                <p class="font-m bold-m">Address</p>
+                                <p class="font-s">izaa manzil, usa, florida, miami</p>
+                            </div>
+                            <div class="date same j-start h-full flex j-center flex-col">
+                                <p class="font-m bold-m">Date of proposal</p>
+                                <p class="font-s">Jun 34</p>
+                                <div class="with w-full flex a-center mt-1">
+                                    <p class="font-s bold-m">Budget</p>
+                                    <p class="font-s">4345345</p>
+                                </div>
+                            </div>
+                            <div class="controls h-full flex-full">
+                                <div class="wrap w-full flex flex-col gap pad-r-2">
+                                    <div class="top w-full h-half flex">
+                                        <button
+                                            class="height pointer w-full call shadow radius font-m white flex j-between pad-inline a-center">
+                                            Call
+                                            <span class="material-symbols-rounded">
+                                                phone_enabled
+                                            </span></button>
+                                    </div>
+                                    <div class="bottom w-full h-half flex gap">
+                                        <button
+                                            class="height pointer shadow radius deal font-s white w-half">Contract</button>
+                                        <button
+                                            class="height pointer shadow radius block font-s white w-half">Reject</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pointer action font-m w-li-m h-full radius shadow flex flex-col a-center j-center"
+                            onclick="expandThis()">
+                            <span class="material-symbols-rounded" id="dealed">
+                                partner_exchange
+                            </span>
+                            <span class="dealed bold-m">
+                                Contracted
+                            </span>
+                        </div>
+                    </li> --}}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('toggle').addEventListener('click', function () {
+            var sidebar = document.querySelector('.sidebar')
+            var content = document.querySelector('.content')
+            var toggleButton = document.getElementById('toggle')
+            var iconSpan = toggleButton.querySelector('.material-symbols-rounded');
+            var bodyDiv = document.querySelector('.body');
+            var search = document.querySelector('.search');
+            var rangeThump = document.querySelector('.range');
+            // var sl = document.querySelector('.sl');
+            // var profile = document.querySelector('.img');
+            // var address = document.querySelector('.address');
+            // var takenDate = document.querySelector('.date');
+            // var withDiv = document.querySelector('.with');
+            var back = document.getElementById('back');
+            var header = document.querySelector('.header')
+            var rangePoints = document.querySelector('.breakpoints')
+            var selectedOne = document.querySelector('.selectedOne')
+            var selectedOne2 = document.querySelector('.selectedOne2')
+            var slList = document.querySelectorAll('.sl');
+            var profileList = document.querySelectorAll('.img');
+            var addressList = document.querySelectorAll('.address');
+            var takenDateList = document.querySelectorAll('.date');
+            var withDivList = document.querySelectorAll('.with');
+            var header = document.querySelector('.header');
+
+            sidebar.classList.toggle('sidebar-toggle')
+            rangeThump.classList.toggle('range-display')
+            content.classList.toggle('content-toggle')
+            toggleButton.classList.toggle('toggle-border')
+            toggleButton.classList.toggle('glass')
+            bodyDiv.classList.toggle('pad-7')
+            bodyDiv.classList.toggle('pad')
+            bodyDiv.classList.toggle('fade-in');
+            search.classList.toggle('bg-search');
+            search.classList.toggle('border-search');
+            addressList.forEach(function (address) {
+                address.classList.toggle('pad-l-2');
+            });
+            // address.classList.toggle('pad-l-2');
+            takenDateList.forEach(function (takenDate) {
+                takenDate.classList.toggle('pad-l-1');
+            });
+            // takenDate.classList.toggle('pad-l-1');
+            withDivList.forEach(function (withDiv) {
+                withDiv.classList.toggle('flex-col');
+                withDiv.classList.toggle('a-center');
+                withDiv.classList.toggle('j-center');
+                withDiv.classList.toggle('gap-05');
+                withDiv.classList.toggle('mt-2');
+            });
+            // withDiv.classList.toggle('flex-col');
+            // withDiv.classList.toggle('a-center');
+            // withDiv.classList.toggle('j-center');
+
+            if (iconSpan.textContent.trim() === 'page_info') {
+                iconSpan.textContent = 'close';
+            } else {
+                iconSpan.textContent = 'page_info';
+            }
+
+            if (header.style.backgroundColor === 'rgb(35, 45, 41)') {
+                header.style.transition = 'background-color 0.5s ease'; // Add transition
+                header.style.backgroundColor = 'transparent';
+            } else {
+                header.style.transition = 'background-color 0.5s ease'; // Add transition
+                header.style.backgroundColor = 'rgb(35, 45, 41)';
+            }
+
+            // if (sl.style.height === '50%') {
+            //     sl.style.transition = 'height 0.3s ease';
+            //     sl.style.height = '65%';
+            // } else {
+            //     sl.style.transition = 'height 0.3s ease';
+            //     sl.style.height = '50%';
+            // }
+
+            slList.forEach(function (sl) {
+                if (sl.style.height === '50%') {
+                    sl.style.transition = 'height 0.3s ease';
+                    sl.style.height = '65%';
+                } else {
+                    sl.style.transition = 'height 0.3s ease';
+                    sl.style.height = '50%';
+                }
+            });
+
+            // if (profile.style.height === '47%') {
+            //     profile.style.transition = 'height 0.3s ease';
+            //     profile.style.height = '60%';
+            // } else {
+            //     profile.style.transition = 'height 0.3s ease';
+            //     profile.style.height = '47%';
+            // }
+
+            profileList.forEach(function (profile) {
+                if (profile.style.height === '47%') {
+                    profile.style.transition = 'height 0.3s ease';
+                    profile.style.height = '60%';
+                } else {
+                    profile.style.transition = 'height 0.3s ease';
+                    profile.style.height = '47%';
+                }
+            });
+
+            if (back.style.display === 'none') {
+                back.style.display = 'flex';
+            } else {
+                back.style.display = 'none';
+            }
+
+            if (rangePoints.style.display === 'none') {
+                rangePoints.style.display = 'flex';
+            } else {
+                rangePoints.style.display = 'none';
+            }
+
+            if (selectedOne.style.opacity === '0') {
+                selectedOne.style.transition = 'opacity 0.6s ease';
+                selectedOne.style.opacity = '1';
+            } else {
+                selectedOne.style.opacity = '0';
+                selectedOne.style.transition = 'opacity 0s ease';
+            }
+
+            if (selectedOne2.style.opacity === '0') {
+                selectedOne2.style.transition = 'opacity 0.6s ease';
+                selectedOne2.style.opacity = '1';
+            } else {
+                selectedOne2.style.opacity = '0';
+                selectedOne2.style.transition = 'opacity 0s ease';
+            }
+        })
+
+        // serial number making
+        function serialNumber() {
+            var lists = document.querySelectorAll('.body li');
+
+            lists.forEach(function (li, index) {
+                var h1 = li.querySelector('.sl-no');
+                h1.textContent = (index + 1).toString();
+            });
+        }
+        serialNumber();
+
+        // expand full details container 
+        function expandThis(measureLand, budgetData, noFloors, additionalRequires, currentAddress, siteAddress, noCarporch, noLiving, noDining, noBedroom, noKitchen, noBathroom, profileId, profileName,
+            bricks, cement, sand, wood, wires, pipes, switchcBoard, dbBoard, paint, switches, tiles, sink, washbasin, taps, shower, closet,
+            roof, light, fan, interlock) {
+            var viewFull = document.querySelector('.expanded');
+            viewFull.classList.toggle('view-full');
+            viewFull.classList.toggle('exit-full');
+
+            console.log(roof)
+
+            var measure = document.getElementById('measure');
+            var budget = document.getElementById('budget');
+            var floor = document.getElementById('floor');
+            var additional = document.getElementById('additional');
+            var cAddress = document.getElementById('c-address');
+            var sAddress = document.getElementById('s-address');
+            var carporch = document.getElementById('carporch');
+            var living = document.getElementById('living');
+            var dining = document.getElementById('dining');
+            var kitchen = document.getElementById('kitchen');
+            var bathroom = document.getElementById('bathroom');
+            var exapandedProfile = document.querySelector('.expanded-profile');
+            var expandedName = document.querySelector('.expanded-name');
+
+            var eBrick = document.querySelector('.brick-p');
+            var eCement = document.querySelector('.cement-p');
+            var eSand = document.querySelector('.sand-p');
+            var eWood = document.querySelector('.wood-p');
+            var eWire = document.querySelector('.wire-p');
+            var ePipe = document.querySelector('.pipe-p');
+            var eSwBoard = document.querySelector('.switch-board-p');
+            var eDbBoard = document.querySelector('.db-board-p');
+            var ePaint = document.querySelector('.paint-p');
+            var eSwitch = document.querySelector('.switch-p');
+            var eTile = document.querySelector('.tile-p');
+            var eSink = document.querySelector('.sink-p');
+            var eBasin = document.querySelector('.washbasin-p');
+            var eTap = document.querySelector('.tap-p');
+            var eShower = document.querySelector('.shower-p');
+            var eCloset = document.querySelector('.w-closet-p');
+            var eRoof = document.querySelector('.roof-p');
+            var eLight = document.querySelector('.light-p');
+            var eFan = document.querySelector('.fan-p');
+            var exInterlock = document.querySelector('.interlock-p');
+
+            measure.innerHTML = `${measureLand}`;
+            budget.innerHTML = `${budgetData}`;
+            floor.innerHTML = `${noFloors}`;
+            additional.innerHTML = `${additionalRequires}`;
+            cAddress.innerHTML = `${currentAddress}`;
+            sAddress.innerHTML = `${siteAddress}`;
+            carporch.innerHTML = `${noCarporch}`;
+            living.innerHTML = `${noLiving}`;
+            dining.innerHTML = `${noDining}`;
+            kitchen.innerHTML = `${noKitchen}`;
+            bathroom.innerHTML = `${noBathroom}`;
+            expandedName.innerHTML = `${profileName}`;
+            exapandedProfile.src = `/client_data/${profileId}profile.jpg`;
+
+            //requirements
+            eBrick.innerHTML = `${bricks}`;
+            eCement.innerHTML = `${cement}`;
+            eSand.innerHTML = `${sand}`;
+            eWood.innerHTML = `${wood}`;
+            eWire.innerHTML = `${wires}`;
+            ePipe.innerHTML = `${pipes}`;
+            eSwBoard.innerHTML = `${switchcBoard}`;
+            eDbBoard.innerHTML = `${dbBoard}`;
+            ePaint.innerHTML = `${paint}`;
+            eSwitch.innerHTML = `${switches}`;
+            eTile.innerHTML = `${tiles}`;
+            eSink.innerHTML = `${sink}`;
+            eBasin.innerHTML = `${washbasin}`;
+            eTap.innerHTML = `${taps}`;
+            eShower.innerHTML = `${shower}`;
+            eCloset.innerHTML = `${closet}`;
+            eRoof.innerHTML = `${roof}`;
+            eLight.innerHTML = `${light}`;
+            eFan.innerHTML = `${fan}`;
+            exInterlock.innerHTML = `${interlock}`;
+
+            //all fetching images
+            //switch board json
+            fetch('/json/switch-board.json')
+                .then(response => response.json())
+                .then(data => {
+                    const switchBoardType = document.querySelector('.switch-board-p').textContent.trim();
+                    const foundSwitchBoard = data.find(switchBoard => switchBoard.type === switchBoardType);
+                    if (foundSwitchBoard) {
+                        document.querySelector('.switch-board-logo').src = foundSwitchBoard.logo;
+                    } else {
+                        console.log('Switch board type not found');
+                    }
+                })
+                .catch(error => console.error('Error fetching switch board data:', error));
+
+            // wood fetch
+            fetch('/json/wood.json')
+                .then(response => response.json())
+                .then(woodData => {
+                    const woodType = document.querySelector('.wood-p').textContent.trim();
+                    const foundWood = woodData.wood_types.find(wood => wood.type === woodType);
+                    if (foundWood) {
+                        document.querySelector('.wood-logo').src = foundWood.logo;
+                    } else {
+                        console.log('Wood type not found');
+                    }
+                })
+                .catch(error => console.error('Error fetching wood data:', error));
+
+            //wires fetch
+            fetch('/json/wires.json')
+                .then(response => response.json())
+                .then(wiresData => {
+                    const companyName = document.querySelector('.wire-p').textContent.trim();
+                    const foundCompany = wiresData.wires_companies.find(company => company.company === companyName);
+                    if (foundCompany) {
+                        document.querySelector('.wires-logo').src = foundCompany.logo;
+                    } else {
+                        console.log('Company not found');
+                    }
+                })
+                .catch(error => console.error('Error fetching company data:', error));
+
+
+        }
+
+
+        // exit this container 
+        function exitThis() {
+            var viewFull = document.querySelector('.expanded');
+            viewFull.classList.toggle('exit-full');
+            viewFull.classList.toggle('view-full');
+        }
+
+        // budget input range field 
+        document.addEventListener('DOMContentLoaded', function () {
+            var rangeInput = document.getElementById('print');
+
+            rangeInput.addEventListener('input', function () {
+                console.log(this.value);
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var rangeInput = document.getElementById('print');
+            var breakpointsContainer = document.querySelector('.breakpoints');
+
+            for (var i = 0; i < 5; i++) {
+                var value = i * 25000000;
+
+                var breakpoint = document.createElement('div');
+                breakpoint.className = 'breakpoint';
+                breakpoint.style.left = (value / rangeInput.max) * 100 + '%';
+                breakpoint.dataset.value = value;
+                breakpoint.innerHTML = '<div class="breakpoint-tooltip">' + value.toLocaleString() + '</div>';
+                breakpointsContainer.appendChild(breakpoint);
+
+                breakpoint.addEventListener('click', function () {
+                    var breakpointValue = parseInt(this.dataset.value);
+                    rangeInput.value = breakpointValue;
+                    rangeInput.dispatchEvent(new Event('input'));
+                });
+            }
+
+            var breakpoints = document.querySelectorAll('.breakpoint');
+            breakpoints.forEach(function (breakpoint) {
+                breakpoint.addEventListener('mouseover', function () {
+                    var tooltip = this.querySelector('.breakpoint-tooltip');
+                    tooltip.style.display = 'block';
+                });
+                breakpoint.addEventListener('mouseout', function () {
+                    var tooltip = this.querySelector('.breakpoint-tooltip');
+                    tooltip.style.display = 'none';
+                });
+            });
+        });
+
+        // brick.json fetching 
+
+        // custom dropdown 
+        function toggleDropdown() {
+            const dropdownOptions = document.querySelector('.custom-dropdown .dropdown-options');
+            dropdownOptions.style.display = dropdownOptions.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function selectOption(option) {
+            const dropdownToggle = document.querySelector('.custom-dropdown .dropdown-toggle');
+            dropdownToggle.textContent = option;
+
+            const dropdownOptions = document.querySelector('.custom-dropdown .dropdown-options');
+            dropdownOptions.style.display = 'none';
+        }
+
+        function toggleDropdown2() {
+            const dropdownOptions2 = document.querySelector('.custom-dropdown2 .dropdown-options2');
+            dropdownOptions2.style.display = dropdownOptions2.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function selectOption2(option) {
+            const dropdownToggle2 = document.querySelector('.custom-dropdown2 .dropdown-toggle2');
+            dropdownToggle2.textContent = option;
+
+            const dropdownOptions2 = document.querySelector('.custom-dropdown2 .dropdown-options2');
+            dropdownOptions2.style.display = 'none';
+        }
+
+        document.addEventListener('click', function (event) {
+            const dropdown1 = document.querySelector('.custom-dropdown .dropdown-options');
+            const dropdown2 = document.querySelector('.custom-dropdown2 .dropdown-options2');
+            const target = event.target;
+
+            if (!target.closest('.custom-dropdown') && dropdown1.style.display === 'block') {
+                dropdown1.style.display = 'none';
+            }
+
+            if (!target.closest('.custom-dropdown2') && dropdown2.style.display === 'block') {
+                dropdown2.style.display = 'none';
+            }
+        });
+
+
+        // ul overlow control 
+        window.addEventListener('DOMContentLoaded', function () {
+            const ul = document.querySelector('most');
+            const adDataSpan = document.querySelector('.ad-data');
+
+            function toggleOverflowClass() {
+                if (ul.scrollHeight > ul.clientHeight) {
+                    ul.classList.add('flow-y', 'max');
+                } else {
+                    ul.classList.remove('flow-y', 'max');
+                }
+            }
+
+            toggleOverflowClass();
+            window.addEventListener('resize', toggleOverflowClass);
+            window.addEventListener('DOMContentLoaded', toggleOverflowClass);
+            adDataSpan.addEventListener('input', toggleOverflowClass);
+        });
+
+        // search facitlity 
+        function filterList(searchTerm) {
+            searchTerm = searchTerm.toLowerCase();
+            const listItems = document.querySelectorAll('.list-items li');
+            let displayedItems = [];
+            listItems.forEach(item => {
+                const textContent = item.textContent.toLowerCase();
+                if (textContent.includes(searchTerm)) {
+                    item.style.display = 'flex';
+                    displayedItems.push(item);
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            listItems.forEach(item => {
+                item.style.borderBottom = '';
+            });
+
+            if (displayedItems.length > 0) {
+                const lastDisplayedItem = displayedItems[displayedItems.length - 1];
+                lastDisplayedItem.style.borderBottom = '0';
+            }
+        }
+
+
+        // reset filters 
+        function resetSelection() {
+            document.querySelector('.dropdown-toggle').textContent = 'Newest - Oldest';
+            document.querySelector('.dropdown-toggle2').textContent = 'Pending';
+
+            document.getElementById('print').value = 0;
+
+            // Reset any other selections or states you need to reset
+
+            // You may also want to reset any visual changes made to the UI
+        }
+
+        document.querySelector('.reset').addEventListener('click', function () {
+            resetSelection();
+        });
+
+
+
+
+        // make contract form submission 
+        function makeContract(email, name) {
+            var form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '/contractor/make-contract';
+
+            var inputEmail = document.createElement('input');
+            inputEmail.type = 'hidden';
+            inputEmail.name = 'email';
+            inputEmail.value = email;
+            form.appendChild(inputEmail);
+
+            var inputName = document.createElement('input');
+            inputName.type = 'hidden';
+            inputName.name = 'name';
+            inputName.value = name;
+            form.appendChild(inputName);
+
+            // Append the form to the document body
+            document.body.appendChild(form);
+
+            // Submit the form
+            form.submit();
+        }
+    </script>
+</body>
+
+
+</html>
+
+
+
+
+
+{{!--
+fetch('json/brick.json')
+.then(response => response.json())
+.then(data => {
+const brickType = document.querySelector('.brick-p').textContent.trim();
+const foundBrick = data.brick_types.find(brick => brick.type === brickType);
+if (foundBrick) {
+document.querySelector('.brick-logo').src = foundBrick.logo;
+} else {
+console.log('Brick type not found');
+}
+})
+.catch(error => console.error('Error fetching brick data:', error)); --}}
