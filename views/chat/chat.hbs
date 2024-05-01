@@ -62,7 +62,7 @@
                     </div>
                 </h1>
                 <input type="search" placeholder="Search message or users">
-                <div class="lists">
+                <div class="lists chatList-side">
                     {{!-- client chat left section starts --}}
                     {{#if clientChat}}
                     {{#each allChats}}
@@ -104,7 +104,7 @@
                     contractorSendedTime: '{{contractorSendedTime}}',
                     receiver: '{{receiver}}'
                     }{{#unless @last}},{{/unless}}
-                    {{/each}} ]
+                    {{/each}} ],this
                      )">
                         <div class="profile-name">
                             <img src="/client_data/{{this.clientProfileId}}profile.jpg" alt=""
@@ -714,7 +714,7 @@
                         fetchPreviousMessages();
                     }
                 });
-                clientTakeChatCount ++
+                clientTakeChatCount++
                 console.log("called this")
                 console.log(clientTakeChatCount)
             }
@@ -797,70 +797,118 @@
         }
 
 
+        //find the clicked chat list
+        var findClicked = {};
+        var count = 0;
+
         //contractor chats arranges
-        function takeContractorChat(name, email, chats) {
-            sendContractorChatData(name, email)
-            var chatWindow = document.querySelector('.container .chat .chat-window');
-            var chatIndex = document.querySelector('.chat-index');
-            var chatHeader = document.querySelector('.chat-header');
-            var chatFooter = document.querySelector('.chat-footer');
-            var oppositePerson = document.querySelector('.opposite-person')
-            var messageInput = document.querySelector('.message-input')
-            var sendBtn = document.querySelector('.send-btn')
+        function takeContractorChat(name, email, chats, element) {
 
-            let chatArray = [];
-            chats.forEach(function (chat) {
-                let chatObj = {
-                    sender: chat.sender,
-                    receiver: chat.receiver,
-                    clientMessage: chat.clientMessage,
-                    clientSendedTime: chat.clientSendedTime,
-                    contractorMessage: chat.contractorMessage,
-                    contractorSendedTime: chat.contractorSendedTime
-                };
-                chatArray.push(chatObj);
-            });
-            //console.log("Chats:", chatArray);
-
-            renderContractorChats(chatArray)
+            var chatListSide = document.querySelector('.chatList-side');
+            var totalNumberOfIndexes = chatListSide.children.length;
 
 
+            count++;
+            var index = Array.from(element.parentNode.children).indexOf(element);
 
-            setTimeout(function () {
-                messageInput.focus();
-            }, 100);
+            // Check if the element is already clicked
+            if (findClicked[index] && findClicked[index].clicked === true) {
+                console.log("Clicked already");
+                console.log(findClicked[index].clicked)
+                findClicked[index].clicked = false
+                console.log(findClicked[index].clicked)
+                return;
+            } else {
+                sendContractorChatData(name, email)
+                var chatWindow = document.querySelector('.container .chat .chat-window');
+                var chatIndex = document.querySelector('.chat-index');
+                var chatHeader = document.querySelector('.chat-header');
+                var chatFooter = document.querySelector('.chat-footer');
+                var oppositePerson = document.querySelector('.opposite-person')
+                var messageInput = document.querySelector('.message-input')
+                var sendBtn = document.querySelector('.send-btn')
+
+                let chatArray = [];
+                chats.forEach(function (chat) {
+                    let chatObj = {
+                        sender: chat.sender,
+                        receiver: chat.receiver,
+                        clientMessage: chat.clientMessage,
+                        clientSendedTime: chat.clientSendedTime,
+                        contractorMessage: chat.contractorMessage,
+                        contractorSendedTime: chat.contractorSendedTime
+                    };
+                    chatArray.push(chatObj);
+                });
+                //console.log("Chats:", chatArray);
+
+                renderContractorChats(chatArray)
 
 
-            messageInput.addEventListener('keyup', function (event) {
-                if (messageInput.value.trim() !== '') {
-                    sendBtn.style.display = 'flex';
+
+                setTimeout(function () {
+                    messageInput.focus();
+                }, 100);
+
+
+                messageInput.addEventListener('keyup', function (event) {
+                    if (messageInput.value.trim() !== '') {
+                        sendBtn.style.display = 'flex';
+                    } else {
+                        sendBtn.style.display = 'none';
+                    }
+                });
+
+
+
+                chatWindow.style.display = 'flex';
+                chatHeader.style.display = 'flex';
+                chatFooter.style.display = 'flex';
+                chatIndex.style.display = 'none';
+                oppositePerson.innerHTML = `${name}`
+
+                // Set initial scroll position
+                chatWindow.scrollTop = chatWindow.scrollHeight;
+                var windowHeight = chatWindow.scrollHeight
+                //console.log(windowHeight)
+
+                chatWindow.addEventListener('scroll', function () {
+                    if (chatWindow.scrollTop === 0) {
+                        fetchPreviousMessages();
+                    }
+                });
+            }
+
+
+            var thisItem = {
+                clicked: true
+            };
+
+            var clickedFalse = {
+                clicked: false
+            }
+
+            // Store the clicked item in the findClicked object
+            //findClicked[index] = thisItem;
+
+            for (var i = 0; i < totalNumberOfIndexes; i++) {
+                if (i !== index) {
+                    findClicked[i] = clickedFalse; // Set clickedFalse for other indexes
                 } else {
-                    sendBtn.style.display = 'none';
+                    findClicked[index] = thisItem; // Set thisItem for the current index
                 }
-            });
+            }
+
+            console.log("Clicked item:", index);
+            console.log("findClicked object:", findClicked);
 
 
 
-            chatWindow.style.display = 'flex';
-            chatHeader.style.display = 'flex';
-            chatFooter.style.display = 'flex';
-            chatIndex.style.display = 'none';
-            oppositePerson.innerHTML = `${name}`
-
-            // Set initial scroll position
-            chatWindow.scrollTop = chatWindow.scrollHeight;
-            var windowHeight = chatWindow.scrollHeight
-            //console.log(windowHeight)
-
-            chatWindow.addEventListener('scroll', function () {
-                if (chatWindow.scrollTop === 0) {
-                    fetchPreviousMessages();
-                }
-            });
         }
 
         function renderContractorChats(chatArray) {
             let chatContainer = document.querySelector('.chat-window');
+            chatContainer.innerHTML = '';
 
             chatArray.forEach(function (chat) {
                 let chatHTML;
