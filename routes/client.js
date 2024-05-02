@@ -351,7 +351,7 @@ router.post('/update-password', verifyLogin, (req, res) => {
           } else {
             let hasProfile = profile._id
             console.log("here from " + hasProfile);
-            res.render('client/home', { clientHome: true, client, hasProfile, passwordIncorrect: "Incorrect password try again" })
+            res.render('client/home', { clientHome: true, client, hasProfile, passwordIncorrect: "Old password is incorrect try again" })
           }
         })
       })
