@@ -270,7 +270,7 @@
                         End to end encypted
                     </p>
                 </div>
-                <div class="chat-window" style="display: flex;">
+                <div class="chat-window contractor-chat-window" style="display: flex;">
                     {{#if contractorChat}}
                     {{#each thisEmailChats.[0].chats}}
                     {{#if clientMessage}}
@@ -804,103 +804,64 @@
         //contractor chats arranges
         function takeContractorChat(name, email, chats, element) {
 
-            var chatListSide = document.querySelector('.chatList-side');
-            var totalNumberOfIndexes = chatListSide.children.length;
+            sendContractorChatData(name, email)
+            var chatWindow = document.querySelector('.container .chat .chat-window');
+            var chatIndex = document.querySelector('.chat-index');
+            var chatHeader = document.querySelector('.chat-header');
+            var chatFooter = document.querySelector('.chat-footer');
+            var oppositePerson = document.querySelector('.opposite-person')
+            var messageInput = document.querySelector('.message-input')
+            var sendBtn = document.querySelector('.send-btn')
 
+            let chatArray = [];
+            chats.forEach(function (chat) {
+                let chatObj = {
+                    sender: chat.sender,
+                    receiver: chat.receiver,
+                    clientMessage: chat.clientMessage,
+                    clientSendedTime: chat.clientSendedTime,
+                    contractorMessage: chat.contractorMessage,
+                    contractorSendedTime: chat.contractorSendedTime
+                };
+                chatArray.push(chatObj);
+            });
+            //console.log("Chats:", chatArray);
 
-            count++;
-            var index = Array.from(element.parentNode.children).indexOf(element);
-
-            // Check if the element is already clicked
-            if (findClicked[index] && findClicked[index].clicked === true) {
-                console.log("Clicked already");
-                console.log(findClicked[index].clicked)
-                findClicked[index].clicked = false
-                console.log(findClicked[index].clicked)
-                return;
-            } else {
-                sendContractorChatData(name, email)
-                var chatWindow = document.querySelector('.container .chat .chat-window');
-                var chatIndex = document.querySelector('.chat-index');
-                var chatHeader = document.querySelector('.chat-header');
-                var chatFooter = document.querySelector('.chat-footer');
-                var oppositePerson = document.querySelector('.opposite-person')
-                var messageInput = document.querySelector('.message-input')
-                var sendBtn = document.querySelector('.send-btn')
-
-                let chatArray = [];
-                chats.forEach(function (chat) {
-                    let chatObj = {
-                        sender: chat.sender,
-                        receiver: chat.receiver,
-                        clientMessage: chat.clientMessage,
-                        clientSendedTime: chat.clientSendedTime,
-                        contractorMessage: chat.contractorMessage,
-                        contractorSendedTime: chat.contractorSendedTime
-                    };
-                    chatArray.push(chatObj);
-                });
-                //console.log("Chats:", chatArray);
-
-                renderContractorChats(chatArray)
+            renderContractorChats(chatArray)
 
 
 
-                setTimeout(function () {
-                    messageInput.focus();
-                }, 100);
+            setTimeout(function () {
+                messageInput.focus();
+            }, 100);
 
 
-                messageInput.addEventListener('keyup', function (event) {
-                    if (messageInput.value.trim() !== '') {
-                        sendBtn.style.display = 'flex';
-                    } else {
-                        sendBtn.style.display = 'none';
-                    }
-                });
-
-
-
-                chatWindow.style.display = 'flex';
-                chatHeader.style.display = 'flex';
-                chatFooter.style.display = 'flex';
-                chatIndex.style.display = 'none';
-                oppositePerson.innerHTML = `${name}`
-
-                // Set initial scroll position
-                chatWindow.scrollTop = chatWindow.scrollHeight;
-                var windowHeight = chatWindow.scrollHeight
-                //console.log(windowHeight)
-
-                chatWindow.addEventListener('scroll', function () {
-                    if (chatWindow.scrollTop === 0) {
-                        fetchPreviousMessages();
-                    }
-                });
-            }
-
-
-            var thisItem = {
-                clicked: true
-            };
-
-            var clickedFalse = {
-                clicked: false
-            }
-
-            // Store the clicked item in the findClicked object
-            //findClicked[index] = thisItem;
-
-            for (var i = 0; i < totalNumberOfIndexes; i++) {
-                if (i !== index) {
-                    findClicked[i] = clickedFalse; // Set clickedFalse for other indexes
+            messageInput.addEventListener('keyup', function (event) {
+                if (messageInput.value.trim() !== '') {
+                    sendBtn.style.display = 'flex';
                 } else {
-                    findClicked[index] = thisItem; // Set thisItem for the current index
+                    sendBtn.style.display = 'none';
                 }
-            }
+            });
 
-            console.log("Clicked item:", index);
-            console.log("findClicked object:", findClicked);
+
+
+            chatWindow.style.display = 'flex';
+            chatHeader.style.display = 'flex';
+            chatFooter.style.display = 'flex';
+            chatIndex.style.display = 'none';
+            oppositePerson.innerHTML = `${name}`
+
+            // Set initial scroll position
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+            var windowHeight = chatWindow.scrollHeight
+            //console.log(windowHeight)
+
+            chatWindow.addEventListener('scroll', function () {
+                if (chatWindow.scrollTop === 0) {
+                    fetchPreviousMessages();
+                }
+            });
 
 
 
