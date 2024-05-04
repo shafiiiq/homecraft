@@ -31,49 +31,18 @@ body {
     background-size: cover;
 }
 
-.absol {
-    position: absolute;
-    top: 0;
-    z-index: 1;
-}
 
-.one-div, .three-div {
-    width: 35%;
-    height: 70%;
-    background-size: cover;
-    background-position: center;
-}
-
-.one-div {
-    background-image: url('/images/client-bg-1.jpg');
-    left: 0;
-    border-radius: 0 0 7rem 0;
-}
-
-.three-div {
-    background-image: url('/images/client-bg-3.jpg');
-    right: 0;
-    border-radius: 0 0 0 7rem;
-}
-
-.two-div {
-    width: 26%;
-    height: 80%;
-    background-image: url('/images/client-bg-2.jpg');
-    background-size: cover;
-    background-position: center;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 0 0 5vh 5vh; 
-
-}
 
 header {
     /* background-color: transparent; */
-    background-color: #181818;
+    /* background-color: #181818; */
+    background-color: #191a1b;
+    /* background-color: white; */
     z-index: 2;
     position: relative;
     color: black;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+    height: 5.4rem;
 }
 
 header nav {
@@ -82,7 +51,7 @@ header nav {
     padding: 0 3rem;
 }
 
-header nav >img {
+header nav>img {
     height: 6rem;
 }
 
@@ -98,11 +67,15 @@ header nav .navigations ul {
     gap: 2rem;
 }
 
+header nav .navigations ul li {
+    font-size: 19px;
+    font-weight: 500;
+}
+
 header nav .navigations ul li a {
     color: white;
     /* color: black; */
-    font-size: 1.3rem;
-    font-weight: 400;
+    /* font-weight: 500; */
     transition: all 0.3s ease;
 }
 
@@ -223,13 +196,20 @@ section {
     height: 90%;
 }
 
-section h1,p {
+section h1,
+p {
     z-index: 1;
 }
 
 section h1 {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     margin-top: 32rem;
+    filter: drop-shadow(0 0 15px rgba(0, 0, 0, 1));
+    text-shadow: 
+        -1px -1px 0 #aeff00,  
+         1px -1px 0 #ffff00,
+        -1px  1px 0 #ff0000,
+         1px  1px 0 #ff4400;
 }
 
 section p {
@@ -264,28 +244,93 @@ section p {
 }
 
 @keyframes colorChange {
-    0% { background-color: rgb(25, 25, 25); } /* Black */
-    10% { background-color: rgb(20, 20, 25); } /* Slightly darker blue */
-    20% { background-color: rgb(30, 30, 35); } /* Slightly darker purple */
-    30% { background-color: rgb(30, 30, 40); } /* Slightly darker indigo */
-    40% { background-color: rgb(35, 35, 40); } /* Slightly darker violet */
-    50% { background-color: rgb(40, 40, 45); } /* Slightly darker magenta */
-    60% { background-color: rgb(45, 45, 50); } /* Slightly darker pink */
-    70% { background-color: rgb(42, 39, 39); } /* Slightly darker coral */
-    80% { background-color: rgb(55, 55, 60); } /* Slightly darker salmon */
-    90% { background-color: rgb(40, 43, 43); } /* Slightly darker orange */
-    100% { background-color: rgb(46, 46, 50); } /* Slightly darker gold */
+    0% {
+        background-color: rgb(25, 25, 25);
+    }
+
+    /* Black */
+    10% {
+        background-color: rgb(20, 20, 25);
+    }
+
+    /* Slightly darker blue */
+    20% {
+        background-color: rgb(30, 30, 35);
+    }
+
+    /* Slightly darker purple */
+    30% {
+        background-color: rgb(30, 30, 40);
+    }
+
+    /* Slightly darker indigo */
+    40% {
+        background-color: rgb(35, 35, 40);
+    }
+
+    /* Slightly darker violet */
+    50% {
+        background-color: rgb(40, 40, 45);
+    }
+
+    /* Slightly darker magenta */
+    60% {
+        background-color: rgb(45, 45, 50);
+    }
+
+    /* Slightly darker pink */
+    70% {
+        background-color: rgb(42, 39, 39);
+    }
+
+    /* Slightly darker coral */
+    80% {
+        background-color: rgb(55, 55, 60);
+    }
+
+    /* Slightly darker salmon */
+    90% {
+        background-color: rgb(40, 43, 43);
+    }
+
+    /* Slightly darker orange */
+    100% {
+        background-color: rgb(46, 46, 50);
+    }
+
+    /* Slightly darker gold */
 }
 
 @keyframes shake {
-    0%, 100% { transform: translateY(0); animation-delay: 4s; }
-    10%, 30%, 50%, 70%, 90% { transform: translateY(-5px); } /* Shake */
-    20%, 40%, 60%, 80% { transform: translateY(5px); } /* Shake */
+
+    0%,
+    100% {
+        transform: translateY(0);
+        animation-delay: 4s;
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateY(-5px);
+    }
+
+    /* Shake */
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateY(5px);
+    }
+
+    /* Shake */
 }
 
 .project-completed h1 {
     font-size: 90px;
-    animation: shake cubic-bezier(1, -0.72, 0, 0.06) 6.5s infinite; 
+    animation: shake cubic-bezier(1, -0.72, 0, 0.06) 6.5s infinite;
 }
 
 .confetti-piece {
@@ -304,6 +349,7 @@ section p {
         transform: translateY(-100px) rotate(0deg);
         opacity: 0;
     }
+
     100% {
         transform: translateY(100vh) rotate(720deg);
         opacity: 1;
@@ -615,3 +661,136 @@ section p {
     cursor: pointer;
 }
 
+
+
+.absol {
+    position: absolute;
+    top: 6rem;
+    z-index: 1;
+}
+
+.one-div,
+.three-div {
+    width: 35%;
+    height: 70%;
+    background-size: cover;
+    background-position: center;
+}
+
+.one-div {
+    /* background-image: url('/images/client-bg-1.jpg'); */
+    left: 0;
+    border-radius: 0 0 7rem 0;
+}
+
+.three-div {
+    /* background-image: url('/images/client-bg-3.jpg'); */
+    right: 0;
+    border-radius: 0 0 0 7rem;
+}
+
+.two-div {
+    width: 26%;
+    height: 80%;
+    /* background-image: url('/images/client-bg-2.jpg'); */
+    background-size: cover;
+    background-position: center;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0 0 5vh 5vh;
+
+}
+
+.layout {
+    /* background-color: red; */
+    /* width: 1366px;
+    height: 768px; */
+
+    display: grid;
+    grid:
+        "one one . five" 1fr "three . two five" 1fr "three four two ." 1fr ". four . ." 1fr / 1fr 1fr 1fr 1fr;
+    gap: 8px;
+}
+
+.one {
+    grid-area: one;
+}
+
+.five {
+    grid-area: five;
+}
+
+.three {
+    grid-area: three;
+}
+
+.two {
+    grid-area: two;
+}
+
+.four {
+    grid-area: four;
+}
+
+.for-img img {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+
+
+.two-grid {
+    display: grid;
+    grid:
+        "one five five two" 1fr "four four . two" 1fr "four four . two" 1fr / 1fr 1fr 1fr 1fr;
+    gap: 8px;
+}
+
+.two-grid .one {
+    grid-area: one;
+}
+
+.two-grid .five {
+    grid-area: five;
+}
+
+.two-grid .two {
+    grid-area: two;
+}
+
+.two-grid .four {
+    grid-area: four;
+}
+
+
+.three-grid {
+
+    display: grid;
+    grid:
+        ". six six five two" 1fr "seven one one . two" 1fr "seven one one four four" 1fr ". one one . ." 1fr / 1fr 1fr 1fr 1fr 1fr;
+    gap: 8px;
+}
+
+.three-grid .six {
+    grid-area: six;
+}
+
+.three-grid .five {
+    grid-area: five;
+}
+
+.three-grid .two {
+    grid-area: two;
+}
+
+.three-grid .seven {
+    grid-area: seven;
+}
+
+.three-grid .one {
+    grid-area: one;
+}
+
+.three-grid .four {
+    grid-area: four;
+}

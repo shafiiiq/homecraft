@@ -232,7 +232,7 @@ module.exports = {
 
     updateSignup: (client, userData) => {
         return new Promise(async (resolve, reject) => {
-            userData.password = await bcrypt.hash(userData.password, 10)
+            // userData.password = await bcrypt.hash(userData.password, 10)
 
             console.log("here from");
             console.log(userData);

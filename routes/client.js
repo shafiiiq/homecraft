@@ -67,12 +67,21 @@ router.post('/signup', (req, res) => {
 // account updation
 router.post('/update-signup', (req, res) => {
   let client = req.session.client
-  // console.log(req.body);
-  clientHelper.updateSignup(client, req.body).then((response) => {
-    if (response) {
+  if (req.files) {
+    let profilePhoto = req.files.clientProfile
+    clientHelper.getProfileId(client.email).then((profile) => {
+      let id = profile._id
+      profilePhoto.mv('./public/client_data/' + id + 'profile.jpg', (err, done) => {
+      });
       res.redirect('home')
-    }
-  })
+    })
+  } else {
+    clientHelper.updateSignup(client, req.body).then((response) => {
+      if (response) {
+        res.redirect('home')
+      }
+    })
+  }
 })
 
 // login 
