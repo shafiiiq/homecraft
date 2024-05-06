@@ -264,14 +264,18 @@
         <div class="account" id="account" style="display: none;">
             <div class="main">
                 <div class="img-name">
+                    {{#if  hasProfile}}
+                    <img class="user-img" src="/client_data/{{hasProfile}}profile.jpg" alt="">
+                    {{else}}
                     <img class="user-img" src="/images/user.webp" alt="">
+                    {{/if}}
                     {{#if client}}
                     <h4>
                         {{client.name}}
                     </h4>
                     {{/if}}
                 </div>
-                <a href="/client/logout">
+                <a href="/client/logout" style="cursor: pointer;">
                     <input type="submit" value="Logout">
                 </a>
             </div>
@@ -330,6 +334,7 @@
                     return;
                 } else {
                     viewAccount.style.display = 'none'
+                    document.getElementById('submit').style.backgroundColor = 'rgb(25, 25, 106)'
 
                     disabledElements.forEach(function (element) {
                         element.setAttribute('disabled', 'true');
@@ -341,6 +346,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             var accountDiv = document.getElementById('account');
             var imgElement = document.querySelector('.navigations img');
+            
 
             function account() {
                 if (accountDiv.style.display === 'none' || accountDiv.style.display === '') {
@@ -370,7 +376,7 @@
                 element.removeAttribute('disabled');
             });
 
-            document.getElementById('submit').style.backgroundColor = ' rgb(28, 159, 35)'
+            document.getElementById('submit').style.backgroundColor = 'rgb(32, 32, 181)'
         });
         //ends -- ends //
 
