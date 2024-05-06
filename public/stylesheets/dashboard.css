@@ -1760,10 +1760,11 @@ h1.heading-clicked {
 }
 
 button.contractor-btn {
-    background-color: transparent;
+    /* background-color: transparent; */
+    background-color: rgb(36, 36, 38);
     /* background-color: rgb(87 107 128); */
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); */
-    border: 1px solid rgb(66, 66, 66);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    /* border: 1px solid rgb(66, 66, 66); */
     color: white;
 }
 
@@ -1771,7 +1772,7 @@ button.client-btn {
     background-color: transparent;
     /* background-color: rgb(36, 46, 58); */
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); */
-    border: 1px solid 1px solid rgb(66, 66, 66);
+    border: 1px solid rgb(66, 66, 66);
     color: white;
 }
 

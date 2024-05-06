@@ -329,8 +329,14 @@ router.post('/add-property', (req, res) => {
 //project timeline tracker
 router.get('/project-timeline', verifyLogin, (req, res) => {
   let client = req.session.client
-  clientHelper.getTimelines(client).then((timelines) => {
-    res.render('client/project-timeline', { timeline: true, timelines })
+  clientHelper.checkAuthority(client).then((result) => {
+    if (result) {
+      clientHelper.getTimelines(client).then((timelines) => {
+        res.render('client/project-timeline', { timeline: true, timelines })
+      })
+    } else {
+      res.render('client/start-first', { caution: "Don't try to be too clever.", message: "Ensure you have proper authorization before proceeding." })
+    }
   })
 })
 

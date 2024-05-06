@@ -17,7 +17,7 @@
     --apple: #000000;
     --color-1 : rgb(195, 195, 195);
     --form-bg : #383655;
-    --form-bg-1: rgb(59, 79, 87);
+    --form-bg-1: #191a1b;
     --color-bg: #141415;
 }
 
@@ -96,12 +96,13 @@ form.form {
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
     grid-template-rows: repeat(6, 3rem);
+    row-gap: 2rem;
 }
 
 .said .items {
     height: 100%;
     width: 100%;
-    background-color: rgb(12 71 91);
+    /* background-color: rgb(12 71 91); */
     padding: 0 0.5rem;
     border-radius: 4px;
 }
@@ -113,6 +114,7 @@ form.form {
     /* background-color: transparent; */
     background-color: rgb(12 71 91);
     cursor: pointer;
+    border-radius: 4px;
 }
 
 .said .items select::-webkit-scrollbar {
@@ -131,8 +133,9 @@ form.form {
     height: 100%;
     width: 58%;
     padding: 1rem 5rem 3.5rem 5rem;
-    background-color: rgb(115 135 143);
-    color: black;
+    /* background-color: rgb(115 135 143); */
+    background-color: #191a1b;
+    color: rgb(255, 255, 255);
     /* background-image: url('https://images6.alphacoders.com/348/348790.jpg'); */
     background-size: cover;
     display: flex;
@@ -152,7 +155,7 @@ form.form {
 } */
 
 .container .right h1 {
-    color: black;
+    color: rgb(255, 255, 255);
     z-index: 1;
 }
 
@@ -202,6 +205,7 @@ form.form {
     z-index: 10000;
     bottom: 0;
     right: 0;
+    /* color: var(--form-bg-1); */
 }
 
 .two {
@@ -231,6 +235,7 @@ form.form {
 
 #date {
     font-size: 1.2rem;
+    /* color: black; */
 }
 
 .right .client .volume input {
@@ -294,7 +299,9 @@ form.form {
     transform: translateX(-50%);
     font-size: 20px;
     font-weight: 400;
-    background-color: rgb(127, 141, 23);
+    /* background-color: rgb(127, 141, 23); */
+    background-color: #30363b;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     color: var(--color-1);
     transition: all 0.3s ease;
     cursor: pointer;
