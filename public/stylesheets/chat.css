@@ -651,10 +651,11 @@ body {
 }
 
 p#last-message {
-    white-space: nowrap;
+    /* white-space: nowrap; */
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 15rem; /* Adjust as needed */
+    min-height: 2rem;
+    max-width: 10rem; /* Adjust as needed */
 }
 
 .relative {

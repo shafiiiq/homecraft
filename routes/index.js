@@ -7,12 +7,13 @@ var clientHelper = require('../helpers/client-helper')
 
 // index page 
 router.get('/', function (req, res, next) {
-  clientHelper.getProperties().then((properties) => {
-    contractorHelper.getLatestContractor().then((contractors) => {
-      console.log(contractors);
-      res.render('index', { index: true, properties, contractors });
-    })
-  })
+  res.render('index', { index: true});
+  // clientHelper.getProperties().then((properties) => {
+  //   contractorHelper.getLatestContractor().then((contractors) => {
+  //     console.log(contractors);
+  //     res.render('index', { index: true, properties, contractors }); 
+  //   })
+  // })
 });
 
 // redirect page 

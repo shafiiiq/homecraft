@@ -128,7 +128,7 @@ router.post('/add-profile', (req, res) => {
       })
     })
   });
-});
+}); 
 
 // update profile 
 router.post('/update-profile', (req, res) => {
